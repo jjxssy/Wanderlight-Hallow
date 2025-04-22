@@ -50,8 +50,11 @@ TagManager:
   - name: water
     uniqueID: 2202000813
     locked: 0
-  - name: background trees
+  - name: background trees back
     uniqueID: 4159982941
+    locked: 0
+  - name: background trees front
+    uniqueID: 3167074441
     locked: 0
   m_RenderingLayers:
   - Default
