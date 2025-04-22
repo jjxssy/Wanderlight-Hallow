@@ -1,0 +1,37 @@
+[Libraries]
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Visual Studio cache
+.vs/
+*.csproj
+*.sln
+*.user
+*.unityproj
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Unity generated
+*.pidb.meta
+*.pidb
+*.suo
+*.userprefs
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+
+# Collab
+.collab/
+
+# Rider
+.idea/
+*.sln.iml
