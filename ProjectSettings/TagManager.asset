@@ -53,6 +53,9 @@ TagManager:
   - name: background trees back
     uniqueID: 4159982941
     locked: 0
+  - name: pathway
+    uniqueID: 4067254775
+    locked: 0
   - name: background trees front
     uniqueID: 3167074441
     locked: 0
