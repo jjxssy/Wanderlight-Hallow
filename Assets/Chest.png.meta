@@ -73,7 +73,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -143,10 +143,10 @@ TextureImporter:
       name: Chest_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 63
-        width: 18
-        height: 16
+        x: 16
+        y: 64
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Chest_1
       rect:
         serializedVersion: 2
-        x: 62
-        y: 63
-        width: 20
-        height: 15
+        x: 63
+        y: 64
+        width: 18
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +187,10 @@ TextureImporter:
       name: Chest_2
       rect:
         serializedVersion: 2
-        x: 111
-        y: 63
-        width: 18
-        height: 17
+        x: 112
+        y: 64
+        width: 16
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: Chest_3
       rect:
         serializedVersion: 2
-        x: 160
-        y: 63
-        width: 16
-        height: 23
+        x: 161
+        y: 64
+        width: 14
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: Chest_4
       rect:
         serializedVersion: 2
-        x: 207
-        y: 63
-        width: 18
-        height: 22
+        x: 208
+        y: 64
+        width: 16
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +253,10 @@ TextureImporter:
       name: Chest_5
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 13
-        height: 21
+        x: 16
+        y: 16
+        width: 11
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,10 +275,10 @@ TextureImporter:
       name: Chest_6
       rect:
         serializedVersion: 2
-        x: 62
-        y: 15
-        width: 15
-        height: 20
+        x: 63
+        y: 16
+        width: 13
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +297,10 @@ TextureImporter:
       name: Chest_7
       rect:
         serializedVersion: 2
-        x: 111
-        y: 15
-        width: 16
-        height: 21
+        x: 112
+        y: 16
+        width: 14
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,10 +319,10 @@ TextureImporter:
       name: Chest_8
       rect:
         serializedVersion: 2
-        x: 160
-        y: 15
-        width: 16
-        height: 22
+        x: 161
+        y: 16
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,10 +341,10 @@ TextureImporter:
       name: Chest_9
       rect:
         serializedVersion: 2
-        x: 207
-        y: 15
-        width: 18
-        height: 21
+        x: 208
+        y: 16
+        width: 16
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
