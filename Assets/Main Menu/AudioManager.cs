@@ -7,6 +7,12 @@ using TMPro; // For using TextMeshPro Texts
 // It updates sliders, saves preferences, and displays volume values as percentages.
 public class AudioSettingsManager : MonoBehaviour
 {
+
+    [Header("UI Sounds")]
+    public AudioSource uiAudioSource;
+    public AudioClip clickSound;
+
+
     [Header("Audio Mixer")]
     public AudioMixer audioMixer; // Reference to the game's AudioMixer
 
@@ -21,18 +27,21 @@ public class AudioSettingsManager : MonoBehaviour
     public TextMeshProUGUI effectsValueText; // Text showing effects volume %
 
     private void Start()
-    {
-        // Load previously saved volume settings (or use 50% if not set)
-        masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
-        effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolume", 0.5f);
+{
+    // Load each volume setting using the helper
+    masterSlider.value = LoadVolume("MasterVolume", 0.5f);
+    musicSlider.value = LoadVolume("MusicVolume", 0.5f);
+    effectsSlider.value = LoadVolume("EffectsVolume", 0.5f);
 
-        // Update displayed text values based on loaded volumes
-        UpdateVolumeTexts();
+    UpdateVolumeTexts();
+    ApplyVolumes();
+}
 
-        // Apply the loaded volumes to the AudioMixer
-        ApplyVolumes();
-    }
+// Helper function to load a volume setting with a default fallback
+private float LoadVolume(string key, float defaultValue)
+{
+    return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetFloat(key) : defaultValue;
+}
 
     // Called when the Master Volume slider is moved
     public void OnMasterVolumeChanged(float volume)
@@ -78,4 +87,44 @@ public class AudioSettingsManager : MonoBehaviour
         OnMusicVolumeChanged(musicSlider.value);
         OnEffectsVolumeChanged(effectsSlider.value);
     }
+
+    public void ResetToDefaults()
+{
+    // Play click sound
+    if (uiAudioSource && clickSound)
+    {
+        uiAudioSource.PlayOneShot(clickSound);
+    }
+
+    // Set default values
+    float defaultVolume = 0.5f; // 50%
+
+    masterSlider.value = defaultVolume;
+    musicSlider.value = defaultVolume;
+    effectsSlider.value = defaultVolume;
+
+    // Apply immediately
+    ApplyVolumes();
+
+    // Save to PlayerPrefs
+    PlayerPrefs.SetFloat("MasterVolume", defaultVolume);
+    PlayerPrefs.SetFloat("MusicVolume", defaultVolume);
+    PlayerPrefs.SetFloat("EffectsVolume", defaultVolume);
+
+    // Update volume texts
+    UpdateVolumeTexts();
+}
+
+public void SaveVolumeSettings()
+{
+    PlayerPrefs.SetFloat("MasterVolume", masterSlider.value);
+    PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
+    PlayerPrefs.SetFloat("EffectsVolume", effectsSlider.value);
+
+    PlayerPrefs.Save(); // Make sure data is written immediately
+
+    Debug.Log("Volume settings saved!");
+}
+
+
 }
