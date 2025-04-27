@@ -46,6 +46,7 @@ private float LoadVolume(string key, float defaultValue)
     // Called when the Master Volume slider is moved
     public void OnMasterVolumeChanged(float volume)
     {
+        
         // Update AudioMixer's MasterVolume parameter
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
 
