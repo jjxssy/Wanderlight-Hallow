@@ -44,14 +44,17 @@ TagManager:
   - name: ground
     uniqueID: 438301663
     locked: 0
-  - name: pond hole
-    uniqueID: 2627835103
-    locked: 0
   - name: water
     uniqueID: 2202000813
     locked: 0
-  - name: background trees back
+  - name: grass and such
+    uniqueID: 186162043
+    locked: 0
+  - name: house
     uniqueID: 4159982941
+    locked: 0
+  - name: trees
+    uniqueID: 4169422697
     locked: 0
   - name: pathway
     uniqueID: 4067254775

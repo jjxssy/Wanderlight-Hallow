@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 235ae11025d18c14fbef7888fffe350d
+guid: 4e3a4f62c3fc47b47b6df628051c4a4d
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -206,10 +206,10 @@ TextureImporter:
       name: Trees, stumps and bushes_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
+        x: 1
+        y: 82
+        width: 14
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: Trees, stumps and bushes_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 16
+        x: 20
+        y: 81
+        width: 24
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,10 +250,10 @@ TextureImporter:
       name: Trees, stumps and bushes_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 16
-        height: 16
+        x: 52
+        y: 81
+        width: 24
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +272,10 @@ TextureImporter:
       name: Trees, stumps and bushes_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 96
-        width: 16
-        height: 16
+        x: 84
+        y: 81
+        width: 24
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: Trees, stumps and bushes_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 16
-        height: 16
+        x: 116
+        y: 81
+        width: 24
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,10 +316,10 @@ TextureImporter:
       name: Trees, stumps and bushes_5
       rect:
         serializedVersion: 2
-        x: 80
-        y: 96
-        width: 16
-        height: 16
+        x: 148
+        y: 81
+        width: 24
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,10 +338,10 @@ TextureImporter:
       name: Trees, stumps and bushes_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 16
-        height: 16
+        x: 4
+        y: 68
+        width: 7
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +360,10 @@ TextureImporter:
       name: Trees, stumps and bushes_7
       rect:
         serializedVersion: 2
-        x: 112
-        y: 96
-        width: 16
-        height: 16
+        x: 20
+        y: 68
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,10 +382,10 @@ TextureImporter:
       name: Trees, stumps and bushes_8
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
-        width: 16
-        height: 16
+        x: 36
+        y: 68
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -404,10 +404,10 @@ TextureImporter:
       name: Trees, stumps and bushes_9
       rect:
         serializedVersion: 2
-        x: 144
-        y: 96
-        width: 16
-        height: 16
+        x: 52
+        y: 68
+        width: 7
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,10 +426,10 @@ TextureImporter:
       name: Trees, stumps and bushes_10
       rect:
         serializedVersion: 2
-        x: 160
-        y: 96
-        width: 16
-        height: 16
+        x: 68
+        y: 67
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -448,10 +448,10 @@ TextureImporter:
       name: Trees, stumps and bushes_11
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
-        width: 16
-        height: 16
+        x: 84
+        y: 67
+        width: 8
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -470,10 +470,10 @@ TextureImporter:
       name: Trees, stumps and bushes_12
       rect:
         serializedVersion: 2
-        x: 16
-        y: 80
-        width: 16
-        height: 16
+        x: 100
+        y: 68
+        width: 7
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -492,10 +492,10 @@ TextureImporter:
       name: Trees, stumps and bushes_13
       rect:
         serializedVersion: 2
-        x: 32
-        y: 80
-        width: 16
-        height: 16
+        x: 115
+        y: 67
+        width: 9
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -514,10 +514,10 @@ TextureImporter:
       name: Trees, stumps and bushes_14
       rect:
         serializedVersion: 2
-        x: 48
-        y: 80
-        width: 16
-        height: 16
+        x: 1
+        y: 49
+        width: 13
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -536,9 +536,9 @@ TextureImporter:
       name: Trees, stumps and bushes_15
       rect:
         serializedVersion: 2
-        x: 64
-        y: 80
-        width: 16
+        x: 16
+        y: 48
+        width: 64
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -558,10 +558,10 @@ TextureImporter:
       name: Trees, stumps and bushes_16
       rect:
         serializedVersion: 2
-        x: 80
-        y: 80
-        width: 16
-        height: 16
+        x: 145
+        y: 16
+        width: 44
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -580,10 +580,10 @@ TextureImporter:
       name: Trees, stumps and bushes_17
       rect:
         serializedVersion: 2
-        x: 96
-        y: 80
-        width: 16
-        height: 16
+        x: 6
+        y: 39
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -602,10 +602,10 @@ TextureImporter:
       name: Trees, stumps and bushes_18
       rect:
         serializedVersion: 2
-        x: 112
-        y: 80
-        width: 16
-        height: 16
+        x: 21
+        y: 39
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -624,10 +624,10 @@ TextureImporter:
       name: Trees, stumps and bushes_19
       rect:
         serializedVersion: 2
-        x: 128
-        y: 80
-        width: 16
-        height: 16
+        x: 38
+        y: 39
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -646,10 +646,10 @@ TextureImporter:
       name: Trees, stumps and bushes_20
       rect:
         serializedVersion: 2
-        x: 144
-        y: 80
-        width: 16
-        height: 16
+        x: 53
+        y: 39
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -668,10 +668,10 @@ TextureImporter:
       name: Trees, stumps and bushes_21
       rect:
         serializedVersion: 2
-        x: 160
-        y: 80
-        width: 16
-        height: 16
+        x: 70
+        y: 39
+        width: 5
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -691,8 +691,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 16
+        y: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -712,10 +712,10 @@ TextureImporter:
       name: Trees, stumps and bushes_23
       rect:
         serializedVersion: 2
-        x: 16
-        y: 64
-        width: 16
-        height: 16
+        x: 34
+        y: 16
+        width: 30
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -734,9 +734,9 @@ TextureImporter:
       name: Trees, stumps and bushes_24
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 16
+        x: 66
+        y: 0
+        width: 26
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -756,10 +756,10 @@ TextureImporter:
       name: Trees, stumps and bushes_25
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
-        width: 16
-        height: 16
+        x: 4
+        y: 3
+        width: 8
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -778,10 +778,10 @@ TextureImporter:
       name: Trees, stumps and bushes_26
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 16
-        height: 16
+        x: 19
+        y: 2
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -800,10 +800,10 @@ TextureImporter:
       name: Trees, stumps and bushes_27
       rect:
         serializedVersion: 2
-        x: 80
-        y: 64
-        width: 16
-        height: 16
+        x: 38
+        y: 1
+        width: 18
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -823,9 +823,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 64
+        y: 2
         width: 16
-        height: 16
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -844,10 +844,10 @@ TextureImporter:
       name: Trees, stumps and bushes_29
       rect:
         serializedVersion: 2
-        x: 112
-        y: 64
-        width: 16
-        height: 16
+        x: 116
+        y: 1
+        width: 23
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -866,10 +866,10 @@ TextureImporter:
       name: Trees, stumps and bushes_30
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 16
+        x: 148
+        y: 1
+        width: 23
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -880,732 +880,6 @@ TextureImporter:
       bones: []
       spriteID: e4f6f1c80b39dffd0800000000000000
       internalID: -2306525047669428402
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_31
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54af0416a8efb124b829bd3c1c4dc599
-      internalID: -597608715
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_32
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bcf08996732dff443bfddd29011d6abe
-      internalID: -2129289281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_33
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82371a4ec51e7e84fa8a494b55f74d6f
-      internalID: 1378655546
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_34
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b71d99a8f9d356c488e7779c3998c910
-      internalID: -1355259237
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_35
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd6955feb7612434684fa6a30dd93527
-      internalID: 954334778
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_36
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 544bf7e4eb99c764492bb1934e2c34d3
-      internalID: 1445897247
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_37
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0291079b85878a24e88674f85f410dde
-      internalID: 1264352491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_38
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d470e7b8593f95640945b97ac8156493
-      internalID: -1189210080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_39
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2841172a256efc40bb2ba74cff4d7ea
-      internalID: 2070135101
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_40
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04eda12fcc09ea04390b3c2e15aaaf6e
-      internalID: 170506642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_41
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd148e3b62514e944b415fe1ff4cb083
-      internalID: 1433963841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_42
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92eea4e89d528294d853b39291e3b667
-      internalID: 607941508
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_43
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46e78c50b566ef44ba79703da6e8e96a
-      internalID: 490403426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_44
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f36f306d7a33b44fb5ad08db87e986b
-      internalID: 1846999110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_45
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c21e9e188d62174b87ec1ef2b44be8e
-      internalID: -1885717985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_46
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc38aeef1cee8f54a8a947e990e57eb9
-      internalID: 197132825
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_47
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9432595c291d4d42a692a9582fd9fcd
-      internalID: -1818182923
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_48
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7af9bc7c80eee849a4dadc6538d641a
-      internalID: 124340269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_49
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5fbbeb3312422854c9c069f5750604e8
-      internalID: -1582684469
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_50
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52844b1fe61b4cb479e263f91cd4bb18
-      internalID: 1058500613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_51
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c78655f5837e56741a8729219f4eb409
-      internalID: -509270536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_52
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d6e7aa25381bcc448005667c82b6ca5
-      internalID: -670214679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_53
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24e1d725803bc82479d55d59def38d26
-      internalID: -1674455052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_54
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77f0be1875f338e49bd5709f5fd3d338
-      internalID: -1657940252
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_55
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf891ad48bd444a42bb2907c433b58f0
-      internalID: -1712979606
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_56
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d375255a9e42374b9593e6fb02c1f79
-      internalID: -241497138
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_57
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63f173be92054cd4cbb508f246f2fe05
-      internalID: 1186721359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_58
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19be9666f2da4e848b93f08b4cb32c33
-      internalID: -1714183026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_59
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a604ab3384c340e47b8a591766809ed0
-      internalID: -269497225
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_60
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2713f464885fde94786f77b72d6329b0
-      internalID: -52270997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_61
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e49742843518d1e45825bf8b68fbb027
-      internalID: -118210670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_62
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad313dad364c3ad49aae49654482f357
-      internalID: 27477952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees, stumps and bushes_63
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 669923731d0eb934e97a5b723ba02389
-      internalID: -1887335878
       vertices: []
       indices: 
       edges: []
@@ -1649,42 +923,9 @@ TextureImporter:
       Trees, stumps and bushes_29: 2281925459106457270
       Trees, stumps and bushes_3: 6827427860541264962
       Trees, stumps and bushes_30: -2306525047669428402
-      Trees, stumps and bushes_31: -597608715
-      Trees, stumps and bushes_32: -2129289281
-      Trees, stumps and bushes_33: 1378655546
-      Trees, stumps and bushes_34: -1355259237
-      Trees, stumps and bushes_35: 954334778
-      Trees, stumps and bushes_36: 1445897247
-      Trees, stumps and bushes_37: 1264352491
-      Trees, stumps and bushes_38: -1189210080
-      Trees, stumps and bushes_39: 2070135101
       Trees, stumps and bushes_4: 6196599850040437929
-      Trees, stumps and bushes_40: 170506642
-      Trees, stumps and bushes_41: 1433963841
-      Trees, stumps and bushes_42: 607941508
-      Trees, stumps and bushes_43: 490403426
-      Trees, stumps and bushes_44: 1846999110
-      Trees, stumps and bushes_45: -1885717985
-      Trees, stumps and bushes_46: 197132825
-      Trees, stumps and bushes_47: -1818182923
-      Trees, stumps and bushes_48: 124340269
-      Trees, stumps and bushes_49: -1582684469
       Trees, stumps and bushes_5: 887620231642604409
-      Trees, stumps and bushes_50: 1058500613
-      Trees, stumps and bushes_51: -509270536
-      Trees, stumps and bushes_52: -670214679
-      Trees, stumps and bushes_53: -1674455052
-      Trees, stumps and bushes_54: -1657940252
-      Trees, stumps and bushes_55: -1712979606
-      Trees, stumps and bushes_56: -241497138
-      Trees, stumps and bushes_57: 1186721359
-      Trees, stumps and bushes_58: -1714183026
-      Trees, stumps and bushes_59: -269497225
       Trees, stumps and bushes_6: 164194451464133973
-      Trees, stumps and bushes_60: -52270997
-      Trees, stumps and bushes_61: -118210670
-      Trees, stumps and bushes_62: 27477952
-      Trees, stumps and bushes_63: -1887335878
       Trees, stumps and bushes_7: -9040168456141852861
       Trees, stumps and bushes_8: 4914638883947591303
       Trees, stumps and bushes_9: -4778790037128270620
