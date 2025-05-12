@@ -110,7 +110,6 @@ public class AudioSettingsManager : MonoBehaviour
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
         PlayerPrefs.SetFloat("EffectsVolume", effectsVolume);
         PlayerPrefs.Save();
-        Debug.Log("Volume settings saved!");
     }
 
     public void ResetToDefaults()
