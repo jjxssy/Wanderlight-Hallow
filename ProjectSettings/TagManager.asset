@@ -59,5 +59,8 @@ TagManager:
   - name: background trees front
     uniqueID: 3167074441
     locked: 0
+  - name: player
+    uniqueID: 3416647975
+    locked: 0
   m_RenderingLayers:
   - Default
