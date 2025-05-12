@@ -1,55 +1,73 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-// This script manages custom key bindings for game actions.
 public class KeyBindingsManager : MonoBehaviour
 {
-    // List of UI rows representing each action and its key binding.
     [SerializeField] private List<KeyBindingRow> keyBindingRows = new List<KeyBindingRow>();
-    
-    // Button used to reset all bindings to default.
-    [SerializeField] private Button resetButton;
+    [SerializeField] private GameObject duplicateKeyPopup; // 👈 Reference to the popup
 
-    // Dictionary storing current key bindings (action name -> KeyCode).
+    private Dictionary<string, KeyCode> defaultKeyMap = new Dictionary<string, KeyCode>()
+    {
+        { "WALK FORWARD", KeyCode.W },
+        { "WALK BACKWARDS", KeyCode.S },
+        { "WALK RIGHT", KeyCode.D },
+        { "WALK LEFT", KeyCode.A },
+        { "INVENTORY", KeyCode.I },
+        { "SKILLS", KeyCode.K },
+        { "INTERACTION", KeyCode.F },
+        { "PAUSE MENU", KeyCode.Escape },
+        { "SKILL 1", KeyCode.T },
+        { "SKILL 2", KeyCode.Y },
+        { "SKILL 3", KeyCode.U },
+        { "SKILL 4", KeyCode.G },
+        { "SKILL 5", KeyCode.H },
+        { "SKILL 6", KeyCode.J },
+        { "QUICKSLOT 1", KeyCode.Alpha1 },
+        { "QUICKSLOT 2", KeyCode.Alpha2 },
+        { "QUICKSLOT 3", KeyCode.Alpha3 },
+        { "QUICKSLOT 4", KeyCode.Alpha4 },
+        { "QUICKSLOT 5", KeyCode.Alpha5 }
+    };
+
     private Dictionary<string, KeyCode> currentBindings = new Dictionary<string, KeyCode>();
+    private Dictionary<string, KeyCode> customBindings = new Dictionary<string, KeyCode>();
 
-    // Variables for handling a pending key binding change.
     private KeyBindingRow waitingForRow;
     private string waitingForAction;
 
-    // Called when the script instance is loaded.
     private void Start()
     {
-        // Add listener to reset button.
-        resetButton.onClick.AddListener(ResetBindings);
-
-        // Load saved or default key bindings.
         LoadBindings();
-
-        // Populate UI rows with current key bindings.
         SetupRows();
-    }
 
-    // Load key bindings from PlayerPrefs or use default (KeyCode.None).
-    private void LoadBindings()
-    {
-        currentBindings.Clear();
-
-        foreach (KeyBindingRow row in keyBindingRows)
+        if (duplicateKeyPopup != null)
         {
-            string actionName = row.name; // Could be customized
-            KeyCode savedKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(actionName, KeyCode.None.ToString()));
-            currentBindings[actionName] = savedKey;
+            duplicateKeyPopup.SetActive(false); // Make sure it starts hidden
         }
     }
 
-    // Assigns key bindings to the corresponding UI rows.
+    private void LoadBindings()
+    {
+        currentBindings.Clear();
+        customBindings.Clear();
+
+        foreach (KeyBindingRow row in keyBindingRows)
+        {
+            string actionName = row.name.ToUpper();
+            string saved = PlayerPrefs.GetString(actionName, GetDefaultKey(actionName).ToString());
+            KeyCode savedKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), saved);
+
+            currentBindings[actionName] = savedKey;
+            customBindings[actionName] = savedKey;
+        }
+    }
+
     private void SetupRows()
     {
         foreach (KeyBindingRow row in keyBindingRows)
         {
-            string actionName = row.name; // Could be changed to a custom field
+            string actionName = row.name.ToUpper();
             if (currentBindings.TryGetValue(actionName, out KeyCode key))
             {
                 row.Setup(this, actionName, key);
@@ -57,14 +75,12 @@ public class KeyBindingsManager : MonoBehaviour
         }
     }
 
-    // Called when a user clicks to change a key binding.
     public void RequestKeyChange(KeyBindingRow row, string actionName)
     {
         waitingForRow = row;
-        waitingForAction = actionName;
+        waitingForAction = actionName.ToUpper();
     }
 
-    // Checks if the user has pressed a key while waiting for input, then updates the binding.
     private void Update()
     {
         if (waitingForRow != null)
@@ -75,20 +91,22 @@ public class KeyBindingsManager : MonoBehaviour
                 {
                     if (!IsKeyAlreadyUsed(key))
                     {
-                        // Save new key binding.
                         currentBindings[waitingForAction] = key;
+                        customBindings[waitingForAction] = key;
                         PlayerPrefs.SetString(waitingForAction, key.ToString());
                         PlayerPrefs.Save();
 
-                        // Update the UI.
                         waitingForRow.UpdateKey(key);
                     }
                     else
                     {
                         Debug.LogWarning($"Key {key} already in use!");
+                        if (duplicateKeyPopup != null)
+                        {
+                            duplicateKeyPopup.SetActive(true);
+                        }
                     }
 
-                    // Clear waiting state.
                     waitingForRow = null;
                     waitingForAction = "";
                     break;
@@ -97,7 +115,6 @@ public class KeyBindingsManager : MonoBehaviour
         }
     }
 
-    // Checks if a key is already assigned to another action.
     private bool IsKeyAlreadyUsed(KeyCode key)
     {
         foreach (var binding in currentBindings.Values)
@@ -108,21 +125,37 @@ public class KeyBindingsManager : MonoBehaviour
         return false;
     }
 
-    // Resets all key bindings to default (currently KeyCode.None).
-    private void ResetBindings()
+    public void ResetBindings()
     {
         foreach (KeyBindingRow row in keyBindingRows)
         {
-            string actionName = row.name;
-            KeyCode defaultKey = KeyCode.None; // Replace with actual defaults if needed
+            string actionName = row.name.ToUpper();
+            KeyCode defaultKey = GetDefaultKey(actionName);
 
             currentBindings[actionName] = defaultKey;
+            customBindings[actionName] = defaultKey;
             PlayerPrefs.SetString(actionName, defaultKey.ToString());
         }
 
         PlayerPrefs.Save();
-
-        // Update UI to reflect default bindings.
         SetupRows();
+    }
+
+    private KeyCode GetDefaultKey(string actionName)
+    {
+        if (defaultKeyMap.TryGetValue(actionName, out KeyCode key))
+        {
+            return key;
+        }
+        return KeyCode.None;
+    }
+
+    // 👇 PUBLIC METHOD TO HIDE POPUP
+    public void ClosePopup()
+    {
+        if (duplicateKeyPopup != null)
+        {
+            duplicateKeyPopup.SetActive(false);
+        }
     }
 }
