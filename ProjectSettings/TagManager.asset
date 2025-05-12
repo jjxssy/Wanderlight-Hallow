@@ -65,5 +65,8 @@ TagManager:
   - name: player
     uniqueID: 3416647975
     locked: 0
+  - name: collison
+    uniqueID: 644598277
+    locked: 0
   m_RenderingLayers:
   - Default

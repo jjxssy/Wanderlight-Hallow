@@ -4,6 +4,7 @@ public class Chest : MonoBehaviour, IInteractable
 {
 
     public bool IsOpened {  get; private set; }
+    // saving id for the save chest
     public string ChestID {  get; private set; }
     public GameObject itemPrefab; // item that chest contains
     public Sprite openedSprite;
