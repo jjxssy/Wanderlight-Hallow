@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     public Animator animator;
 
+    void Start()
+    {
+        animator=GetComponent<Animator>();
+    }
     // Update is called once per frame
     // frame rate can change any min so for physics it is not relayable 
     // so we gonna use a function called fixed update
@@ -23,14 +27,15 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         animator.SetBool("isWalking", true);
-        movement = context.ReadValue<Vector2>();
         if(context.canceled){
             animator.SetBool("isWalking" , false);
             animator.SetFloat("lastInputX" ,  movement.x);
             animator.SetFloat("lastInputY" ,  movement.y);
         }
+        movement = context.ReadValue<Vector2>();
         animator.SetFloat("inputX" ,movement.x);
         animator.SetFloat("inputX" ,movement.y);
-    }
+    }  
+
 
 }

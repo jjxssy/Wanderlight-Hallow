@@ -398,8 +398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98525b045b47147588a81d65289ccfb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   rb: {fileID: 535635843}
+  animator: {fileID: 535635844}
 --- !u!50 &535635843
 Rigidbody2D:
   serializedVersion: 5
@@ -498,7 +499,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.13, y: 0.21}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -513,8 +514,8 @@ Transform:
   m_GameObject: {fileID: 535635841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.748, y: -1.079, z: 0}
-  m_LocalScale: {x: 4.811407, y: 3.9912806, z: 1}
+  m_LocalPosition: {x: -7.4, y: -0.58, z: 0}
+  m_LocalScale: {x: 1.2027899, y: 0.9674389, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -614,6 +615,7 @@ GameObject:
   - component: {fileID: 864668801}
   - component: {fileID: 864668803}
   - component: {fileID: 864668802}
+  - component: {fileID: 864668804}
   m_Layer: 0
   m_Name: Path
   m_TagString: Untagged
@@ -934,6 +936,28 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!95 &864668804
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864668800}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ba9000af5476473aa3953422f33a066, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1005272659
 GameObject:
   m_ObjectHideFlags: 0
