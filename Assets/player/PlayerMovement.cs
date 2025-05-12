@@ -19,23 +19,15 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
+        animator.SetFloat("lastInputX" ,  movement.x);
+        animator.SetFloat("lastInputY" ,  movement.y);
+        animator.SetFloat("inputX" ,movement.x);
+        animator.SetFloat("inputY" ,movement.y);
+        animator.SetFloat("speed" , movement.sqrMagnitude);
     }
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        animator.SetBool("isWalking", true);
-        if(context.canceled){
-            animator.SetBool("isWalking" , false);
-            animator.SetFloat("lastInputX" ,  movement.x);
-            animator.SetFloat("lastInputY" ,  movement.y);
-        }
-        movement = context.ReadValue<Vector2>();
-        animator.SetFloat("inputX" ,movement.x);
-        animator.SetFloat("inputX" ,movement.y);
-    }  
-
-
+    
 }
