@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 371
     height: 410.5
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -219,8 +219,8 @@ MonoBehaviour:
     y: 0
     width: 636.5
     height: 410.5
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -272,8 +272,8 @@ MonoBehaviour:
     y: 0
     width: 219
     height: 380.5
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 126}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -407,8 +407,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1061.5
-    y: 433.5
+    x: 1
+    y: 368.5
     width: 377.5
     height: 420.5
   m_SerializedDataModeController:
@@ -456,8 +456,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 54
-    y: 89
+    x: 0
+    y: 24
     width: 370
     height: 384.5
   m_SerializedDataModeController:
@@ -474,8 +474,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 20e3ffff
-      m_LastClickedID: -7392
+      m_SelectedIDs: 
+      m_LastClickedID: 0
       m_ExpandedIDs: ae58feff0efbffff70b30000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -586,8 +586,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 425
-    y: 89
+    x: 372
+    y: 24
     width: 634.5
     height: 384.5
   m_SerializedDataModeController:
@@ -1364,8 +1364,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Console\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 54
-    y: 499.5
+    x: 0
+    y: 24
     width: 218
     height: 354.5
   m_SerializedDataModeController:
@@ -1501,8 +1501,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Animation\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 273
-    y: 499.5
+    x: 220
+    y: 24
     width: 786.5
     height: 354.5
   m_SerializedDataModeController:
@@ -1540,8 +1540,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1061.5
-    y: 89
+    x: 1
+    y: 24
     width: 377.5
     height: 318.5
   m_SerializedDataModeController:
@@ -1585,7 +1585,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 63.89386}
     m_SelectedIDs: 5cbf0000
     m_LastClickedID: 48988
-    m_ExpandedIDs: 000000005cbd0000bcbf000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000003ec30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1614,7 +1614,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005cbd000000ca9a3b
+    m_ExpandedIDs: 000000003ec30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1741,7 +1741,7 @@ MonoBehaviour:
   m_Zoom: -1
   m_ScrollPosition: {x: 0, y: 0}
   m_SelectedObject: {fileID: 0}
-  m_SelectedSpriteRectGUID: 54d7a982679db8140800000000000000
+  m_SelectedSpriteRectGUID: 00000000000000000000000000000000
   m_LastUsedModuleTypeName: UnityEditor.U2D.Sprites.SpriteFrameModule
 --- !u!114 &26
 MonoBehaviour:
