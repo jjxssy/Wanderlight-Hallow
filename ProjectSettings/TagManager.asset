@@ -47,20 +47,20 @@ TagManager:
   - name: water
     uniqueID: 2202000813
     locked: 0
-  - name: grass and such
-    uniqueID: 186162043
+  - name: back overlays
+    uniqueID: 1401815013
     locked: 0
   - name: house
     uniqueID: 4159982941
     locked: 0
-  - name: trees
+  - name: decor
     uniqueID: 4169422697
     locked: 0
   - name: pathway
     uniqueID: 4067254775
     locked: 0
-  - name: background trees front
-    uniqueID: 3167074441
+  - name: front overlays
+    uniqueID: 2685449189
     locked: 0
   - name: player
     uniqueID: 3416647975
