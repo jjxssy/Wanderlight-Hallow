@@ -2,19 +2,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
-    public Rigidbody2D rb;
+    private float speed = 3f;
+    private Rigidbody2D rb;
     Vector2 movement;
-    public Animator animator;
+    private Animator animator;
 
     void Start()
-    {
+    {   
+        rb = GetComponent<Rigidbody2D>();
         animator=GetComponent<Animator>();
     }
     // Update is called once per frame
-    // frame rate can change any min so for physics it is not relayable 
-    // so we gonna use a function called fixed update
-   // it function like update but it function on a fixed timmer 
     void Update()
     {
         movement.x = Input.GetAxis("Horizontal");
