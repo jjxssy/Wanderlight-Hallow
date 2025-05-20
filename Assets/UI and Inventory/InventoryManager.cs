@@ -4,40 +4,33 @@ using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private List<Button> slotButtons; // Assign in Inspector
-    [SerializeField] private Sprite defaultSlotSprite; // Assign empty icon in Inspector
+    [SerializeField] private List<Button> slotButtons;
+    [SerializeField] private Sprite defaultSlotSprite;
+    [SerializeField] private List<DraggableItem> slotIcons;
+    [SerializeField] private List<Item> items = new List<Item>(5);
 
-    private void Start()
+    private void Awake()
     {
-        ClearInventory();
+        while (items.Count < 5)
+            items.Add(null);
     }
 
-    public void ClearInventory()
+    public void AssignItemToSlot(int index, Item item)
     {
-        foreach (Button btn in slotButtons)
-        {
-            btn.image.sprite = defaultSlotSprite;
-        }
+        if (index < 0 || index >= items.Count) return;
+
+        items[index] = item;
+        slotButtons[index].image.sprite = item.Icon;
+        slotIcons[index].SetItem(item, index);
     }
 
-    public void AddItem(Sprite itemSprite)
+    public void SwapQuickslots(int indexA, int indexB)
     {
-        foreach (Button btn in slotButtons)
-        {
-            if (btn.image.sprite == defaultSlotSprite)
-            {
-                btn.image.sprite = itemSprite;
-                return;
-            }
-        }
+        (items[indexA], items[indexB]) = (items[indexB], items[indexA]);
+        slotButtons[indexA].image.sprite = items[indexA] != null ? items[indexA].Icon : defaultSlotSprite;
+        slotButtons[indexB].image.sprite = items[indexB] != null ? items[indexB].Icon : defaultSlotSprite;
 
-        Debug.Log("Inventory Full");
-    }
-
-    public void OnSlotSelected(int index)
-    {
-        Debug.Log($"InventoryManager: Slot {index + 1} selected");
-
-        // 🧠 Placeholder for item usage logic (can be expanded later)
+        slotIcons[indexA].SetItem(items[indexA], indexA);
+        slotIcons[indexB].SetItem(items[indexB], indexB);
     }
 }
