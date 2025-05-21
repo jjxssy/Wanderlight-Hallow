@@ -6,15 +6,31 @@ public class interactionDetector : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // rb = GetComponent<Rigidbody2D>();
+        // rb.freezeRotation = true;
     }
-
-    // Update is called once per frame
+    public void onInteract()
+    {
+        interactableInRange?.interact();
+    }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E)) // E to interact
+        {
+            onInteract();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collison)
+    {
+        if(collison.TryGetComponent(out IInteractable interactable) && interactable.canInteract())
+            interactableInRange = interactable;
         
     }
-    private void OnTriggerEnter2D(Collider2D collison){
-        
+    private void OnTriggerExit2D(Collider2D collison)
+    {
+        if(collison.TryGetComponent(out IInteractable interactable) && interactable==interactableInRange)
+            interactableInRange = null;
+
     }
 }
