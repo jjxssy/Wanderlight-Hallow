@@ -1,24 +1,56 @@
-using System.Collections;
 using UnityEngine;
 
-public class BookSequenceController : MonoBehaviour
+public class BookAnimationController : MonoBehaviour
 {
-    public Animator bookAnimator;     // Animation A
-    public GameObject tabsObject;     // Tabs object (Animation B)
-    public Animator tabsAnimator;     // Tabs animation controller
+    public GameObject bookOpening;
+    public GameObject finalSprite;
+    public Animator bookAnimator;
 
-    public void StartSequence()
+    private bool isOpen = false;
+
+    public void OnBookButtonPressed()
     {
-        bookAnimator.Play("BookOpen", 0, 0f);
-        StartCoroutine(WaitAndPlayTabs());
+        if (isOpen) return;
+
+        isOpen = true;
+
+        bookOpening.SetActive(true);
+        finalSprite.SetActive(false);
+        bookAnimator.Play("BookOpen");
+
+        StartCoroutine(WaitForAnimationToEnd("BookOpen", () =>
+        {
+            bookOpening.SetActive(false);
+            finalSprite.SetActive(true);
+        }));
     }
 
-    private IEnumerator WaitAndPlayTabs()
+    public void OnCloseButtonPressed()
     {
-        // Wait for the book animation to finish
-        yield return new WaitForSeconds(bookAnimator.GetCurrentAnimatorStateInfo(0).length);
+        if (!isOpen) return;
 
-        tabsObject.SetActive(true);
-        tabsAnimator.Play("TabsOpen", 0, 0f);
+        isOpen = false;
+
+        finalSprite.SetActive(false);
+        bookOpening.SetActive(true);
+        bookAnimator.Play("BookClose");
+
+        StartCoroutine(WaitForAnimationToEnd("BookClose", () =>
+        {
+            bookOpening.SetActive(false);
+        }));
+    }
+
+    private System.Collections.IEnumerator WaitForAnimationToEnd(string animationName, System.Action onComplete)
+    {
+        // Wait until the animator starts playing the given animation
+        while (!bookAnimator.GetCurrentAnimatorStateInfo(0).IsName(animationName))
+            yield return null;
+
+        // Wait until the animation has finished
+        while (bookAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            yield return null;
+
+        onComplete?.Invoke();
     }
 }
