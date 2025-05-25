@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class interactionDetector : MonoBehaviour
 {
+
     private IInteractable interactableInRange=null;// Closet Interactable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -11,19 +12,20 @@ public class interactionDetector : MonoBehaviour
     }
     public void onInteract()
     {
-        interactableInRange?.interact();
+        interactableInRange?.Interact();
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) // E to interact
         {
             onInteract();
+            
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collison)
     {
-        if(collison.TryGetComponent(out IInteractable interactable) && interactable.canInteract())
+        if(collison.TryGetComponent(out IInteractable interactable) && interactable.CanInteract())
             interactableInRange = interactable;
         
     }
