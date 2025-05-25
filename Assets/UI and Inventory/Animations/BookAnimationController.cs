@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-
 public class BookAnimationController : MonoBehaviour
 {
     [SerializeField] private GameObject bookOpening;     // Opening animation (book and tabs)
@@ -18,16 +17,14 @@ public class BookAnimationController : MonoBehaviour
         if (isOpen) return;
         isOpen = true;
 
-        // Step 1: Play book opening animation
         bookOpening.SetActive(true);
         finalSprite.SetActive(false);
-        tabsClose.SetActive(false); // ⛔ Ensure closing book is hidden
+        tabsClose.SetActive(false);
 
-        // Wait for BookOpen animation to finish (assume it's 1.5s here)
         StartCoroutine(WaitForSeconds(1.5f, () =>
         {
-            bookOpening.SetActive(false);    // Hide animated opener
-            finalSprite.SetActive(true);     // Show static open book with tabs & X button
+            bookOpening.SetActive(false);
+            finalSprite.SetActive(true);
         }));
     }
 
@@ -36,19 +33,37 @@ public class BookAnimationController : MonoBehaviour
         if (!isOpen) return;
         isOpen = false;
 
-        finalSprite.SetActive(false);        // Hide overlays and static book
-        tabsClose.SetActive(true);           // Show closing animation
+        finalSprite.SetActive(false);
+        tabsClose.SetActive(true);
         tabsCloseAnimator.Play(tabsCloseAnimName);
 
-        StartCoroutine(WaitForSeconds(tabsCloseDuration, () =>
-        {
-            tabsClose.SetActive(false);      // Hide once animation ends
-        }));
+        StartCoroutine(WaitForAnimationToEnd(tabsCloseAnimator, tabsCloseAnimName, () =>
+{
+    // Wait an extra 1.5 seconds after animation ends
+    StartCoroutine(WaitForSeconds(1.0f, () =>
+    {
+        tabsClose.SetActive(false);
+    }));
+}));
+
     }
 
     private IEnumerator WaitForSeconds(float seconds, System.Action callback)
     {
         yield return new WaitForSeconds(seconds);
         callback?.Invoke();
+    }
+
+    private IEnumerator WaitForAnimationToEnd(Animator animator, string animationName, System.Action onComplete)
+    {
+        // Wait until the animation starts
+        while (!animator.GetCurrentAnimatorStateInfo(0).IsName(animationName))
+            yield return null;
+
+        // Wait until the animation ends
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            yield return null;
+
+        onComplete?.Invoke();
     }
 }
