@@ -68,5 +68,20 @@ TagManager:
   - name: collison
     uniqueID: 644598277
     locked: 0
+  - name: ui
+    uniqueID: 573448095
+    locked: 0
+  - name: book
+    uniqueID: 2409696893
+    locked: 0
+  - name: tabs
+    uniqueID: 1895632727
+    locked: 0
+  - name: icons
+    uniqueID: 1580031383
+    locked: 0
+  - name: inventory content
+    uniqueID: 4046121459
+    locked: 0
   m_RenderingLayers:
   - Default

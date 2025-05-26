@@ -150,7 +150,6 @@ public class KeyBindingsManager : MonoBehaviour
         return KeyCode.None;
     }
 
-    // 👇 PUBLIC METHOD TO HIDE POPUP
     public void ClosePopup()
     {
         if (duplicateKeyPopup != null)
@@ -158,4 +157,15 @@ public class KeyBindingsManager : MonoBehaviour
             duplicateKeyPopup.SetActive(false);
         }
     }
+
+    public KeyCode GetKey(string actionName)
+{
+    actionName = actionName.ToUpper();
+    if (currentBindings.TryGetValue(actionName, out KeyCode key))
+    {
+        return key;
+    }
+    return KeyCode.None;
+}
+
 }
