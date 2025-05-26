@@ -42,4 +42,4 @@ Thumbs.db
 # Rider
 .idea/
 *.sln.iml
-Assets/Scenes/Tutorial.unity
+./Assets/Scenes/Tutorial.unity
