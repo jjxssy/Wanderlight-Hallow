@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     [SerializeField] private Image iconImage;
 
@@ -11,14 +11,25 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private Canvas canvas;
     private Transform originalParent;
+    private InventoryManager inventoryManager;
 
     public void SetItem(Item item, int slotIndex = -1)
     {
         ItemData = item;
         SlotIndex = slotIndex;
-        iconImage.sprite = item.Icon;
-        iconImage.enabled = true;
-        gameObject.name = item.ItemName;
+
+        if (iconImage != null)
+        {
+            iconImage.sprite = item != null ? item.Icon : null;
+            iconImage.enabled = item != null;
+        }
+
+        gameObject.name = item != null ? item.ItemName : "Empty Slot";
+    }
+
+    public void SetInventoryManager(InventoryManager manager)
+    {
+        inventoryManager = manager;
     }
 
     private void Awake()
@@ -28,6 +39,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (ItemData == null) return;
         originalParent = transform.parent;
         transform.SetParent(canvas.transform);
         iconImage.raycastTarget = false;
@@ -35,6 +47,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (ItemData == null) return;
         transform.position = eventData.position;
     }
 
@@ -43,5 +56,15 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.SetParent(originalParent);
         transform.localPosition = Vector3.zero;
         iconImage.raycastTarget = true;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right &&
+            ItemData != null &&
+            inventoryManager != null)
+        {
+            inventoryManager.OnSlotSelected(SlotIndex);
+        }
     }
 }
