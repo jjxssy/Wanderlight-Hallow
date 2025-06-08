@@ -62,7 +62,7 @@ TagManager:
   - name: background trees front
     uniqueID: 3167074441
     locked: 0
-  - name: player
+  - name: foreground
     uniqueID: 3416647975
     locked: 0
   - name: collison
