@@ -9,9 +9,7 @@ public class QuickslotDrop : MonoBehaviour, IDropHandler
     private void Awake()
     {
         if (inventoryManager == null)
-        {
             inventoryManager = FindObjectOfType<InventoryManager>();
-        }
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -19,12 +17,16 @@ public class QuickslotDrop : MonoBehaviour, IDropHandler
         DraggableItem dragged = eventData.pointerDrag?.GetComponent<DraggableItem>();
         if (dragged == null || dragged.ItemData == null) return;
 
-        inventoryManager.AssignItemToSlot(slotIndex, dragged.ItemData);
+        Debug.Log($"Drop: {dragged.ItemData.ItemName} from {dragged.SlotIndex} → quickslot {slotIndex}");
 
-        // If the dragged item came from a quickslot (not inventory)
-        if (dragged.SlotIndex >= inventoryManager.InventorySlotCount)
+        if (dragged.IsFromInventory())
         {
-            inventoryManager.ClearQuickslot(dragged.SlotIndex);
+            inventoryManager.AssignItemToSlot(slotIndex, dragged.ItemData);
+            inventoryManager.ClearInventorySlot(dragged.SlotIndex);
+        }
+        else if (dragged.IsFromQuickslot() && dragged.SlotIndex != slotIndex)
+        {
+            inventoryManager.SwapQuickslots(dragged.SlotIndex, slotIndex);
         }
     }
 }

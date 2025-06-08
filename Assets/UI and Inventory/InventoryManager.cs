@@ -4,14 +4,21 @@ using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
 {
+    [Header("Quickslots")]
     [SerializeField] private List<Button> slotButtons;
-    [SerializeField] private Sprite defaultSlotSprite;
     [SerializeField] private List<DraggableItem> slotIcons;
+    [SerializeField] private Sprite defaultSlotSprite;
     [SerializeField] private List<Item> items = new List<Item>(5);
-    [SerializeField] private KeyBindingsManager keyBindingsManager;
 
+    [Header("Inventory")]
     [SerializeField] private List<DraggableItem> inventoryIcons;
     [SerializeField] private List<Item> inventoryItems;
+
+    [Header("Keybinds (optional)")]
+    [SerializeField] private KeyBindingsManager keyBindingsManager;
+
+    public int QuickslotCount => slotButtons.Count;
+    public int InventorySlotCount => inventoryIcons.Count;
 
     private void Awake()
     {
@@ -42,6 +49,8 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
+        if (keyBindingsManager == null) return;
+
         for (int i = 0; i < slotButtons.Count; i++)
         {
             string actionName = $"QUICKSLOT {i + 1}";
@@ -64,17 +73,14 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
-        Debug.Log($"Using {item.ItemName} from quickslot {index + 1}");
-
         if (item.Type == ItemType.Consumable)
         {
-            items[index] = null;
-            slotButtons[index].image.sprite = defaultSlotSprite;
-            slotIcons[index].SetItem(null, index);
+            Debug.Log($"Consumed {item.ItemName} from quickslot {index + 1}");
+            ClearQuickslot(index);
         }
-        else if (item.Type == ItemType.Tool)
+        else
         {
-            Debug.Log($"Equipped tool: {item.ItemName}");
+            Debug.Log($"Equipped {item.ItemName} from quickslot {index + 1}");
         }
     }
 
@@ -83,7 +89,7 @@ public class InventoryManager : MonoBehaviour
         if (index < 0 || index >= items.Count) return;
 
         items[index] = item;
-        slotButtons[index].image.sprite = item.Icon;
+
         slotIcons[index].SetItem(item, index);
         slotIcons[index].SetInventoryManager(this);
     }
@@ -118,6 +124,28 @@ public class InventoryManager : MonoBehaviour
         inventoryIcons[indexA].SetInventoryManager(this);
         inventoryIcons[indexB].SetInventoryManager(this);
     }
+    
+    public void ClearInventorySlot(int index)
+{
+    if (index < 0 || index >= inventoryItems.Count) return;
 
-    public int InventorySlotCount => inventoryIcons.Count;
+    inventoryItems[index] = null;
+    inventoryIcons[index].SetItem(null, index);
+}
+
+public void SwapQuickslots(int indexA, int indexB)
+{
+    if (indexA < 0 || indexB < 0 || indexA >= items.Count || indexB >= items.Count)
+        return;
+
+    (items[indexA], items[indexB]) = (items[indexB], items[indexA]);
+
+    slotIcons[indexA].SetItem(items[indexA], indexA);
+    slotIcons[indexB].SetItem(items[indexB], indexB);
+
+    slotIcons[indexA].SetInventoryManager(this);
+    slotIcons[indexB].SetInventoryManager(this);
+}
+
+
 }
