@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class QuickslotDrop : MonoBehaviour, IDropHandler
+public class InventorySlotDrop : MonoBehaviour, IDropHandler
 {
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private int slotIndex;
@@ -17,16 +17,20 @@ public class QuickslotDrop : MonoBehaviour, IDropHandler
         DraggableItem dragged = eventData.pointerDrag?.GetComponent<DraggableItem>();
         if (dragged == null || dragged.ItemData == null) return;
 
-        Debug.Log($"Drop: {dragged.ItemData.ItemName} from {dragged.SlotIndex} → quickslot {slotIndex}");
+        Debug.Log($"Drop: {dragged.ItemData.ItemName} from {dragged.SlotIndex} → inventory {slotIndex}");
 
-        if (dragged.IsFromInventory())
+        if (dragged.IsFromInventory() && dragged.SlotIndex != slotIndex)
         {
-            inventoryManager.AssignItemToSlot(slotIndex, dragged.ItemData);
-            inventoryManager.ClearInventorySlot(dragged.SlotIndex);
+            inventoryManager.SwapInventoryItems(dragged.SlotIndex, slotIndex);
         }
-        else if (dragged.IsFromQuickslot() && dragged.SlotIndex != slotIndex)
+        else
         {
-            inventoryManager.SwapQuickslots(dragged.SlotIndex, slotIndex);
+            inventoryManager.AssignInventoryItem(slotIndex, dragged.ItemData);
+
+            if (dragged.IsFromQuickslot())
+            {
+                inventoryManager.ClearQuickslot(dragged.SlotIndex);
+            }
         }
     }
 }
