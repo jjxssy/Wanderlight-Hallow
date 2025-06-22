@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
-    private float speed = 3f;
+    private float speed = 15f;
     private Rigidbody2D rb;
     Vector2 movement;
     private Animator animator;
