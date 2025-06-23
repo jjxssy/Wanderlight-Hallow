@@ -18,7 +18,11 @@ public class PlayHealth : MonoBehaviour
         health-=damage;
         slider.value=health;
         if(health<=0)
-            Destroy(gameObject);
+            PlayerDied();
+    }
+    private void PlayerDied(){
+        DeathManager.instance.GameOver();
+        gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()
