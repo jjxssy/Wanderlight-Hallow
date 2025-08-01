@@ -1128,6 +1128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98525b045b47147588a81d65289ccfb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 15
 --- !u!50 &244733321
 Rigidbody2D:
   serializedVersion: 5
@@ -1261,6 +1262,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  currentHealth: 10
+  healthSlider: {fileID: 559715150}
+  baseSpeed: 15
+  strength: 5
+  defense: 1
 --- !u!1 &333760623
 GameObject:
   m_ObjectHideFlags: 0
@@ -13858,7 +13864,6 @@ GameObject:
   - component: {fileID: 1467152391}
   - component: {fileID: 1467152392}
   - component: {fileID: 1467152393}
-  - component: {fileID: 1467152394}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -14313,7 +14318,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1683787246}
-  - {fileID: 294353571}
   - {fileID: 172316378}
   - {fileID: 760946474}
   m_Father: {fileID: 1776471764}

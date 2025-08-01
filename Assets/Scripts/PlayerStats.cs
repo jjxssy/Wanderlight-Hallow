@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Health Settings")]
     [SerializeField] private int maxHealth = 10;
-    [SerializeField] private int currentHealth;
+    [SerializeField] private int currentHealth = 10;
     [SerializeField] private Slider healthSlider;
 
     [Header("Movement & Stats")]
@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Combat Stats")]
     [SerializeField] private int strength = 5;
-    [SerializeField] private int defense = 2;
+    [SerializeField] private int defense = 1;
 
     // === Properties ===
 
