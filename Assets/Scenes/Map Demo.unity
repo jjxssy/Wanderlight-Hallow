@@ -988,12 +988,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 244733318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd4a7e7b044e847e8a60e004dbbf3594, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d2b25c53e98bad4b95d63669902948e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  health: 0
-  slider: {fileID: 559715150}
+  currentHealth: 10
+  healthSlider: {fileID: 559715150}
+  baseSpeed: 15
+  strength: 5
+  defense: 1
 --- !u!1 &333760623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 166.7, y: 43.8}
+  m_AnchoredPosition: {x: 166.69995, y: 43.80005}
   m_SizeDelta: {x: 160, y: 19.996449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &592717310
@@ -13378,7 +13381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  PlayHealth: {fileID: 244733325}
 --- !u!1 &1512943696
 GameObject:
   m_ObjectHideFlags: 0

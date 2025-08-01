@@ -1,16 +1,25 @@
 using UnityEngine;
 
+/// <summary>
+/// Handles damage application when an enemy collides with the player.
+/// </summary>
 public class EnemyDamage : MonoBehaviour
 {
-    [SerializeField]private int damage;
-    [SerializeField]private PlayHealth PlayHealth;
+    [SerializeField] private int damage = 1;
 
-
-    private void OnCollisionEnter2D(Collision2D Collision)
+    /// <summary>
+    /// On collision with player, apply damage.
+    /// </summary>
+    /// <param name="collision">Collision event</param>
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(Collision.gameObject.tag=="Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            PlayHealth.takeDamage(damage);
+            PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
+            if (playerStats != null)
+            {
+                playerStats.TakeDamage(damage);
+            }
         }
     }
 }
