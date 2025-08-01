@@ -9,8 +9,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Canvas canvas;
     private Transform originalParent;
 
-    public Item ItemData { get; private set; }
-    public int SlotIndex { get; private set; } = -1;
+    private Item itemData;
+    private int slotIndex = -1;
     private InventoryManager inventoryManager;
 
     private void Awake()
@@ -21,23 +21,45 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         iconImage.enabled = false;
     }
 
+    /// <summary>
+    /// Sets the item and updates the icon based on its data.
+    /// </summary>
     public void SetItem(Item item, int slotIndex = -1)
     {
-        ItemData = item;
-        SlotIndex = slotIndex;
+        itemData = item;
+        this.slotIndex = slotIndex;
 
-        iconImage.sprite = item != null ? item.Icon : null;
+        iconImage.sprite = item != null ? item.GetIcon() : null;
         iconImage.enabled = item != null;
     }
 
+    /// <summary>
+    /// Sets the reference to the inventory manager.
+    /// </summary>
     public void SetInventoryManager(InventoryManager manager)
     {
         inventoryManager = manager;
     }
 
+    /// <summary>
+    /// Returns the assigned item.
+    /// </summary>
+    public Item GetItemData()
+    {
+        return itemData;
+    }
+
+    /// <summary>
+    /// Returns the slot index of this item.
+    /// </summary>
+    public int GetSlotIndex()
+    {
+        return slotIndex;
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (ItemData == null) return;
+        if (itemData == null) return;
         originalParent = transform.parent;
         transform.SetParent(canvas.transform, true);
         iconImage.raycastTarget = false;
@@ -45,7 +67,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (ItemData == null) return;
+        if (itemData == null) return;
         transform.position = eventData.position;
     }
 
@@ -59,13 +81,26 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right &&
-            ItemData != null &&
+            itemData != null &&
             inventoryManager != null)
         {
-            inventoryManager.OnSlotSelected(SlotIndex);
+            inventoryManager.OnSlotSelected(slotIndex);
         }
     }
 
-    public bool IsFromQuickslot() => SlotIndex >= 0 && SlotIndex < inventoryManager.QuickslotCount;
-    public bool IsFromInventory() => SlotIndex >= 0 && SlotIndex < inventoryManager.InventorySlotCount;
+    /// <summary>
+    /// Checks if the item is from the quickslot bar.
+    /// </summary>
+    public bool IsFromQuickslot()
+    {
+        return slotIndex >= 0 && slotIndex < inventoryManager.GetQuickslotCount();
+    }
+
+    /// <summary>
+    /// Checks if the item is from the main inventory grid.
+    /// </summary>
+    public bool IsFromInventory()
+    {
+        return slotIndex >= 0 && slotIndex < inventoryManager.GetInventorySlotCount();
+    }
 }

@@ -17,28 +17,43 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int defense = 2;
     [SerializeField] private int maxMana = 10;
     [SerializeField] private int currentMana = 10;
+    [SerializeField] private float speed = 3f;
 
     [Header("Events")]
     [SerializeField] private UnityEvent OnDied;
     [SerializeField] private UnityEvent OnDamaged;
 
-    // === Properties ===
-    public int MaxHealth { get => maxHealth; set => maxHealth = value; }
-    public int CurrentHealth
+    // === Getters and Setters ===
+
+    public int GetMaxHealth() { return maxHealth; }
+    public void SetMaxHealth(int value) { maxHealth = value; }
+
+    public int GetCurrentHealth() { return currentHealth; }
+    public void SetCurrentHealth(int value)
     {
-        get => currentHealth;
-        set => currentHealth = Mathf.Clamp(value, 0, maxHealth);
+        currentHealth = Mathf.Clamp(value, 0, maxHealth);
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth;
+        }
     }
 
-    public int Strength { get => strength; set => strength = value; }
-    public int Defense { get => defense; set => defense = value; }
+    public int GetStrength() { return strength; }
+    public void SetStrength(int value) { strength = value; }
 
-    public int MaxMana { get => maxMana; set => maxMana = value; }
-    public int CurrentMana
-    {
-        get => currentMana;
-        set => currentMana = Mathf.Clamp(value, 0, maxMana);
-    }
+    public int GetDefense() { return defense; }
+    public void SetDefense(int value) { defense = value; }
+
+    public int GetMaxMana() { return maxMana; }
+    public void SetMaxMana(int value) { maxMana = value; }
+
+    public int GetCurrentMana() { return currentMana; }
+    public void SetCurrentMana(int value) { currentMana = Mathf.Clamp(value, 0, maxMana); }
+
+    public float GetSpeed() { return speed; }
+    public void SetSpeed(float value) { speed = value; }
+
+    // === Unity Methods ===
 
     private void Start()
     {
@@ -50,58 +65,41 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Applies damage after subtracting defense. Minimum 1 if incoming > 0.
-    /// </summary>
+    // === Core Logic ===
+
     public void TakeDamage(int damage)
     {
         int finalDamage = Mathf.Max(damage - defense, 1);
-        CurrentHealth -= finalDamage;
-
-        if (healthSlider != null)
-        {
-            healthSlider.value = CurrentHealth;
-        }
+        SetCurrentHealth(currentHealth - finalDamage);
 
         OnDamaged?.Invoke();
 
-        if (CurrentHealth <= 0)
+        if (currentHealth <= 0)
         {
             PlayerDied();
         }
     }
 
-    /// <summary>
-    /// Heals the player.
-    /// </summary>
     public void Heal(int amount)
     {
-        CurrentHealth += amount;
-        if (healthSlider != null)
-            healthSlider.value = CurrentHealth;
+        SetCurrentHealth(currentHealth + amount);
     }
 
-    /// <summary>
-    /// Restores mana.
-    /// </summary>
     public void RestoreMana(int amount)
     {
-        CurrentMana += amount;
+        SetCurrentMana(currentMana + amount);
     }
 
-    /// <summary>
-    /// Boosts strength temporarily or permanently.
-    /// </summary>
-    public void AddStrength(int value) { Strength += value; }
+    public void AddStrength(int value)
+    {
+        SetStrength(strength + value);
+    }
 
-    /// <summary>
-    /// Boosts defense temporarily or permanently.
-    /// </summary>
-    public void AddDefense(int value) { Defense += value; }
+    public void AddDefense(int value)
+    {
+        SetDefense(defense + value);
+    }
 
-    /// <summary>
-    /// Called when player health reaches 0.
-    /// </summary>
     private void PlayerDied()
     {
         OnDied?.Invoke();
