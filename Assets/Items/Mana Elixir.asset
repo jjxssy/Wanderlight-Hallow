@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c97a09b49a8fb164193e0185e28ec5da, type: 3}
-  m_Name: HealthPotion
+  m_Name: Mana Elixir
   m_EditorClassIdentifier: 
-  ItemName: Health Potion
-  Icon: {fileID: -8813907124644527455, guid: 607ae18d714d6554093cbffadd9c3894, type: 3}
-  Type: 0
+  itemName: Mana Elixir
+  description: Restores 20 mana
+  icon: {fileID: 3351649379776122592, guid: 1109ab82e13697041a46907e4f15f079, type: 3}
+  type: 0
+  statToAffect: 2
+  amount: 20
+  isTemporary: 0
+  duration: 0

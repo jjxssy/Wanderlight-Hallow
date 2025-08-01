@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
+/// <summary>
+/// Manages the quickslots and inventory system for items.
+/// </summary>
 public class InventoryManager : MonoBehaviour
 {
     [Header("Quickslots")]
@@ -17,8 +20,15 @@ public class InventoryManager : MonoBehaviour
     [Header("Keybinds (optional)")]
     [SerializeField] private KeyBindingsManager keyBindingsManager;
 
-    public int QuickslotCount => slotButtons.Count;
-    public int InventorySlotCount => inventoryIcons.Count;
+    public int GetQuickslotCount()
+    {
+        return slotButtons.Count;
+    }
+
+    public int GetInventorySlotCount()
+    {
+        return inventoryIcons.Count;
+    }
 
     private void Awake()
     {
@@ -73,14 +83,14 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
-        if (item.Type == ItemType.Consumable)
+        if (item.GetItemType() == ItemType.Consumable)
         {
-            Debug.Log($"Consumed {item.ItemName} from quickslot {index + 1}");
+            Debug.Log($"Consumed {item.GetItemName()} from quickslot {index + 1}");
             ClearQuickslot(index);
         }
         else
         {
-            Debug.Log($"Equipped {item.ItemName} from quickslot {index + 1}");
+            Debug.Log($"Equipped {item.GetItemName()} from quickslot {index + 1}");
         }
     }
 
@@ -124,28 +134,97 @@ public class InventoryManager : MonoBehaviour
         inventoryIcons[indexA].SetInventoryManager(this);
         inventoryIcons[indexB].SetInventoryManager(this);
     }
-    
+
     public void ClearInventorySlot(int index)
-{
-    if (index < 0 || index >= inventoryItems.Count) return;
+    {
+        if (index < 0 || index >= inventoryItems.Count) return;
 
-    inventoryItems[index] = null;
-    inventoryIcons[index].SetItem(null, index);
-}
+        inventoryItems[index] = null;
+        inventoryIcons[index].SetItem(null, index);
+    }
 
-public void SwapQuickslots(int indexA, int indexB)
-{
-    if (indexA < 0 || indexB < 0 || indexA >= items.Count || indexB >= items.Count)
-        return;
+    public void SwapQuickslots(int indexA, int indexB)
+    {
+        if (indexA < 0 || indexB < 0 || indexA >= items.Count || indexB >= items.Count) return;
 
-    (items[indexA], items[indexB]) = (items[indexB], items[indexA]);
+        (items[indexA], items[indexB]) = (items[indexB], items[indexA]);
 
-    slotIcons[indexA].SetItem(items[indexA], indexA);
-    slotIcons[indexB].SetItem(items[indexB], indexB);
+        slotIcons[indexA].SetItem(items[indexA], indexA);
+        slotIcons[indexB].SetItem(items[indexB], indexB);
 
-    slotIcons[indexA].SetInventoryManager(this);
-    slotIcons[indexB].SetInventoryManager(this);
-}
+        slotIcons[indexA].SetInventoryManager(this);
+        slotIcons[indexB].SetInventoryManager(this);
+    }
 
+    // === Simple Getters and Setters ===
 
+    public List<Button> GetSlotButtons()
+    {
+        return slotButtons;
+    }
+
+    public void SetSlotButtons(List<Button> value)
+    {
+        slotButtons = value;
+    }
+
+    public List<DraggableItem> GetSlotIcons()
+    {
+        return slotIcons;
+    }
+
+    public void SetSlotIcons(List<DraggableItem> value)
+    {
+        slotIcons = value;
+    }
+
+    public Sprite GetDefaultSlotSprite()
+    {
+        return defaultSlotSprite;
+    }
+
+    public void SetDefaultSlotSprite(Sprite value)
+    {
+        defaultSlotSprite = value;
+    }
+
+    public List<Item> GetQuickslotItems()
+    {
+        return items;
+    }
+
+    public void SetQuickslotItems(List<Item> value)
+    {
+        items = value;
+    }
+
+    public List<DraggableItem> GetInventoryIcons()
+    {
+        return inventoryIcons;
+    }
+
+    public void SetInventoryIcons(List<DraggableItem> value)
+    {
+        inventoryIcons = value;
+    }
+
+    public List<Item> GetInventoryItems()
+    {
+        return inventoryItems;
+    }
+
+    public void SetInventoryItems(List<Item> value)
+    {
+        inventoryItems = value;
+    }
+
+    public KeyBindingsManager GetKeyBindingsManager()
+    {
+        return keyBindingsManager;
+    }
+
+    public void SetKeyBindingsManager(KeyBindingsManager value)
+    {
+        keyBindingsManager = value;
+    }
 }

@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Handles dropping a draggable item into a quickslot.
+/// Supports moving from inventory or swapping quickslots.
+/// </summary>
 public class QuickslotDrop : MonoBehaviour, IDropHandler
 {
     [SerializeField] private InventoryManager inventoryManager;
@@ -15,18 +19,18 @@ public class QuickslotDrop : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         DraggableItem dragged = eventData.pointerDrag?.GetComponent<DraggableItem>();
-        if (dragged == null || dragged.ItemData == null) return;
+        if (dragged == null || dragged.GetItemData() == null) return;
 
-        Debug.Log($"Drop: {dragged.ItemData.ItemName} from {dragged.SlotIndex} → quickslot {slotIndex}");
+        Debug.Log($"Drop: {dragged.GetItemData().GetItemName()} from {dragged.GetSlotIndex()} → quickslot {slotIndex}");
 
         if (dragged.IsFromInventory())
         {
-            inventoryManager.AssignItemToSlot(slotIndex, dragged.ItemData);
-            inventoryManager.ClearInventorySlot(dragged.SlotIndex);
+            inventoryManager.AssignItemToSlot(slotIndex, dragged.GetItemData());
+            inventoryManager.ClearInventorySlot(dragged.GetSlotIndex());
         }
-        else if (dragged.IsFromQuickslot() && dragged.SlotIndex != slotIndex)
+        else if (dragged.IsFromQuickslot() && dragged.GetSlotIndex() != slotIndex)
         {
-            inventoryManager.SwapQuickslots(dragged.SlotIndex, slotIndex);
+            inventoryManager.SwapQuickslots(dragged.GetSlotIndex(), slotIndex);
         }
     }
 }
