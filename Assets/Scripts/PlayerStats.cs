@@ -1,104 +1,61 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 /// <summary>
-/// Manages player stats such as health, speed, strength, and defense.
-/// Handles damage, healing, and stat boosts.
+/// Handles player health, stats, damage, and death behavior.
 /// </summary>
 public class PlayerStats : MonoBehaviour
 {
-    [Header("Health Settings")]
+    [Header("Health")]
     [SerializeField] private int maxHealth = 10;
-    [SerializeField] private int currentHealth = 10;
+    [SerializeField] private int currentHealth;
     [SerializeField] private Slider healthSlider;
 
-    [Header("Movement & Stats")]
-    [SerializeField] private float baseSpeed = 15f;
-    private float currentSpeed;
-
-    [Header("Combat Stats")]
+    [Header("Core Stats")]
     [SerializeField] private int strength = 5;
-    [SerializeField] private int defense = 1;
+    [SerializeField] private int defense = 2;
+    [SerializeField] private int maxMana = 10;
+    [SerializeField] private int currentMana = 10;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent OnDied;
+    [SerializeField] private UnityEvent OnDamaged;
 
     // === Properties ===
-
-    /// <summary>
-    /// Maximum health value for the player.
-    /// </summary>
-    public int MaxHealth
-    {
-        get => maxHealth;
-        set => maxHealth = value;
-    }
-
-    /// <summary>
-    /// Current health value. Clamped between 0 and MaxHealth.
-    /// </summary>
+    public int MaxHealth { get => maxHealth; set => maxHealth = value; }
     public int CurrentHealth
     {
         get => currentHealth;
         set => currentHealth = Mathf.Clamp(value, 0, maxHealth);
     }
 
-    /// <summary>
-    /// Base movement speed of the player.
-    /// </summary>
-    public float BaseSpeed
+    public int Strength { get => strength; set => strength = value; }
+    public int Defense { get => defense; set => defense = value; }
+
+    public int MaxMana { get => maxMana; set => maxMana = value; }
+    public int CurrentMana
     {
-        get => baseSpeed;
-        set => baseSpeed = value;
+        get => currentMana;
+        set => currentMana = Mathf.Clamp(value, 0, maxMana);
     }
 
-    /// <summary>
-    /// Current movement speed of the player.
-    /// </summary>
-    public float CurrentSpeed
-    {
-        get => currentSpeed;
-        set => currentSpeed = value;
-    }
-
-    /// <summary>
-    /// Player's attack power.
-    /// </summary>
-    public int Strength
-    {
-        get => strength;
-        set => strength = value;
-    }
-
-    /// <summary>
-    /// Player's defense value which reduces incoming damage.
-    /// </summary>
-    public int Defense
-    {
-        get => defense;
-        set => defense = value;
-    }
-
-    /// <summary>
-    /// Initializes health and movement speed.
-    /// </summary>
     private void Start()
     {
-        CurrentHealth = MaxHealth;
-        CurrentSpeed = BaseSpeed;
-
+        currentHealth = maxHealth;
         if (healthSlider != null)
         {
-            healthSlider.maxValue = MaxHealth;
-            healthSlider.value = CurrentHealth;
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
         }
     }
 
     /// <summary>
-    /// Applies damage to the player after subtracting defense.
-    /// Minimum of 1 damage is always taken if damage is greater than 0.
+    /// Applies damage after subtracting defense. Minimum 1 if incoming > 0.
     /// </summary>
-    /// <param name="damage">Raw incoming damage from source</param>
     public void TakeDamage(int damage)
     {
-        int finalDamage = Mathf.Max(damage - Defense, 1);
+        int finalDamage = Mathf.Max(damage - defense, 1);
         CurrentHealth -= finalDamage;
 
         if (healthSlider != null)
@@ -106,43 +63,70 @@ public class PlayerStats : MonoBehaviour
             healthSlider.value = CurrentHealth;
         }
 
+        OnDamaged?.Invoke();
+
         if (CurrentHealth <= 0)
         {
-            Destroy(gameObject);
+            PlayerDied();
         }
     }
 
     /// <summary>
-    /// Heals the player by a fixed amount.
+    /// Heals the player.
     /// </summary>
-    /// <param name="amount">Healing value to apply</param>
     public void Heal(int amount)
     {
         CurrentHealth += amount;
-
         if (healthSlider != null)
             healthSlider.value = CurrentHealth;
     }
 
     /// <summary>
-    /// Temporarily applies stat boosts like strength and defense.
+    /// Restores mana.
     /// </summary>
-    /// <param name="str">Strength boost</param>
-    /// <param name="def">Defense boost</param>
-    public void ApplyStats(int str, int def)
+    public void RestoreMana(int amount)
     {
-        Strength += str;
-        Defense += def;
+        CurrentMana += amount;
     }
 
     /// <summary>
-    /// Removes stat boosts previously applied.
+    /// Boosts strength temporarily or permanently.
     /// </summary>
-    /// <param name="str">Strength to remove</param>
-    /// <param name="def">Defense to remove</param>
-    public void RemoveStats(int str, int def)
+    public void AddStrength(int value) { Strength += value; }
+
+    /// <summary>
+    /// Boosts defense temporarily or permanently.
+    /// </summary>
+    public void AddDefense(int value) { Defense += value; }
+
+    /// <summary>
+    /// Called when player health reaches 0.
+    /// </summary>
+    private void PlayerDied()
     {
-        Strength -= str;
-        Defense -= def;
+        OnDied?.Invoke();
+
+        Animator anim = GetComponent<Animator>();
+        if (anim != null)
+        {
+            anim.SetTrigger("Die");
+        }
+
+        PlayerMovement movement = GetComponent<PlayerMovement>();
+        if (movement != null)
+        {
+            movement.enabled = false;
+        }
+
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
+        if (DeathManager.instance != null)
+        {
+            DeathManager.instance.GameOver();
+        }
     }
 }

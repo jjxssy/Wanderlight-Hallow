@@ -141,6 +141,7 @@ public class KeyBindingsManager : MonoBehaviour
         SetupRows();
     }
 
+
     private KeyCode GetDefaultKey(string actionName)
     {
         if (defaultKeyMap.TryGetValue(actionName, out KeyCode key))
