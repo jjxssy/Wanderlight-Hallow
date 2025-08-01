@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Healthbar_slider_no_background_0: 6375413676579232576
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
