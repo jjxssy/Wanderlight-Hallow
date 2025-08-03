@@ -2,9 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-/// <summary>
-/// Manages the quickslots and inventory system for items.
-/// </summary>
 public class InventoryManager : MonoBehaviour
 {
     [Header("Quickslots")]
@@ -20,15 +17,8 @@ public class InventoryManager : MonoBehaviour
     [Header("Keybinds (optional)")]
     [SerializeField] private KeyBindingsManager keyBindingsManager;
 
-    public int GetQuickslotCount()
-    {
-        return slotButtons.Count;
-    }
-
-    public int GetInventorySlotCount()
-    {
-        return inventoryIcons.Count;
-    }
+    public int QuickslotCount => slotButtons.Count;
+    public int InventorySlotCount => inventoryIcons.Count;
 
     private void Awake()
     {
@@ -46,13 +36,13 @@ public class InventoryManager : MonoBehaviour
             int index = i;
             slotButtons[i].onClick.RemoveAllListeners();
             slotButtons[i].onClick.AddListener(() => OnSlotSelected(index));
-            slotIcons[i].SetItem(items[i], index);
+            slotIcons[i].SetItem(items[i], index, SlotType.Quickslot);
             slotIcons[i].SetInventoryManager(this);
         }
 
         for (int i = 0; i < inventoryIcons.Count; i++)
         {
-            inventoryIcons[i].SetItem(inventoryItems[i], i);
+            inventoryIcons[i].SetItem(inventoryItems[i], i, SlotType.Inventory);
             inventoryIcons[i].SetInventoryManager(this);
         }
     }
@@ -97,10 +87,10 @@ public class InventoryManager : MonoBehaviour
     public void AssignItemToSlot(int index, Item item)
     {
         if (index < 0 || index >= items.Count) return;
-
+        Debug.Log("---" + index);
         items[index] = item;
 
-        slotIcons[index].SetItem(item, index);
+        slotIcons[index].SetItem(item, index,SlotType.Quickslot);
         slotIcons[index].SetInventoryManager(this);
     }
 
@@ -110,7 +100,7 @@ public class InventoryManager : MonoBehaviour
 
         items[index] = null;
         slotButtons[index].image.sprite = defaultSlotSprite;
-        slotIcons[index].SetItem(null, index);
+        slotIcons[index].SetItem(null, index,SlotType.Quickslot);
     }
 
     public void AssignInventoryItem(int index, Item item)
@@ -118,7 +108,7 @@ public class InventoryManager : MonoBehaviour
         if (index < 0 || index >= inventoryItems.Count) return;
 
         inventoryItems[index] = item;
-        inventoryIcons[index].SetItem(item, index);
+        inventoryIcons[index].SetItem(item, index, SlotType.Inventory);
         inventoryIcons[index].SetInventoryManager(this);
     }
 
@@ -128,103 +118,59 @@ public class InventoryManager : MonoBehaviour
 
         (inventoryItems[indexA], inventoryItems[indexB]) = (inventoryItems[indexB], inventoryItems[indexA]);
 
-        inventoryIcons[indexA].SetItem(inventoryItems[indexA], indexA);
-        inventoryIcons[indexB].SetItem(inventoryItems[indexB], indexB);
+        inventoryIcons[indexA].SetItem(inventoryItems[indexA], indexA, SlotType.Inventory);
+        inventoryIcons[indexB].SetItem(inventoryItems[indexB], indexB, SlotType.Inventory);
 
         inventoryIcons[indexA].SetInventoryManager(this);
         inventoryIcons[indexB].SetInventoryManager(this);
     }
-
+    
     public void ClearInventorySlot(int index)
     {
         if (index < 0 || index >= inventoryItems.Count) return;
 
         inventoryItems[index] = null;
-        inventoryIcons[index].SetItem(null, index);
+        inventoryIcons[index].SetItem(null, index, SlotType.Inventory);
     }
 
     public void SwapQuickslots(int indexA, int indexB)
     {
-        if (indexA < 0 || indexB < 0 || indexA >= items.Count || indexB >= items.Count) return;
+        if (indexA < 0 || indexB < 0 || indexA >= items.Count || indexB >= items.Count)
+            return;
 
         (items[indexA], items[indexB]) = (items[indexB], items[indexA]);
 
-        slotIcons[indexA].SetItem(items[indexA], indexA);
-        slotIcons[indexB].SetItem(items[indexB], indexB);
+        slotIcons[indexA].SetItem(items[indexA], indexA, SlotType.Quickslot);
+        slotIcons[indexB].SetItem(items[indexB], indexB, SlotType.Quickslot);
 
         slotIcons[indexA].SetInventoryManager(this);
         slotIcons[indexB].SetInventoryManager(this);
     }
 
-    // === Simple Getters and Setters ===
-
-    public List<Button> GetSlotButtons()
+    public void SwapQuickslotInventory(int quickslotIndex, int inventoryIndex)
     {
-        return slotButtons;
+        Debug.Log($"Attempting to swap Quickslot[{quickslotIndex}] with Inventory[{inventoryIndex}].");
+
+        if (quickslotIndex < 0 || quickslotIndex >= items.Count ||
+            inventoryIndex < 0 || inventoryIndex >= inventoryItems.Count)
+        {
+            Debug.LogError("Swap failed: One or both slot indices were out of bounds.");
+            return;
+        }
+
+        string quickslotItemName = items[quickslotIndex] != null ? items[quickslotIndex].GetItemName() : "Empty";
+        string inventoryItemName = inventoryItems[inventoryIndex] != null ? inventoryItems[inventoryIndex].GetItemName() : "Empty";
+        Debug.Log($"Before swap: Quickslot has '{quickslotItemName}', Inventory has '{inventoryItemName}'.");
+
+        (inventoryItems[inventoryIndex], items[quickslotIndex]) = (items[quickslotIndex], inventoryItems[inventoryIndex]);
+
+        inventoryIcons[inventoryIndex].SetItem(inventoryItems[inventoryIndex], inventoryIndex, SlotType.Inventory);
+        slotIcons[quickslotIndex].SetItem(items[quickslotIndex], quickslotIndex, SlotType.Quickslot);
+
+        quickslotItemName = items[quickslotIndex] != null ? items[quickslotIndex].GetItemName() : "Empty";
+        inventoryItemName = inventoryItems[inventoryIndex] != null ? inventoryItems[inventoryIndex].GetItemName() : "Empty";
+        Debug.Log($"After swap: Quickslot now has '{inventoryItemName}', Inventory now has '{quickslotItemName}'. Swap successful!");
     }
 
-    public void SetSlotButtons(List<Button> value)
-    {
-        slotButtons = value;
-    }
 
-    public List<DraggableItem> GetSlotIcons()
-    {
-        return slotIcons;
-    }
-
-    public void SetSlotIcons(List<DraggableItem> value)
-    {
-        slotIcons = value;
-    }
-
-    public Sprite GetDefaultSlotSprite()
-    {
-        return defaultSlotSprite;
-    }
-
-    public void SetDefaultSlotSprite(Sprite value)
-    {
-        defaultSlotSprite = value;
-    }
-
-    public List<Item> GetQuickslotItems()
-    {
-        return items;
-    }
-
-    public void SetQuickslotItems(List<Item> value)
-    {
-        items = value;
-    }
-
-    public List<DraggableItem> GetInventoryIcons()
-    {
-        return inventoryIcons;
-    }
-
-    public void SetInventoryIcons(List<DraggableItem> value)
-    {
-        inventoryIcons = value;
-    }
-
-    public List<Item> GetInventoryItems()
-    {
-        return inventoryItems;
-    }
-
-    public void SetInventoryItems(List<Item> value)
-    {
-        inventoryItems = value;
-    }
-
-    public KeyBindingsManager GetKeyBindingsManager()
-    {
-        return keyBindingsManager;
-    }
-
-    public void SetKeyBindingsManager(KeyBindingsManager value)
-    {
-        keyBindingsManager = value;
-    }
 }
