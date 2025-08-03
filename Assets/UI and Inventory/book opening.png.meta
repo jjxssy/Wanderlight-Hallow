@@ -115,10 +115,10 @@ TextureImporter:
       name: book opening_0
       rect:
         serializedVersion: 2
-        x: 153
-        y: 93
-        width: 338
-        height: 423
+        x: 0
+        y: 0
+        width: 807
+        height: 627
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,10 +137,10 @@ TextureImporter:
       name: book opening_1
       rect:
         serializedVersion: 2
-        x: 985
-        y: 93
-        width: 338
-        height: 443
+        x: 807
+        y: 0
+        width: 807
+        height: 627
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: book opening_2
       rect:
         serializedVersion: 2
-        x: 1761
-        y: 29
-        width: 401
-        height: 573
+        x: 1614
+        y: 0
+        width: 807
+        height: 627
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: book opening_3
       rect:
         serializedVersion: 2
-        x: 2446
-        y: 88
-        width: 621
-        height: 518
+        x: 2421
+        y: 0
+        width: 807
+        height: 627
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: book opening_4
       rect:
         serializedVersion: 2
-        x: 3268
-        y: 88
-        width: 663
-        height: 418
+        x: 3228
+        y: 0
+        width: 807
+        height: 627
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dc2d7d32e40b41a41b8beded15230370
     internalID: 0
     vertices: []
     indices: 
