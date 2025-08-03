@@ -31,7 +31,7 @@ public enum AffectedStat
 public class Item : ScriptableObject
 {
     // Item info
-    [SerializeField] private string itemName;
+    [SerializeField] public string itemName;
     [SerializeField] private string description;
     [SerializeField] private Sprite icon;
     [SerializeField] private ItemType type;

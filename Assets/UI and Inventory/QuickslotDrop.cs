@@ -17,7 +17,7 @@ public class QuickslotDrop : MonoBehaviour, IDropHandler
         DraggableItem dragged = eventData.pointerDrag?.GetComponent<DraggableItem>();
         if (dragged == null || dragged.ItemData == null) return;
 
-        Debug.Log($"Drop: {dragged.ItemData.ItemName} from {dragged.TypeOfSlot} {dragged.SlotIndex} → quickslot {slotIndex}");
+        Debug.Log($"Drop: {dragged.ItemData.GetItemName()} from {dragged.TypeOfSlot} {dragged.SlotIndex} → quickslot {slotIndex}");
 
         // Corrected Logic
         if (dragged.TypeOfSlot == SlotType.Inventory)

@@ -73,14 +73,14 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
-        if (item.Type == ItemType.Consumable)
+        if (item.GetItemType() == ItemType.Consumable)
         {
-            Debug.Log($"Consumed {item.ItemName} from quickslot {index + 1}");
+            Debug.Log($"Consumed {item.GetItemName()} from quickslot {index + 1}");
             ClearQuickslot(index);
         }
         else
         {
-            Debug.Log($"Equipped {item.ItemName} from quickslot {index + 1}");
+            Debug.Log($"Equipped {item.GetItemName()} from quickslot {index + 1}");
         }
     }
 
@@ -158,8 +158,8 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
-        string quickslotItemName = items[quickslotIndex] != null ? items[quickslotIndex].ItemName : "Empty";
-        string inventoryItemName = inventoryItems[inventoryIndex] != null ? inventoryItems[inventoryIndex].ItemName : "Empty";
+        string quickslotItemName = items[quickslotIndex] != null ? items[quickslotIndex].GetItemName() : "Empty";
+        string inventoryItemName = inventoryItems[inventoryIndex] != null ? inventoryItems[inventoryIndex].GetItemName() : "Empty";
         Debug.Log($"Before swap: Quickslot has '{quickslotItemName}', Inventory has '{inventoryItemName}'.");
 
         (inventoryItems[inventoryIndex], items[quickslotIndex]) = (items[quickslotIndex], inventoryItems[inventoryIndex]);
@@ -167,8 +167,8 @@ public class InventoryManager : MonoBehaviour
         inventoryIcons[inventoryIndex].SetItem(inventoryItems[inventoryIndex], inventoryIndex, SlotType.Inventory);
         slotIcons[quickslotIndex].SetItem(items[quickslotIndex], quickslotIndex, SlotType.Quickslot);
 
-        quickslotItemName = items[quickslotIndex] != null ? items[quickslotIndex].ItemName : "Empty";
-        inventoryItemName = inventoryItems[inventoryIndex] != null ? inventoryItems[inventoryIndex].ItemName : "Empty";
+        quickslotItemName = items[quickslotIndex] != null ? items[quickslotIndex].GetItemName() : "Empty";
+        inventoryItemName = inventoryItems[inventoryIndex] != null ? inventoryItems[inventoryIndex].GetItemName() : "Empty";
         Debug.Log($"After swap: Quickslot now has '{inventoryItemName}', Inventory now has '{quickslotItemName}'. Swap successful!");
     }
 

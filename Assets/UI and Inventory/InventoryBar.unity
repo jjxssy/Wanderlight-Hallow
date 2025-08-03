@@ -9074,7 +9074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f2977dbe20f97488732c23ded8a885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testItem: {fileID: 11400000, guid: 93b23e74300876d4e9ba84e547ad514a, type: 2}
+  testItem: {fileID: 11400000, guid: a98f4462646405f408275e34dfc19537, type: 2}
   inventoryManager: {fileID: 942481966}
 --- !u!4 &2117882618
 Transform:

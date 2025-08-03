@@ -31,7 +31,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         SlotIndex = slotIndex;
         TypeOfSlot = slotType;
 
-        iconImage.sprite = item != null ? item.Icon : null;
+        iconImage.sprite = item != null ? item.GetIcon() : null;
         iconImage.enabled = item != null;
     }
 
