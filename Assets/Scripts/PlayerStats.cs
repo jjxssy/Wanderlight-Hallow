@@ -29,14 +29,7 @@ public class PlayerStats : MonoBehaviour
     public void SetMaxHealth(int value) { maxHealth = value; }
 
     public int GetCurrentHealth() { return currentHealth; }
-    public void SetCurrentHealth(int value)
-    {
-        currentHealth = Mathf.Clamp(value, 0, maxHealth);
-        if (healthSlider != null)
-        {
-            healthSlider.value = currentHealth;
-        }
-    }
+    public void SetCurrentHealth(int value) { currentHealth = Mathf.Clamp(value, 0, maxHealth); }
 
     public int GetStrength() { return strength; }
     public void SetStrength(int value) { strength = value; }
@@ -61,6 +54,13 @@ public class PlayerStats : MonoBehaviour
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+        }
+    }
+    private void Update()
+    {
+        if (healthSlider != null)
+        {
             healthSlider.value = currentHealth;
         }
     }
