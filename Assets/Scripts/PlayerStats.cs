@@ -50,7 +50,10 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        if (PlayerPrefs.GetInt("LoadIndex", 0) == 0)
+        {
+            currentHealth = maxHealth;
+        }
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealth;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    public PlayerStats stats;
+    [SerializeField]private PlayerStats stats;
     private PlayerData data;
     private void Awake()
     {
@@ -38,12 +38,12 @@ public class SaveManager : MonoBehaviour
     }
     private void LoadPlayer()
     {
-        stats.SetCurrentHealth(data.currentHealth);
-        stats.SetCurrentMana(data.currentMana);
+        stats.SetCurrentHealth(data.getHealth());
+        stats.SetCurrentMana(data.getMana());
         Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
+        position.x = data.getPosition()[0];
+        position.y = data.getPosition()[1];
+        position.z = data.getPosition()[2];
         stats.transform.position = position;
 
     }
