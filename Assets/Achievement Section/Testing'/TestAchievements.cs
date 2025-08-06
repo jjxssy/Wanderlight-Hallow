@@ -1,7 +1,11 @@
 using UnityEngine;
 
 public class TestAchievements : MonoBehaviour
-{
+{ 
+    private void Start()
+    {
+        //AchievementManager.Instance.ResetAllAchievements();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
@@ -20,4 +24,6 @@ public class TestAchievements : MonoBehaviour
             AchievementManager.Instance.AddProgress("004", 1);
         }
     }
+
+    // this script is just for testing
 }

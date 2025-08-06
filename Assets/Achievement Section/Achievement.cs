@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "New Achievement", menuName = "Achievements/Achievement")]
 public class Achievement : ScriptableObject
