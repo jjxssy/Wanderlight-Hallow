@@ -100,14 +100,41 @@ public class AchievementManager : MonoBehaviour
             achievement.currentProgress = PlayerPrefs.GetInt(progressKey);
         }
 
+        // The 'if' block that was causing the problem has been removed from here.
         if (PlayerPrefs.HasKey(unlockedKey))
         {
             achievement.isUnlocked = PlayerPrefs.GetInt(unlockedKey) == 1;
-            if (achievement.isUnlocked)
-            {
-                OnAchievementUnlocked?.Invoke(achievement);
-            }
         }
+    }
+    public void ResetAchievement(string achievementId)
+    {
+        if (achievementDictionary.TryGetValue(achievementId, out Achievement achievement))
+        {
+            achievement.currentProgress = 0;
+            achievement.isUnlocked = false;
+
+            SaveAchievementProgress(achievement);
+            OnProgressUpdated?.Invoke(achievement);
+
+            Debug.Log($"Achievement '{achievement.title}' has been reset.");
+        }
+        else
+        {
+            Debug.LogWarning($"Could not reset achievement. ID '{achievementId}' not found!");
+        }
+    }
+
+    public void ResetAllAchievements()
+    {
+        foreach (Achievement achievement in achievements)
+        {
+            achievement.currentProgress = 0;
+            achievement.isUnlocked = false;
+            SaveAchievementProgress(achievement);
+            OnProgressUpdated?.Invoke(achievement);
+        }
+
+        Debug.Log("All achievements have been reset.");
     }
     public List<Achievement> GetAchievements()
     {
