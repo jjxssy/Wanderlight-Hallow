@@ -1409,6 +1409,7 @@ GameObject:
   - component: {fileID: 244733321}
   - component: {fileID: 244733320}
   - component: {fileID: 244733325}
+  - component: {fileID: 244733326}
   - component: {fileID: 244733319}
   m_Layer: 0
   m_Name: player
@@ -1594,7 +1595,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 45932272}
-  - {fileID: 722625406}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &244733325
@@ -1623,6 +1623,21 @@ MonoBehaviour:
   OnDamaged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &244733326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244733318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfef11d639460f4b90b85b29b15699f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills:
+  - {fileID: 11400000, guid: 8d4ff80ef828fd04eb808375ca4faa1f, type: 2}
+  - {fileID: 11400000, guid: dcf7189724575ff479d5d1aaf20d496e, type: 2}
 --- !u!1 &257031489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3503,55 +3518,6 @@ Transform:
   - {fileID: 708865409}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &722625405
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 722625406}
-  - component: {fileID: 722625407}
-  m_Layer: 0
-  m_Name: SkillManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &722625406
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722625405}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 244733324}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &722625407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722625405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cfef11d639460f4b90b85b29b15699f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skills:
-  - {fileID: 11400000, guid: 8d4ff80ef828fd04eb808375ca4faa1f, type: 2}
-  - {fileID: 11400000, guid: dcf7189724575ff479d5d1aaf20d496e, type: 2}
-  playerAnimator: {fileID: 244733322}
-  playerStats: {fileID: 244733325}
 --- !u!1 &753548097
 GameObject:
   m_ObjectHideFlags: 0

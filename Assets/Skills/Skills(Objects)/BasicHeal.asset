@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: BasicHeal
   skillIcon: {fileID: 0}
-  cooldown: 1
+  cooldown: 2
   vfxPrefab: {fileID: 0}
   animationTrigger: 
   statToBuff: 0

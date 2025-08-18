@@ -13,7 +13,7 @@ public class BuffSkill : Skill
 
     public override void Activate(GameObject user)
     {
-        PlayerStats stats = user.GetComponent<PlayerSkillManager>().playerStats;
+        PlayerStats stats = user.GetComponent<PlayerStats>();
         if (stats == null)
         {
             Debug.LogError("BuffSkill Error: User does not have a PlayerStats component!");

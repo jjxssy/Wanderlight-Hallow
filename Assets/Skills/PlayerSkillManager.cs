@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PlayerSkillManager : MonoBehaviour
 {
-    public List<Skill> skills;
+    [SerializeField] private List<Skill> skills;
     private Dictionary<Skill, float> cooldownTimers = new Dictionary<Skill, float>();
-    public Animator playerAnimator;
-    public PlayerStats playerStats;
+    private Animator playerAnimator;
 
     void Start()
     {
-        //animator = GetComponent<Animator>();
+        playerAnimator = GetComponent<Animator>();
         foreach (Skill skill in skills)
         {
             cooldownTimers[skill] = 0f;
@@ -59,7 +58,6 @@ public class PlayerSkillManager : MonoBehaviour
             Debug.Log(skill.skillName + " is on cooldown");
         }
     }
-
     // ====Buff Skill Management====
 
     public void ApplyTimedBuff(BuffSkill skill, PlayerStats stats)
