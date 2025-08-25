@@ -1134,6 +1134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 244733324}
+  autoFindTargetByTag: 1
+  targetTag: Player
   offset: {x: 0, y: 0, z: -10}
   smoothTime: 0.12
   fastDistance: 5
@@ -15256,6 +15258,7 @@ GameObject:
   - component: {fileID: 1459107194}
   - component: {fileID: 1459107193}
   - component: {fileID: 1459107192}
+  - component: {fileID: 1459107196}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -15350,7 +15353,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 32
+  orthographic size: 34.7
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -15381,6 +15384,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1459107196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459107191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cae877cff6ca4c84934668b976aa9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 244733324}
+  offset: {x: 0, y: 0, z: -10}
+  autoFindTargetByTag: 1
+  lockRotation: 1
+  lockedEuler: {x: 0, y: 0, z: 0}
 --- !u!1 &1467152389
 GameObject:
   m_ObjectHideFlags: 0
