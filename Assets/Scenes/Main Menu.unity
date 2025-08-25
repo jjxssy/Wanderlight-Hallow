@@ -17822,6 +17822,7 @@ GameObject:
   - component: {fileID: 1375685716}
   - component: {fileID: 1375685715}
   - component: {fileID: 1375685717}
+  - component: {fileID: 1375685718}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -18015,6 +18016,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &1375685718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375685713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f6083a39d361d4292d7fa4e61cf671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiAudioSource: {fileID: 1315819640}
+  clickSound: {fileID: 8300000, guid: f1bef07118c492344a00bb0a968f1707, type: 3}
 --- !u!1 &1404018997
 GameObject:
   m_ObjectHideFlags: 0
@@ -23277,6 +23292,7 @@ GameObject:
   - component: {fileID: 1907890100}
   - component: {fileID: 1907890099}
   - component: {fileID: 1907890098}
+  - component: {fileID: 1907890101}
   m_Layer: 0
   m_Name: Reset
   m_TagString: Untagged
@@ -23362,6 +23378,18 @@ MonoBehaviour:
       - m_Target: {fileID: 335115360}
         m_TargetAssemblyTypeName: KeyBindingsManager, Assembly-CSharp
         m_MethodName: ResetBindings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1073266306}
+        m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
+        m_MethodName: SaveVolumeSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23470,6 +23498,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907890096}
   m_CullTransparentMesh: 1
+--- !u!114 &1907890101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907890096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f6083a39d361d4292d7fa4e61cf671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiAudioSource: {fileID: 1315819640}
+  clickSound: {fileID: 8300000, guid: f1bef07118c492344a00bb0a968f1707, type: 3}
 --- !u!1 &1908089260
 GameObject:
   m_ObjectHideFlags: 0
@@ -24250,6 +24292,7 @@ GameObject:
   - component: {fileID: 1925547709}
   - component: {fileID: 1925547708}
   - component: {fileID: 1925547707}
+  - component: {fileID: 1925547711}
   m_Layer: 0
   m_Name: Reset
   m_TagString: Untagged
@@ -24431,6 +24474,20 @@ RectTransform:
   m_AnchoredPosition: {x: -462, y: -561}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1925547711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925547706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f6083a39d361d4292d7fa4e61cf671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiAudioSource: {fileID: 1315819640}
+  clickSound: {fileID: 8300000, guid: f1bef07118c492344a00bb0a968f1707, type: 3}
 --- !u!1 &1934722289
 GameObject:
   m_ObjectHideFlags: 0
@@ -26330,6 +26387,7 @@ GameObject:
   - component: {fileID: 2057077261}
   - component: {fileID: 2057077260}
   - component: {fileID: 2057077259}
+  - component: {fileID: 2057077262}
   m_Layer: 0
   m_Name: Apply
   m_TagString: Untagged
@@ -26403,6 +26461,18 @@ MonoBehaviour:
       - m_Target: {fileID: 751909881}
         m_TargetAssemblyTypeName: GraphicsSettingsManager, Assembly-CSharp
         m_MethodName: ApplySettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1073266306}
+        m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
+        m_MethodName: SaveVolumeSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26511,6 +26581,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057077257}
   m_CullTransparentMesh: 1
+--- !u!114 &2057077262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057077257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f6083a39d361d4292d7fa4e61cf671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiAudioSource: {fileID: 1315819640}
+  clickSound: {fileID: 8300000, guid: f1bef07118c492344a00bb0a968f1707, type: 3}
 --- !u!1 &2060241670
 GameObject:
   m_ObjectHideFlags: 0
