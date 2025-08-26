@@ -18,5 +18,5 @@ MonoBehaviour:
   lockedIcon: {fileID: 4130640169021434097, guid: f351642ac6025f543982a0a612275aae, type: 3}
   unlockedIcon: {fileID: 21300000, guid: 61ab048d5594fc240b5d0ed9c5aafedb, type: 3}
   goal: 5
-  isUnlocked: 0
-  currentProgress: 4
+  isUnlocked: 1
+  currentProgress: 5
