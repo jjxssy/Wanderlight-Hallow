@@ -49,6 +49,8 @@ public class PauseMenuManager : MonoBehaviour
         settingsButton.onClick.AddListener(OnSettingsClicked);
         achievementsButton.onClick.AddListener(OnAchievementsClicked);
         exitButton.onClick.AddListener(OnExitClicked);
+
+        PlayerPrefs.SetInt("MenusOpen", 0);
     }
 
     /// <summary>
@@ -60,7 +62,7 @@ public class PauseMenuManager : MonoBehaviour
         {
             if (isPaused)
                 Resume();
-            else
+            else if(PlayerPrefs.GetInt("MenusOpen",0)==0)
                 Pause();
         }
     }
@@ -70,6 +72,7 @@ public class PauseMenuManager : MonoBehaviour
     /// </summary>
     public void Pause()
     {
+        PlayerPrefs.SetInt("MenusOpen", 1);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
@@ -80,6 +83,7 @@ public class PauseMenuManager : MonoBehaviour
     /// </summary>
     public void Resume()
     {
+        PlayerPrefs.SetInt("MenusOpen", 0);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;

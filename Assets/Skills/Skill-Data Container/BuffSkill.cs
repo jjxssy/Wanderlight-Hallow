@@ -1,6 +1,4 @@
 using UnityEngine;
-
-// Enum to easily select which stat to modify in the Inspector
 public enum StatType { Health, Mana, Strength, Defense }
 
 [CreateAssetMenu(fileName = "New Buff Skill", menuName = "Skills/Buff Skill")]
@@ -52,5 +50,12 @@ public class BuffSkill : Skill
                 Debug.LogWarning("Instant effect for " + statToBuff + " is not supported. Use a duration > 0.");
                 break;
         }
+    }
+
+    public override string GetStatDetails()
+    {
+        string effect = statToBuff == StatType.Health ? "Heal" : "Buff";
+        string durationText = duration > 0 ? $" for {duration}s" : "";
+        return $"{effect}: +{buffValue} {statToBuff}{durationText}";
     }
 }

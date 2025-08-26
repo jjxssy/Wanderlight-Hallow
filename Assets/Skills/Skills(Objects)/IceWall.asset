@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d66131d280c7eb43b7013158c65d45f, type: 3}
-  m_Name: FireBall
+  m_Name: IceWall
   m_EditorClassIdentifier: 
-  skillName: FireBall
-  skillIcon: {fileID: 3459012821031736751, guid: ac6231c12f0ee4d0ebed77c8e672a8fb, type: 3}
-  cooldown: 1
+  skillName: IceWall
+  skillIcon: {fileID: -867568935241097962, guid: bd24f17a9d1e897479b052eb3cae72db, type: 3}
+  cooldown: 2
   vfxPrefab: {fileID: 0}
   animationTrigger: 
-  description: Fires a Projectile towards your mouse pointer
+  description: Fires ICE towards your mouse pointer
   statIcon: {fileID: 0}
-  projectilePrefab: {fileID: 1185244260781708565, guid: 43ea8367f2695744db6242294b52df99, type: 3}
-  projectileSpeed: 10
-  damage: 10
+  projectilePrefab: {fileID: 1185244260781708565, guid: a621efdc1dfc23146966259271f35d19, type: 3}
+  projectileSpeed: 15
+  damage: 15
