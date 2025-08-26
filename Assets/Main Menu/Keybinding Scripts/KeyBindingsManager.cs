@@ -7,6 +7,8 @@ public class KeyBindingsManager : MonoBehaviour
     [SerializeField] private List<KeyBindingRow> keyBindingRows = new List<KeyBindingRow>();
     [SerializeField] private GameObject duplicateKeyPopup; // 👈 Reference to the popup
 
+    public static event System.Action OnKeyBindingsChanged;
+
     private Dictionary<string, KeyCode> defaultKeyMap = new Dictionary<string, KeyCode>()
     {
         { "WALK FORWARD", KeyCode.W },
@@ -51,6 +53,7 @@ public class KeyBindingsManager : MonoBehaviour
     {
         currentBindings.Clear();
         customBindings.Clear();
+
 
         foreach (KeyBindingRow row in keyBindingRows)
         {
@@ -97,6 +100,8 @@ public class KeyBindingsManager : MonoBehaviour
                         PlayerPrefs.Save();
 
                         waitingForRow.UpdateKey(key);
+
+                        OnKeyBindingsChanged?.Invoke();
                     }
                     else
                     {
@@ -139,6 +144,8 @@ public class KeyBindingsManager : MonoBehaviour
 
         PlayerPrefs.Save();
         SetupRows();
+
+        OnKeyBindingsChanged?.Invoke();
     }
 
 
@@ -160,13 +167,14 @@ public class KeyBindingsManager : MonoBehaviour
     }
 
     public KeyCode GetKey(string actionName)
-{
-    actionName = actionName.ToUpper();
-    if (currentBindings.TryGetValue(actionName, out KeyCode key))
     {
-        return key;
+        actionName = actionName.ToUpper();
+        if (currentBindings.TryGetValue(actionName, out KeyCode key))
+        {
+            return key;
+
+        }
+        return KeyCode.None;
     }
-    return KeyCode.None;
-}
 
 }

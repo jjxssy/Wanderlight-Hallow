@@ -22,4 +22,13 @@ public class ProjectileSkill : Skill
             projectile.Initialize(direction, projectileSpeed);
         }
     }
+
+
+    [Header("Combat Stats")]
+    public int damage = 10;
+
+    public override string GetStatDetails()
+    {
+        return $"Damage: {damage}";
+    }
 }

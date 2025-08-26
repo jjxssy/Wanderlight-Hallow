@@ -4,42 +4,108 @@ using UnityEngine;
 
 public class PlayerSkillManager : MonoBehaviour
 {
-    [SerializeField] private List<Skill> skills;
+    public event System.Action OnEquippedSkillsChanged;
+
+    [Header("Skill Data")]
+    [SerializeField] private List<Skill> unlockedSkills = new List<Skill>(); // All skills the player has learned
+    [SerializeField] private Skill[] equippedSkills = new Skill[6];          // The 6 skills in the skill bar
+
+    [Header("Dependencies")]
+    [SerializeField] private KeyBindingsManager keyBindingsManager;
+    [SerializeField] private GameObject skillMenuPanel; // The UI panel for assigning skills
+    [SerializeField] private SkillSlotUI[] skillSlotsUI; // The 6 UI slots from the skill bar
+
     private Dictionary<Skill, float> cooldownTimers = new Dictionary<Skill, float>();
-    private Animator playerAnimator;
+    private Animator animator;
+
 
     void Start()
     {
-        playerAnimator = GetComponent<Animator>();
-        foreach (Skill skill in skills)
+        animator = GetComponent<Animator>();
+        // Ensure the skill menu is hidden at the start
+        if (skillMenuPanel != null)
         {
-            cooldownTimers[skill] = 0f;
+            skillMenuPanel.SetActive(false);
         }
 
+        // Initialize cooldowns for any starting skills
+        foreach (Skill skill in unlockedSkills)
+        {
+            if (!cooldownTimers.ContainsKey(skill))
+            {
+                cooldownTimers.Add(skill, 0f);
+            }
+        }
+
+        UpdateSkillBarUI();
     }
+    
+
 
     void Update()
     {
-        //lets say there are only 2 skills for now
-        if (Input.GetKeyDown(KeyCode.Alpha1) && skills.Count > 0)
-        {
-            TryActivateSkill(skills[0]);
-        }
+        HandleSkillActivation();
+        HandleSkillMenuToggle();
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && skills.Count > 1)
-        {
-            TryActivateSkill(skills[1]);
-        }
-        //Can Implement a skill slot system, which will determine which skill will be used when pressed which key.
+    }
+    private void OnEnable()
+    {
+        // Subscribe to the event when this object becomes active
+        KeyBindingsManager.OnKeyBindingsChanged += UpdateSkillBarUI;
     }
 
-    private void TryActivateSkill(Skill skill)
+    private void OnDisable()
     {
-        if (cooldownTimers[skill] <= Time.time)
+        // Unsubscribe when this object is disabled to prevent errors
+        KeyBindingsManager.OnKeyBindingsChanged -= UpdateSkillBarUI;
+    }
+
+
+    private void HandleSkillActivation()
+    {
+        // Loop through the 6 skill slots
+        for (int i = 0; i < equippedSkills.Length; i++)
         {
-            if (playerAnimator != null && !string.IsNullOrEmpty(skill.animationTrigger))
+            if (equippedSkills[i] == null) continue;
+
+            // Get the key for the current slot from the KeyBindingsManager
+            string actionName = "SKILL " + (i + 1);
+            KeyCode skillKey = keyBindingsManager.GetKey(actionName);
+
+            if (Input.GetKeyDown(skillKey))
             {
-                playerAnimator.SetTrigger(skill.animationTrigger);
+                TryActivateSkill(equippedSkills[i], i);
+            }
+        }
+    }
+
+    private void HandleSkillMenuToggle()
+    {
+        if (skillMenuPanel == null) return;
+
+        // Open/close the skill menu
+        if (Input.GetKeyDown(keyBindingsManager.GetKey("SKILLS")))
+        {
+            if (skillMenuPanel.activeSelf)
+            {
+                skillMenuPanel.SetActive(!skillMenuPanel.activeSelf);
+                PlayerPrefs.SetInt("MenusOpen", 0);
+            }
+            else if (PlayerPrefs.GetInt("MenusOpen", 0) == 0)
+            {
+                skillMenuPanel.SetActive(!skillMenuPanel.activeSelf);
+                PlayerPrefs.SetInt("MenusOpen", 1);
+            }
+        }
+    }
+
+    private void TryActivateSkill(Skill skill, int slotIndex)
+    {
+        if (!cooldownTimers.ContainsKey(skill) || cooldownTimers[skill] <= Time.time)
+        {
+            if (animator != null && !string.IsNullOrEmpty(skill.animationTrigger))
+            {
+                animator.SetTrigger(skill.animationTrigger);
             }
 
             skill.Activate(gameObject);
@@ -51,14 +117,77 @@ public class PlayerSkillManager : MonoBehaviour
 
             cooldownTimers[skill] = Time.time + skill.cooldown;
 
-            Debug.Log(skill.skillName + " is USED");
+            // Tell the UI slot to start its cooldown visual
+            if (slotIndex < skillSlotsUI.Length)
+            {
+                skillSlotsUI[slotIndex].StartCooldown();
+            }
         }
         else
         {
-            Debug.Log(skill.skillName + " is on cooldown");
+            Debug.Log(skill.skillName + " is on cooldown!");
         }
     }
-    // ====Buff Skill Management====
+
+    public void LearnSkill(Skill newSkill)
+    {
+        if (!unlockedSkills.Contains(newSkill))
+        {
+            unlockedSkills.Add(newSkill);
+            if (!cooldownTimers.ContainsKey(newSkill))
+            {
+                cooldownTimers.Add(newSkill, 0f);
+            }
+            Debug.Log("Learned new skill: " + newSkill.skillName);
+        }
+    }
+
+    public void EquipSkill(int slotIndex, Skill skillToEquip)
+    {
+        if (slotIndex < 0 || slotIndex >= equippedSkills.Length) return;
+
+        // You can only equip skills you have unlocked
+        if (unlockedSkills.Contains(skillToEquip))
+        {
+
+            // Check if this skill is already equipped in another slot.
+            for (int i = 0; i < equippedSkills.Length; i++)
+            {
+                if (equippedSkills[i] == skillToEquip)
+                {
+                    // If it is, clear the old slot.
+                    equippedSkills[i] = null;
+                    break; // Exit the loop since a skill can only be in one slot
+                }
+            }
+
+
+            // Place the skill in the new slot.
+            equippedSkills[slotIndex] = skillToEquip;
+
+            UpdateSkillBarUI(); 
+            OnEquippedSkillsChanged?.Invoke();
+        }
+    }
+
+    private void UpdateSkillBarUI()
+    {
+        for (int i = 0; i < skillSlotsUI.Length; i++)
+        {
+            string actionName = "SKILL " + (i + 1);
+            KeyCode key = keyBindingsManager.GetKey(actionName);
+
+            if (i < equippedSkills.Length && equippedSkills[i] != null)
+            {
+                skillSlotsUI[i].SetSkill(equippedSkills[i], key);
+            }
+            else
+            {
+                skillSlotsUI[i].SetSkill(null, key); // Clear the slot
+            }
+        }
+    }
+
 
     public void ApplyTimedBuff(BuffSkill skill, PlayerStats stats)
     {
@@ -67,32 +196,24 @@ public class PlayerSkillManager : MonoBehaviour
 
     private IEnumerator TimedBuffCoroutine(BuffSkill skill, PlayerStats stats)
     {
-        //Apply the buff
         switch (skill.statToBuff)
         {
-            case StatType.Strength:
-                stats.AddStrength(skill.buffValue);
-                break;
-            case StatType.Defense:
-                stats.AddDefense(skill.buffValue);
-                break;
+            case StatType.Strength: stats.AddStrength(skill.buffValue); break;
+            case StatType.Defense: stats.AddDefense(skill.buffValue); break;
         }
-
-        Debug.Log("Applied " + skill.skillName + " for " + skill.duration + " seconds.");
-
         yield return new WaitForSeconds(skill.duration);
-
-        //Remove the buff by applying the negative value
         switch (skill.statToBuff)
         {
-            case StatType.Strength:
-                stats.AddStrength(-skill.buffValue);
-                break;
-            case StatType.Defense:
-                stats.AddDefense(-skill.buffValue);
-                break;
+            case StatType.Strength: stats.AddStrength(-skill.buffValue); break;
+            case StatType.Defense: stats.AddDefense(-skill.buffValue); break;
         }
-
-        Debug.Log(skill.skillName + " has worn off.");
+    }
+    public List<Skill> GetUnlockedSkills()
+    {
+        return unlockedSkills;
+    }
+    public Skill[] GetEquipedSkills()
+    {
+        return equippedSkills;
     }
 }
