@@ -34,7 +34,7 @@ public class BookAnimationController : MonoBehaviour
     /// <summary>
     /// Duration to wait after the tabs closing animation finishes.
     /// </summary>
-    [SerializeField] private float tabsCloseDuration = 1.0f;
+    //[SerializeField] private float tabsCloseDuration = 1.0f;
 
     /// <summary>
     /// Indicates whether the book is currently open.
