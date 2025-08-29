@@ -3,11 +3,11 @@ using UnityEngine;
 public class ItemTester : MonoBehaviour
 {
     public Item testItem;
-    public InventoryManager inventoryManager;
+    public Item testItem2;
 
     void Start()
     {
-        //inventoryManager.AssignInventoryItem(0, testItem); // First inventory slot
-        inventoryManager.AssignItemToSlot(0, testItem);    // First quickslot
+        InventoryManager.instance.AddItem(testItem);
+        InventoryManager.instance.AddItem(testItem2);
     }
 }
