@@ -21,4 +21,6 @@ MonoBehaviour:
   statIcon: {fileID: 0}
   projectilePrefab: {fileID: 1185244260781708565, guid: a621efdc1dfc23146966259271f35d19, type: 3}
   projectileSpeed: 15
-  damage: 15
+  damage: 5
+  pushbackForce: 5
+  orientPerpendicular: 0

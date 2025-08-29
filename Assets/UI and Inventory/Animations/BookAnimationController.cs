@@ -47,7 +47,9 @@ public class BookAnimationController : MonoBehaviour
     /// </summary>
     public void OnBookButtonPressed()
     {
-        if (isOpen) return;
+        if (isOpen || PlayerPrefs.GetInt("MenusOpen",0) == 1) return;
+
+        PlayerPrefs.SetInt("MenusOpen", 1);
         isOpen = true;
 
         bookOpening.SetActive(true);
@@ -68,6 +70,7 @@ public class BookAnimationController : MonoBehaviour
     public void OnCloseButtonPressed()
     {
         if (!isOpen) return;
+        PlayerPrefs.SetInt("MenusOpen", 0);
         isOpen = false;
 
         finalSprite.SetActive(false);

@@ -6,12 +6,16 @@ public class ProjectileSkill : Skill
     public GameObject projectilePrefab;
     public float projectileSpeed = 10f;
 
+    [Header("Combat Stats")]
+    public int damage = 10;
+    public float pushbackForce = 0f;
+    [Header("Orientation")]
+    public bool orientPerpendicular = false;
+
     public override void Activate(GameObject user)
     {
-        //For now, let's assume it shoots towards the mouse cursor.
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
-
         Vector2 direction = (mousePosition - user.transform.position).normalized;
 
         GameObject projectileInstance = Instantiate(projectilePrefab, user.transform.position, Quaternion.identity);
@@ -19,13 +23,11 @@ public class ProjectileSkill : Skill
 
         if (projectile != null)
         {
-            projectile.Initialize(direction, projectileSpeed);
+            projectile.Initialize(direction, projectileSpeed, damage, pushbackForce,orientPerpendicular);
         }
     }
 
 
-    [Header("Combat Stats")]
-    public int damage = 10;
 
     public override string GetStatDetails()
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("UI References")]
     [Tooltip("The Image component that displays the item's icon. This should be a child of the slot's background.")]
@@ -55,9 +55,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
 
     #region Event Handlers
 
-    /// <summary>
-    /// Called when the slot is clicked. Right-click to use.
-    /// </summary>
     public void OnPointerClick(PointerEventData eventData)
     {
         if (HeldItem == null) return;
@@ -68,9 +65,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
         }
     }
 
-    /// <summary>
-    /// Called when another item is dropped onto this slot. This is the destination slot.
-    /// </summary>
     public void OnDrop(PointerEventData eventData)
     {
         // Check if an item was being dragged from another valid slot.
@@ -81,9 +75,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
         }
     }
 
-    /// <summary>
-    /// Called at the beginning of a drag operation on this slot. This is the source slot.
-    /// </summary>
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (HeldItem == null) return; // Can't drag an empty slot.
@@ -108,9 +99,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
         iconImage.enabled = false;
     }
 
-    /// <summary>
-    /// Called every frame during a drag operation. Updates the drag icon's position.
-    /// </summary>
+
     public void OnDrag(PointerEventData eventData)
     {
         if (_dragIconInstance != null)
@@ -119,9 +108,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
         }
     }
 
-    /// <summary>
-    /// Called at the end of a drag operation.
-    /// </summary>
     public void OnEndDrag(PointerEventData eventData)
     {
         // Clean up the created drag icon.
@@ -135,6 +121,24 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
 
         // Always show the icon again, whether the swap was successful or not.
         UpdateSlotUI();
+    }
+
+    #endregion
+    #region Tooltip Handlers
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (HeldItem != null)
+        {
+            // Build a formatted string for the tooltip using the item's data
+            string tooltipContent = $"<b>{HeldItem.GetItemName()}</b>\n<size=18>{HeldItem.GetDescription()}</size>";
+            TooltipManager.instance.ShowTooltip(tooltipContent);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        TooltipManager.instance.HideTooltip();
     }
 
     #endregion

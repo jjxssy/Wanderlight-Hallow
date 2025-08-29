@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System.Collections;
 
 /// <summary>
 /// Handles player health, stats, damage, and death behavior.
@@ -11,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int maxHealth = 10;
     [SerializeField] private int currentHealth;
     [SerializeField] private Slider healthSlider;
+    [SerializeField] private float invincibilityFrameDuration = 0.5f;
 
     [Header("Core Stats")]
     [SerializeField] private int strength = 5;
@@ -23,6 +25,39 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private UnityEvent OnDied;
     [SerializeField] private UnityEvent OnDamaged;
 
+    [SerializeField] private Color damageFlashColor = Color.red;
+    private Color originalColor;
+
+    private SpriteRenderer spriteRenderer;
+    private bool isInvincible = false;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
+    }
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt("LoadIndex", 0) == 0)
+        {
+            currentHealth = maxHealth;
+        }
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+        }
+    }
+    private void Update()
+    {
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth;
+        }
+    }
     // === Getters and Setters ===
 
     public int GetMaxHealth() { return maxHealth; }
@@ -46,37 +81,19 @@ public class PlayerStats : MonoBehaviour
     public float GetSpeed() { return speed; }
     public void SetSpeed(float value) { speed = value; }
 
-    // === Unity Methods ===
-
-    private void Start()
-    {
-        if (PlayerPrefs.GetInt("LoadIndex", 0) == 0)
-        {
-            currentHealth = maxHealth;
-        }
-        if (healthSlider != null)
-        {
-            healthSlider.maxValue = maxHealth;
-            healthSlider.value = currentHealth;
-        }
-    }
-    private void Update()
-    {
-        if (healthSlider != null)
-        {
-            healthSlider.value = currentHealth;
-        }
-    }
-
-    // === Core Logic ===
 
     public void TakeDamage(int damage)
     {
+        if (isInvincible)
+        {
+            return;
+        }
         int finalDamage = Mathf.Max(damage - defense, 1);
         SetCurrentHealth(currentHealth - finalDamage);
 
         OnDamaged?.Invoke();
-
+        StartCoroutine(DamageFlash());
+        StartCoroutine(InvincibilityFrames());
         if (currentHealth <= 0)
         {
             PlayerDied();
@@ -129,5 +146,17 @@ public class PlayerStats : MonoBehaviour
         {
             DeathManager.instance.GameOver();
         }
+    }
+    private IEnumerator DamageFlash()
+    {
+        spriteRenderer.color = damageFlashColor;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = originalColor;
+    }
+    private IEnumerator InvincibilityFrames()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(invincibilityFrameDuration);
+        isInvincible = false;
     }
 }
