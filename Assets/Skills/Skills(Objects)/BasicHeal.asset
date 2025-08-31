@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BasicHeal
   m_EditorClassIdentifier: 
   skillName: BasicHeal
-  skillIcon: {fileID: 4957237682643332618, guid: bd24f17a9d1e897479b052eb3cae72db, type: 3}
+  skillIcon: {fileID: -6420534950463556919, guid: e666086aa5653474e9c476ad14a8f4df, type: 3}
   cooldown: 2
-  vfxPrefab: {fileID: 0}
+  vfxPrefab: {fileID: 5998310862724863327, guid: 18d80edf8943a39428790cb6cacd25b0, type: 3}
   animationTrigger: 
   description: Heals you for small amount of health
   statIcon: {fileID: 0}

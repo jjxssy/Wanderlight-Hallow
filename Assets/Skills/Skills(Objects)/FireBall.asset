@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FireBall
   m_EditorClassIdentifier: 
   skillName: FireBall
-  skillIcon: {fileID: 3459012821031736751, guid: ac6231c12f0ee4d0ebed77c8e672a8fb, type: 3}
+  skillIcon: {fileID: -7921052967969465774, guid: e666086aa5653474e9c476ad14a8f4df, type: 3}
   cooldown: 1
-  vfxPrefab: {fileID: 0}
+  vfxPrefab: {fileID: 5998310862724863327, guid: 0683c31aa69b76a48a5185945dd39d4b, type: 3}
   animationTrigger: 
   description: Fires a Projectile towards your mouse pointer
   statIcon: {fileID: 0}
