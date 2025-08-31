@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Map Demo.unity
-    guid: 4b4a598c7f45e184585c1509a8652102
+    path: Assets/Scenes/CombinedScenes.unity
+    guid: 305948431dbf98647a549df5c190ab94
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: cdf75424b02d0b2459abc7c3093ebf9b

@@ -10,15 +10,13 @@ public class PlayerItemPickup : MonoBehaviour
         if (itemWorld != null)
         {
             // Try to add the item to the inventory.
-            bool wasPickedUp = InventoryManager.instance.AddItem(itemWorld.GetItem());
-
-            // If the item was successfully added, destroy the world object.
-            if (wasPickedUp)
+            if (InventoryManager.instance.AddItem(itemWorld.GetItemData()))
             {
+                // ADD THIS LINE:
+                WorldItemManager.instance.MarkAsDestroyed(itemWorld.GetSaveID());
+
                 Destroy(other.gameObject);
             }
-            // If the inventory is full, wasPickedUp will be false, and the item
-            // will remain on the ground.
         }
     }
 }

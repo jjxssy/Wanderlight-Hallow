@@ -20,6 +20,8 @@ public class InventoryManager : MonoBehaviour
     private List<InventorySlot> slots = new List<InventorySlot>();
     private const int QuickslotSize = 5;
 
+    [SerializeField] private ItemDatabase itemDatabase;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -112,10 +114,48 @@ public class InventoryManager : MonoBehaviour
         slots[indexA].SetItem(itemB);
         slots[indexB].SetItem(itemA);
     }
+
+    public void SwapItemWithSlot(int slotIndex, Item itemToPlace)
+    {
+        if (slotIndex < 0 || slotIndex >= slots.Count) return;
+        slots[slotIndex].SetItem(itemToPlace);
+    }
     public void DestroyItem(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= slots.Count) return;
 
         slots[slotIndex].ClearSlot();
+    }
+
+    public string[] GetInventoryDataForSave()
+    {
+        string[] itemNames = new string[slots.Count];
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (slots[i].HeldItem != null)
+            {
+                itemNames[i] = slots[i].HeldItem.GetItemName();
+            }
+            else
+            {
+                itemNames[i] = null;
+            }
+        }
+        return itemNames;
+    }
+
+    public void LoadInventoryData(string[] itemNames)
+    {
+        if (itemNames == null || itemNames.Length != slots.Count)
+        {
+            Debug.LogError("Failed to load inventory: Mismatched data size.");
+            return;
+        }
+
+        for (int i = 0; i < slots.Count; i++)
+        {
+            Item item = itemDatabase.GetItemByName(itemNames[i]);
+            slots[i].SetItem(item);
+        }
     }
 }

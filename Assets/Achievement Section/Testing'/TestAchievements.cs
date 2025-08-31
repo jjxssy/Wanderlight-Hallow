@@ -4,13 +4,12 @@ public class TestAchievements : MonoBehaviour
 { 
     private void Start()
     {
-        //AchievementManager.Instance.ResetAllAchievements();
+        AchievementManager.Instance.ResetAllAchievements();
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            AchievementManager.Instance.AddProgress("001", 1);
             AchievementManager.Instance.AddProgress("004", 1);
         }
         if (Input.GetKeyDown(KeyCode.Y))

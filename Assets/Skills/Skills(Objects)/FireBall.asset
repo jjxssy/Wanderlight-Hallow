@@ -20,5 +20,7 @@ MonoBehaviour:
   description: Fires a Projectile towards your mouse pointer
   statIcon: {fileID: 0}
   projectilePrefab: {fileID: 1185244260781708565, guid: 43ea8367f2695744db6242294b52df99, type: 3}
-  projectileSpeed: 10
+  projectileSpeed: 25
   damage: 10
+  pushbackForce: 0
+  orientPerpendicular: 0

@@ -1,0 +1,2544 @@
+fileFormatVersion: 2
+guid: f81793f8abaf18540b9fe5c65c9c0b1c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7759764941595164411
+    second: CuteRPG_Dungeon_Entrance_Animations01_0
+  - first:
+      213: 2105601050436283080
+    second: CuteRPG_Dungeon_Entrance_Animations01_1
+  - first:
+      213: -4290367723709644620
+    second: CuteRPG_Dungeon_Entrance_Animations01_2
+  - first:
+      213: -647808192622982631
+    second: CuteRPG_Dungeon_Entrance_Animations01_3
+  - first:
+      213: 433034073242006085
+    second: CuteRPG_Dungeon_Entrance_Animations01_4
+  - first:
+      213: 8490572782576176397
+    second: CuteRPG_Dungeon_Entrance_Animations01_5
+  - first:
+      213: 4866081864402457240
+    second: CuteRPG_Dungeon_Entrance_Animations01_6
+  - first:
+      213: 637508875936275960
+    second: CuteRPG_Dungeon_Entrance_Animations01_7
+  - first:
+      213: -563865149374458694
+    second: CuteRPG_Dungeon_Entrance_Animations01_8
+  - first:
+      213: 1094187153638219225
+    second: CuteRPG_Dungeon_Entrance_Animations01_9
+  - first:
+      213: -6183083175040034892
+    second: CuteRPG_Dungeon_Entrance_Animations01_10
+  - first:
+      213: 7068509109610154802
+    second: CuteRPG_Dungeon_Entrance_Animations01_11
+  - first:
+      213: -2655825171686047431
+    second: CuteRPG_Dungeon_Entrance_Animations01_12
+  - first:
+      213: 6088884604907655366
+    second: CuteRPG_Dungeon_Entrance_Animations01_13
+  - first:
+      213: -2483311494637488664
+    second: CuteRPG_Dungeon_Entrance_Animations01_14
+  - first:
+      213: 6951614744777881483
+    second: CuteRPG_Dungeon_Entrance_Animations01_15
+  - first:
+      213: -6479937037061253209
+    second: CuteRPG_Dungeon_Entrance_Animations01_16
+  - first:
+      213: -8135379218144111401
+    second: CuteRPG_Dungeon_Entrance_Animations01_17
+  - first:
+      213: 4893355319014760116
+    second: CuteRPG_Dungeon_Entrance_Animations01_18
+  - first:
+      213: -8953240872137700327
+    second: CuteRPG_Dungeon_Entrance_Animations01_19
+  - first:
+      213: -8287813538745416163
+    second: CuteRPG_Dungeon_Entrance_Animations01_20
+  - first:
+      213: -7482986211780898020
+    second: CuteRPG_Dungeon_Entrance_Animations01_21
+  - first:
+      213: -1643845269687914955
+    second: CuteRPG_Dungeon_Entrance_Animations01_22
+  - first:
+      213: -3903388642109562870
+    second: CuteRPG_Dungeon_Entrance_Animations01_23
+  - first:
+      213: 4325886558579546939
+    second: CuteRPG_Dungeon_Entrance_Animations01_24
+  - first:
+      213: 7308927836864892912
+    second: CuteRPG_Dungeon_Entrance_Animations01_25
+  - first:
+      213: -6053200525363013732
+    second: CuteRPG_Dungeon_Entrance_Animations01_26
+  - first:
+      213: 6042137477632254523
+    second: CuteRPG_Dungeon_Entrance_Animations01_27
+  - first:
+      213: -4452088087312394590
+    second: CuteRPG_Dungeon_Entrance_Animations01_28
+  - first:
+      213: 3782974236753127509
+    second: CuteRPG_Dungeon_Entrance_Animations01_29
+  - first:
+      213: 3742820297156123337
+    second: CuteRPG_Dungeon_Entrance_Animations01_30
+  - first:
+      213: -4000594911831018338
+    second: CuteRPG_Dungeon_Entrance_Animations01_31
+  - first:
+      213: 3760394910918636528
+    second: CuteRPG_Dungeon_Entrance_Animations01_32
+  - first:
+      213: -737542634127175908
+    second: CuteRPG_Dungeon_Entrance_Animations01_33
+  - first:
+      213: 7531786702214027939
+    second: CuteRPG_Dungeon_Entrance_Animations01_34
+  - first:
+      213: -6310680421346234703
+    second: CuteRPG_Dungeon_Entrance_Animations01_35
+  - first:
+      213: 4077946708159358326
+    second: CuteRPG_Dungeon_Entrance_Animations01_36
+  - first:
+      213: 6718521065228160449
+    second: CuteRPG_Dungeon_Entrance_Animations01_37
+  - first:
+      213: 796744765967091077
+    second: CuteRPG_Dungeon_Entrance_Animations01_38
+  - first:
+      213: -6753306485396675198
+    second: CuteRPG_Dungeon_Entrance_Animations01_39
+  - first:
+      213: 8406387069230342433
+    second: CuteRPG_Dungeon_Entrance_Animations01_40
+  - first:
+      213: -470629860713360221
+    second: CuteRPG_Dungeon_Entrance_Animations01_41
+  - first:
+      213: 3933673190586418423
+    second: CuteRPG_Dungeon_Entrance_Animations01_42
+  - first:
+      213: 3578615865635134330
+    second: CuteRPG_Dungeon_Entrance_Animations01_43
+  - first:
+      213: 5231056739524718515
+    second: CuteRPG_Dungeon_Entrance_Animations01_44
+  - first:
+      213: -7925450707526548256
+    second: CuteRPG_Dungeon_Entrance_Animations01_45
+  - first:
+      213: 5435484386187049152
+    second: CuteRPG_Dungeon_Entrance_Animations01_46
+  - first:
+      213: 5695979229972420211
+    second: CuteRPG_Dungeon_Entrance_Animations01_47
+  - first:
+      213: 6475057042461671141
+    second: CuteRPG_Dungeon_Entrance_Animations01_48
+  - first:
+      213: 338067960131333696
+    second: CuteRPG_Dungeon_Entrance_Animations01_49
+  - first:
+      213: -3697103404609245141
+    second: CuteRPG_Dungeon_Entrance_Animations01_50
+  - first:
+      213: -827971747909266926
+    second: CuteRPG_Dungeon_Entrance_Animations01_51
+  - first:
+      213: -823505685034226060
+    second: CuteRPG_Dungeon_Entrance_Animations01_52
+  - first:
+      213: -5055648240657830762
+    second: CuteRPG_Dungeon_Entrance_Animations01_53
+  - first:
+      213: -1813574703623244017
+    second: CuteRPG_Dungeon_Entrance_Animations01_54
+  - first:
+      213: 4855293617363314883
+    second: CuteRPG_Dungeon_Entrance_Animations01_55
+  - first:
+      213: -8891015975930178615
+    second: CuteRPG_Dungeon_Entrance_Animations01_56
+  - first:
+      213: 8595503567046223819
+    second: CuteRPG_Dungeon_Entrance_Animations01_57
+  - first:
+      213: -6637247942564956507
+    second: CuteRPG_Dungeon_Entrance_Animations01_58
+  - first:
+      213: -3883888906524046961
+    second: CuteRPG_Dungeon_Entrance_Animations01_59
+  - first:
+      213: -7981132453123040562
+    second: CuteRPG_Dungeon_Entrance_Animations01_60
+  - first:
+      213: 4631700522436742804
+    second: CuteRPG_Dungeon_Entrance_Animations01_61
+  - first:
+      213: -4654784752324344063
+    second: CuteRPG_Dungeon_Entrance_Animations01_62
+  - first:
+      213: 2179188227666353606
+    second: CuteRPG_Dungeon_Entrance_Animations01_63
+  - first:
+      213: -6249499769150364038
+    second: CuteRPG_Dungeon_Entrance_Animations01_64
+  - first:
+      213: 5818983895063448188
+    second: CuteRPG_Dungeon_Entrance_Animations01_65
+  - first:
+      213: 8592487686025135374
+    second: CuteRPG_Dungeon_Entrance_Animations01_66
+  - first:
+      213: -9173250308244525012
+    second: CuteRPG_Dungeon_Entrance_Animations01_67
+  - first:
+      213: 1287471330946300211
+    second: CuteRPG_Dungeon_Entrance_Animations01_68
+  - first:
+      213: -8235283814913507362
+    second: CuteRPG_Dungeon_Entrance_Animations01_69
+  - first:
+      213: -6221780630436140707
+    second: CuteRPG_Dungeon_Entrance_Animations01_70
+  - first:
+      213: 5620352384528566791
+    second: CuteRPG_Dungeon_Entrance_Animations01_71
+  - first:
+      213: 5258081210414903367
+    second: CuteRPG_Dungeon_Entrance_Animations01_72
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe3f44f91930bb60800000000000000
+      internalID: 7759764941595164411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8caa1f9dff8983d10800000000000000
+      internalID: 2105601050436283080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b04c70694d8574c0800000000000000
+      internalID: -4290367723709644620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a8e1c81e58207f0800000000000000
+      internalID: -647808192622982631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 542fa3ff132720600800000000000000
+      internalID: 433034073242006085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0d8d05f5f294d570800000000000000
+      internalID: 8490572782576176397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 892ddaf8cabc78340800000000000000
+      internalID: 4866081864402457240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fd175be1f2e8d800800000000000000
+      internalID: 637508875936275960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab4105652afbc28f0800000000000000
+      internalID: -563865149374458694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ddd6624b655f2f00800000000000000
+      internalID: 1094187153638219225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_10
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b75b079c96413aa0800000000000000
+      internalID: -6183083175040034892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_11
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23b0de9a593681260800000000000000
+      internalID: 7068509109610154802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 931cc18d31d942bd0800000000000000
+      internalID: -2655825171686047431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c09dd1b940108450800000000000000
+      internalID: 6088884604907655366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e5fc7f4a51898dd0800000000000000
+      internalID: -2483311494637488664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b877ad577c8197060800000000000000
+      internalID: 6951614744777881483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a71113d893a216a0800000000000000
+      internalID: -6479937037061253209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d4dc6544b3591f80800000000000000
+      internalID: -8135379218144111401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be94ad8cb0b8e340800000000000000
+      internalID: 4893355319014760116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_19
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91c49b3fcd2bfb380800000000000000
+      internalID: -8953240872137700327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d16086a4f75cbfc80800000000000000
+      internalID: -8287813538745416163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_21
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1357abdfa7172890800000000000000
+      internalID: -7482986211780898020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_22
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53eab8acf63ef29e0800000000000000
+      internalID: -1643845269687914955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_23
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00e3c606b064d9c0800000000000000
+      internalID: -3903388642109562870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3b55cec7e2a80c30800000000000000
+      internalID: 4325886558579546939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ffcb4da4278e6560800000000000000
+      internalID: 7308927836864892912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_26
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9797838136befba0800000000000000
+      internalID: -6053200525363013732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_27
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b326856f50cf9d350800000000000000
+      internalID: 6042137477632254523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a61ff609710732c0800000000000000
+      internalID: -4452088087312394590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_29
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 558ef187603df7430800000000000000
+      internalID: 3782974236753127509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_30
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cadc1eda3b21f330800000000000000
+      internalID: 3742820297156123337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_31
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94b31eaf180b78c0800000000000000
+      internalID: -4000594911831018338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f3fd708f3b9f2430800000000000000
+      internalID: 3760394910918636528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_33
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1fc426c1e8b3c5f0800000000000000
+      internalID: -737542634127175908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_34
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa5a7db918468860800000000000000
+      internalID: 7531786702214027939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_35
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1be25aa9795fb68a0800000000000000
+      internalID: -6310680421346234703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 675efc8dce6c79830800000000000000
+      internalID: 4077946708159358326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_37
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd47e4005bfc3d50800000000000000
+      internalID: 6718521065228160449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_38
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 585ce10b42b9e0b00800000000000000
+      internalID: 796744765967091077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_39
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 285e696388f6742a0800000000000000
+      internalID: -6753306485396675198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_40
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12169e1208c79a470800000000000000
+      internalID: 8406387069230342433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_41
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a41d7b92acf779f0800000000000000
+      internalID: -470629860713360221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f48163ece6379630800000000000000
+      internalID: 3933673190586418423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_43
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b52c26b2cc9a130800000000000000
+      internalID: 3578615865635134330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_44
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfa847a362789840800000000000000
+      internalID: 5231056739524718515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_45
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e403058294230290800000000000000
+      internalID: -7925450707526548256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_46
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c87cd43048be6b40800000000000000
+      internalID: 5435484386187049152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_47
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 376528a5eee2c0f40800000000000000
+      internalID: 5695979229972420211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eeb154e2160cd950800000000000000
+      internalID: 6475057042461671141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_49
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04ea191c40f01b400800000000000000
+      internalID: 338067960131333696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_50
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b20f066aa0041bcc0800000000000000
+      internalID: -3697103404609245141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_51
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2121fc105147284f0800000000000000
+      internalID: -827971747909266926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_52
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e250d41f15294f0800000000000000
+      internalID: -823505685034226060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_53
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69ce24a06bab6d9b0800000000000000
+      internalID: -5055648240657830762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_54
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f07f6e07a63e4d6e0800000000000000
+      internalID: -1813574703623244017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_55
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c8692f02d7716340800000000000000
+      internalID: 4855293617363314883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_56
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c3db569314cc9480800000000000000
+      internalID: -8891015975930178615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_57
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc7a46b04fc594770800000000000000
+      internalID: 8595503567046223819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_58
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a639317922c3e3a0800000000000000
+      internalID: -6637247942564956507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_59
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f89cd830e97a91ac0800000000000000
+      internalID: -3883888906524046961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca524ad1525d3190800000000000000
+      internalID: -7981132453123040562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_61
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49e45d9d51b174040800000000000000
+      internalID: 4631700522436742804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_62
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1078dcb0ee1e66fb0800000000000000
+      internalID: -4654784752324344063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_63
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd14c0b5280e3e10800000000000000
+      internalID: 2179188227666353606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_64
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7628eb32115549a0800000000000000
+      internalID: -6249499769150364038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_65
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ac9f2b50f21c050800000000000000
+      internalID: 5818983895063448188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_66
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0542768606ae3770800000000000000
+      internalID: 8592487686025135374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_67
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c20b755527112b080800000000000000
+      internalID: -9173250308244525012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_68
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 339bd8baa540ed110800000000000000
+      internalID: 1287471330946300211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_69
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf7e83b00566bd80800000000000000
+      internalID: -8235283814913507362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_70
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d59a2742b7bc7a9a0800000000000000
+      internalID: -6221780630436140707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_71
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a485047b08ffd40800000000000000
+      internalID: 5620352384528566791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 740bfea900578f840800000000000000
+      internalID: 5258081210414903367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_73
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d48a13a3ee016b40bb834be215ea02b
+      internalID: -1192805293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_74
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010f0a59ceb796b42b359cab6ca1e776
+      internalID: 1590999904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_75
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118b3e550096e244bbbe367f412613c3
+      internalID: -807329906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_76
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4ad689b0fa4894da9e68a9350770c2
+      internalID: -413036712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_77
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7be63fe007231e47adf4ddb18b86eb1
+      internalID: -1002121922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_78
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f916029d638ba4287210ba65406faa
+      internalID: -2049893434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_79
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d929067ecd3454f9188bf34f6d2b72
+      internalID: -1767377002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_80
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2abcf0e525a3d0a49968c32f03658bc0
+      internalID: 204175661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_81
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 872578abf9e62ff4aa23ddc919789f63
+      internalID: -1560484564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_82
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e4fc442a4a05cc4288ae6e035bd77d3
+      internalID: 1288245355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_83
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f702c6a2c318a458a2465c9bcc6770
+      internalID: -136992891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3abaa3089d71956408723ee3c56d36f7
+      internalID: 2139477010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_85
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab1b4096867a0748949e9db684ed95f
+      internalID: -535783349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_86
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb8e356af9194e34b9e4cafb1da0a52d
+      internalID: -1637207442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_87
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a5ea7b66aeb6b428b5c578193cf98f
+      internalID: -334837093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_88
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f85436a55ff19b478b12b7df2d61085
+      internalID: 153500857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_89
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9851600c394074db5082acb8e63039
+      internalID: -1772308482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_90
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a655284f63d874fae99666539287d5
+      internalID: 1918431155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_91
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9717b7d67c71f1541bd171b9b361c37c
+      internalID: 436992372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_92
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0bac21cb06f8b48a90db35391afbb2
+      internalID: 115926232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_93
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb9bc46c56bf684f800445cb6cd66fb
+      internalID: -1836640506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_94
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67817479b1c8ab409e0893186158b57
+      internalID: 1849965086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_Entrance_Animations01_95
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef2746cfc1af9245a120fad4f8c9098
+      internalID: 331841373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 539e2f47c6ce43743b16832643c4e892
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CuteRPG_Dungeon_Entrance_Animations01_0: 7759764941595164411
+      CuteRPG_Dungeon_Entrance_Animations01_1: 2105601050436283080
+      CuteRPG_Dungeon_Entrance_Animations01_10: -6183083175040034892
+      CuteRPG_Dungeon_Entrance_Animations01_11: 7068509109610154802
+      CuteRPG_Dungeon_Entrance_Animations01_12: -2655825171686047431
+      CuteRPG_Dungeon_Entrance_Animations01_13: 6088884604907655366
+      CuteRPG_Dungeon_Entrance_Animations01_14: -2483311494637488664
+      CuteRPG_Dungeon_Entrance_Animations01_15: 6951614744777881483
+      CuteRPG_Dungeon_Entrance_Animations01_16: -6479937037061253209
+      CuteRPG_Dungeon_Entrance_Animations01_17: -8135379218144111401
+      CuteRPG_Dungeon_Entrance_Animations01_18: 4893355319014760116
+      CuteRPG_Dungeon_Entrance_Animations01_19: -8953240872137700327
+      CuteRPG_Dungeon_Entrance_Animations01_2: -4290367723709644620
+      CuteRPG_Dungeon_Entrance_Animations01_20: -8287813538745416163
+      CuteRPG_Dungeon_Entrance_Animations01_21: -7482986211780898020
+      CuteRPG_Dungeon_Entrance_Animations01_22: -1643845269687914955
+      CuteRPG_Dungeon_Entrance_Animations01_23: -3903388642109562870
+      CuteRPG_Dungeon_Entrance_Animations01_24: 4325886558579546939
+      CuteRPG_Dungeon_Entrance_Animations01_25: 7308927836864892912
+      CuteRPG_Dungeon_Entrance_Animations01_26: -6053200525363013732
+      CuteRPG_Dungeon_Entrance_Animations01_27: 6042137477632254523
+      CuteRPG_Dungeon_Entrance_Animations01_28: -4452088087312394590
+      CuteRPG_Dungeon_Entrance_Animations01_29: 3782974236753127509
+      CuteRPG_Dungeon_Entrance_Animations01_3: -647808192622982631
+      CuteRPG_Dungeon_Entrance_Animations01_30: 3742820297156123337
+      CuteRPG_Dungeon_Entrance_Animations01_31: -4000594911831018338
+      CuteRPG_Dungeon_Entrance_Animations01_32: 3760394910918636528
+      CuteRPG_Dungeon_Entrance_Animations01_33: -737542634127175908
+      CuteRPG_Dungeon_Entrance_Animations01_34: 7531786702214027939
+      CuteRPG_Dungeon_Entrance_Animations01_35: -6310680421346234703
+      CuteRPG_Dungeon_Entrance_Animations01_36: 4077946708159358326
+      CuteRPG_Dungeon_Entrance_Animations01_37: 6718521065228160449
+      CuteRPG_Dungeon_Entrance_Animations01_38: 796744765967091077
+      CuteRPG_Dungeon_Entrance_Animations01_39: -6753306485396675198
+      CuteRPG_Dungeon_Entrance_Animations01_4: 433034073242006085
+      CuteRPG_Dungeon_Entrance_Animations01_40: 8406387069230342433
+      CuteRPG_Dungeon_Entrance_Animations01_41: -470629860713360221
+      CuteRPG_Dungeon_Entrance_Animations01_42: 3933673190586418423
+      CuteRPG_Dungeon_Entrance_Animations01_43: 3578615865635134330
+      CuteRPG_Dungeon_Entrance_Animations01_44: 5231056739524718515
+      CuteRPG_Dungeon_Entrance_Animations01_45: -7925450707526548256
+      CuteRPG_Dungeon_Entrance_Animations01_46: 5435484386187049152
+      CuteRPG_Dungeon_Entrance_Animations01_47: 5695979229972420211
+      CuteRPG_Dungeon_Entrance_Animations01_48: 6475057042461671141
+      CuteRPG_Dungeon_Entrance_Animations01_49: 338067960131333696
+      CuteRPG_Dungeon_Entrance_Animations01_5: 8490572782576176397
+      CuteRPG_Dungeon_Entrance_Animations01_50: -3697103404609245141
+      CuteRPG_Dungeon_Entrance_Animations01_51: -827971747909266926
+      CuteRPG_Dungeon_Entrance_Animations01_52: -823505685034226060
+      CuteRPG_Dungeon_Entrance_Animations01_53: -5055648240657830762
+      CuteRPG_Dungeon_Entrance_Animations01_54: -1813574703623244017
+      CuteRPG_Dungeon_Entrance_Animations01_55: 4855293617363314883
+      CuteRPG_Dungeon_Entrance_Animations01_56: -8891015975930178615
+      CuteRPG_Dungeon_Entrance_Animations01_57: 8595503567046223819
+      CuteRPG_Dungeon_Entrance_Animations01_58: -6637247942564956507
+      CuteRPG_Dungeon_Entrance_Animations01_59: -3883888906524046961
+      CuteRPG_Dungeon_Entrance_Animations01_6: 4866081864402457240
+      CuteRPG_Dungeon_Entrance_Animations01_60: -7981132453123040562
+      CuteRPG_Dungeon_Entrance_Animations01_61: 4631700522436742804
+      CuteRPG_Dungeon_Entrance_Animations01_62: -4654784752324344063
+      CuteRPG_Dungeon_Entrance_Animations01_63: 2179188227666353606
+      CuteRPG_Dungeon_Entrance_Animations01_64: -6249499769150364038
+      CuteRPG_Dungeon_Entrance_Animations01_65: 5818983895063448188
+      CuteRPG_Dungeon_Entrance_Animations01_66: 8592487686025135374
+      CuteRPG_Dungeon_Entrance_Animations01_67: -9173250308244525012
+      CuteRPG_Dungeon_Entrance_Animations01_68: 1287471330946300211
+      CuteRPG_Dungeon_Entrance_Animations01_69: -8235283814913507362
+      CuteRPG_Dungeon_Entrance_Animations01_7: 637508875936275960
+      CuteRPG_Dungeon_Entrance_Animations01_70: -6221780630436140707
+      CuteRPG_Dungeon_Entrance_Animations01_71: 5620352384528566791
+      CuteRPG_Dungeon_Entrance_Animations01_72: 5258081210414903367
+      CuteRPG_Dungeon_Entrance_Animations01_73: -1192805293
+      CuteRPG_Dungeon_Entrance_Animations01_74: 1590999904
+      CuteRPG_Dungeon_Entrance_Animations01_75: -807329906
+      CuteRPG_Dungeon_Entrance_Animations01_76: -413036712
+      CuteRPG_Dungeon_Entrance_Animations01_77: -1002121922
+      CuteRPG_Dungeon_Entrance_Animations01_78: -2049893434
+      CuteRPG_Dungeon_Entrance_Animations01_79: -1767377002
+      CuteRPG_Dungeon_Entrance_Animations01_8: -563865149374458694
+      CuteRPG_Dungeon_Entrance_Animations01_80: 204175661
+      CuteRPG_Dungeon_Entrance_Animations01_81: -1560484564
+      CuteRPG_Dungeon_Entrance_Animations01_82: 1288245355
+      CuteRPG_Dungeon_Entrance_Animations01_83: -136992891
+      CuteRPG_Dungeon_Entrance_Animations01_84: 2139477010
+      CuteRPG_Dungeon_Entrance_Animations01_85: -535783349
+      CuteRPG_Dungeon_Entrance_Animations01_86: -1637207442
+      CuteRPG_Dungeon_Entrance_Animations01_87: -334837093
+      CuteRPG_Dungeon_Entrance_Animations01_88: 153500857
+      CuteRPG_Dungeon_Entrance_Animations01_89: -1772308482
+      CuteRPG_Dungeon_Entrance_Animations01_9: 1094187153638219225
+      CuteRPG_Dungeon_Entrance_Animations01_90: 1918431155
+      CuteRPG_Dungeon_Entrance_Animations01_91: 436992372
+      CuteRPG_Dungeon_Entrance_Animations01_92: 115926232
+      CuteRPG_Dungeon_Entrance_Animations01_93: -1836640506
+      CuteRPG_Dungeon_Entrance_Animations01_94: 1849965086
+      CuteRPG_Dungeon_Entrance_Animations01_95: 331841373
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

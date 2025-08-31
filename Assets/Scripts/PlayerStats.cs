@@ -6,7 +6,7 @@ using System.Collections;
 /// <summary>
 /// Handles player health, stats, damage, and death behavior.
 /// </summary>
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDamageable
 {
     [Header("Health")]
     [SerializeField] private int maxHealth = 10;
@@ -123,7 +123,7 @@ public class PlayerStats : MonoBehaviour
     private void PlayerDied()
     {
         OnDied?.Invoke();
-
+        StatisticsManager.Increase("deathCount");
         Animator anim = GetComponent<Animator>();
         if (anim != null)
         {

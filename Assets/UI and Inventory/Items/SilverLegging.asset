@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97a09b49a8fb164193e0185e28ec5da, type: 3}
+  m_Name: SilverLegging
+  m_EditorClassIdentifier: 
+  itemName: SilverLegging
+  description: +4 defense
+  icon: {fileID: 4113829005332862926, guid: 2a30c335eb8c7bc4fab725b307cd4685, type: 3}
+  itemType: 2
+  equipmentType: 3

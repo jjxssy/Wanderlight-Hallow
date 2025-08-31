@@ -144,6 +144,8 @@ public class Slime : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        AchievementManager.Instance.AddProgress("001", 1);
+        StatisticsManager.Increase("enemiesKilled");
         anim.SetTrigger("Die");
 
         StopAllCoroutines();
