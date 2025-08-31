@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d66131d280c7eb43b7013158c65d45f, type: 3}
+  m_Name: BossProjectile
+  m_EditorClassIdentifier: 
+  skillName: FireBall
+  skillIcon: {fileID: 3459012821031736751, guid: ac6231c12f0ee4d0ebed77c8e672a8fb, type: 3}
+  cooldown: 1
+  vfxPrefab: {fileID: 0}
+  animationTrigger: 
+  description: Fires a Projectile towards your mouse pointer
+  statIcon: {fileID: 0}
+  projectilePrefab: {fileID: 1185244260781708565, guid: 147661170b41ee1428fc39ba795970c1, type: 3}
+  projectileSpeed: 40
+  damage: 3
+  pushbackForce: 0
+  orientPerpendicular: 1

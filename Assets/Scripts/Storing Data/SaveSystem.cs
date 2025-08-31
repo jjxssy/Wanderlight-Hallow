@@ -2,72 +2,36 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public static class SaveSystem 
+public static class SaveSystem
 {
-    public static void SavePlayer1(PlayerStats stats)
+    // A single save method that takes a slot index and all required data managers
+    public static void SavePlayer(PlayerStats stats, InventoryManager invManager, WorldItemManager itemManager, EquipmentManager equipManager, int slotIndex)
     {
-        PlayerPrefs.SetInt("SavedLevel1", 1);
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player.firstSave";
+        string path = GetPathFromSlotIndex(slotIndex);
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(stats);
+        // This line now correctly passes all three required arguments
+        PlayerData data = new PlayerData(stats, invManager, itemManager, equipManager);
 
         formatter.Serialize(stream, data);
         stream.Close();
+
+        PlayerPrefs.SetInt("SavedLevel" + slotIndex, 1);
     }
 
-    public static PlayerData LoadPlayer1()
+    // A single load method
+    public static PlayerData LoadPlayer(int slotIndex)
     {
-        string path = Application.persistentDataPath + "/player.firstSave";
-        if (File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path,FileMode.Open);
-
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
-
-            stream.Close();
-            return data;
-
-        }
-        else
-        {
-            Debug.LogError("Save file not found in " +  path);
-            return null;
-        }
-    }
-    public static void DeletePlayer1()
-    {
-        PlayerPrefs.DeleteKey("SavedLevel1");
-    }
-
-    public static void SavePlayer2(PlayerStats stats)
-    {
-        PlayerPrefs.SetInt("SavedLevel2", 1);
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player.secondSave";
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        PlayerData data = new PlayerData(stats);
-
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
-
-    public static PlayerData LoadPlayer2()
-    {
-        string path = Application.persistentDataPath + "/player.secondSave";
+        string path = GetPathFromSlotIndex(slotIndex);
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
-
             stream.Close();
             return data;
-
         }
         else
         {
@@ -75,46 +39,21 @@ public static class SaveSystem
             return null;
         }
     }
-    public static void DeletePlayer2()
+
+    // A single delete method
+    public static void DeletePlayer(int slotIndex)
     {
-        PlayerPrefs.DeleteKey("SavedLevel2");
-    }
-
-    public static void SavePlayer3(PlayerStats stats)
-    {
-
-        PlayerPrefs.SetInt("SavedLevel3", 1);
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player.thirdSave";
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        PlayerData data = new PlayerData(stats);
-
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
-    public static PlayerData LoadPlayer3()
-    {
-        string path = Application.persistentDataPath + "/player.thirdSave";
+        string path = GetPathFromSlotIndex(slotIndex);
         if (File.Exists(path))
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
-
-            stream.Close();
-            return data;
-
+            File.Delete(path);
         }
-        else
-        {
-            Debug.LogError("Save file not found in " + path);
-            return null;
-        }
+        PlayerPrefs.DeleteKey("SavedLevel" + slotIndex);
     }
-    public static void DeletePlayer3()
+
+    // Helper method to get the file path based on slot number
+    private static string GetPathFromSlotIndex(int slotIndex)
     {
-        PlayerPrefs.DeleteKey("SavedLevel3");
+        return Application.persistentDataPath + "/player.save" + slotIndex;
     }
 }

@@ -1,30 +1,33 @@
 using UnityEngine;
 
-// Attach this script to a prefab that represents an item on the ground.
-[RequireComponent(typeof(SpriteRenderer))]
 public class ItemWorld : MonoBehaviour
 {
-    // The actual item data this world object represents.
     [SerializeField] private Item itemData;
+
+    // --- NEW ---
+    [Tooltip("A unique ID for this specific item instance in the world. Generate one from the context menu.")]
+    [SerializeField] private string itemInstanceId;
+
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    // Call this after instantiating the prefab to set which item it is.
-    public void SetItem(Item item)
-    {
-        this.itemData = item;
-        if (spriteRenderer != null)
+        if (itemData != null)
         {
-            spriteRenderer.sprite = item.GetIcon();
+            spriteRenderer.sprite = itemData.GetIcon();
         }
+        // Register this item with the manager when it's created
+        WorldItemManager.instance?.RegisterItem(this);
     }
 
-    public Item GetItem()
+    public Item GetItemData() => itemData;
+    public string GetSaveID() => itemInstanceId;
+
+    // This lets you generate a new ID from the Inspector
+    [ContextMenu("Generate GUID for itemInstanceId")]
+    private void GenerateGuid()
     {
-        return itemData;
+        itemInstanceId = System.Guid.NewGuid().ToString();
     }
 }

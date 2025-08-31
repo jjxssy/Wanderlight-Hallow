@@ -1,0 +1,642 @@
+fileFormatVersion: 2
+guid: 1c509614ba8cc1f418ce797c98356767
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3447334232940663302
+    second: CuteRPG_Dungeon_B_0
+  - first:
+      213: 1592924351014776611
+    second: CuteRPG_Dungeon_B_1
+  - first:
+      213: 3024138298621248072
+    second: CuteRPG_Dungeon_B_2
+  - first:
+      213: 1341180106035787681
+    second: CuteRPG_Dungeon_B_3
+  - first:
+      213: 8835050691805648297
+    second: CuteRPG_Dungeon_B_4
+  - first:
+      213: 5233061893993338645
+    second: CuteRPG_Dungeon_B_5
+  - first:
+      213: -498850430593096965
+    second: CuteRPG_Dungeon_B_6
+  - first:
+      213: 5278828375236794687
+    second: CuteRPG_Dungeon_B_7
+  - first:
+      213: 4458635970382579907
+    second: CuteRPG_Dungeon_B_8
+  - first:
+      213: 8020990749175054085
+    second: CuteRPG_Dungeon_B_9
+  - first:
+      213: 8103422311331834400
+    second: CuteRPG_Dungeon_B_10
+  - first:
+      213: 5014404147211356374
+    second: CuteRPG_Dungeon_B_11
+  - first:
+      213: -6372215776027739334
+    second: CuteRPG_Dungeon_B_12
+  - first:
+      213: 9165649949471046476
+    second: CuteRPG_Dungeon_B_13
+  - first:
+      213: 2934995374334183482
+    second: CuteRPG_Dungeon_B_14
+  - first:
+      213: 3720529710996012457
+    second: CuteRPG_Dungeon_B_15
+  - first:
+      213: -5261127638274181023
+    second: CuteRPG_Dungeon_B_16
+  - first:
+      213: -887893661652025776
+    second: CuteRPG_Dungeon_B_17
+  - first:
+      213: 1872628146444933561
+    second: CuteRPG_Dungeon_B_18
+  - first:
+      213: 338844139611695305
+    second: CuteRPG_Dungeon_B_19
+  - first:
+      213: 1513215461973361615
+    second: CuteRPG_Dungeon_B_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 529
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 602d878583467df20800000000000000
+      internalID: 3447334232940663302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_1
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 731
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f2e40f1443b1610800000000000000
+      internalID: 1592924351014776611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_2
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 731
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84249f092c5e7f920800000000000000
+      internalID: 3024138298621248072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_3
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 731
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a775185334dc9210800000000000000
+      internalID: 1341180106035787681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_4
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 671
+        width: 97
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a515a94bc76c9a70800000000000000
+      internalID: 8835050691805648297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_5
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 671
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5171b1f01129f9840800000000000000
+      internalID: 5233061893993338645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_6
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 671
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf2a2782d2ab319f0800000000000000
+      internalID: -498850430593096965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_7
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 671
+        width: 35
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f39dd38507a224940800000000000000
+      internalID: 5278828375236794687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_8
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 599
+        width: 80
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c8ce6dcac140ed30800000000000000
+      internalID: 4458635970382579907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_9
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 599
+        width: 80
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50ff54fd698405f60800000000000000
+      internalID: 8020990749175054085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_10
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 527
+        width: 80
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02aa8eb88a3257070800000000000000
+      internalID: 8103422311331834400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_11
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 431
+        width: 136
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d847c2210eb69540800000000000000
+      internalID: 5014404147211356374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_12
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 491
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3bf9bd53875197a0800000000000000
+      internalID: -6372215776027739334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_13
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 491
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4b7ccd311ee23f70800000000000000
+      internalID: 9165649949471046476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_14
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 491
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a388a902eb23bb820800000000000000
+      internalID: 2934995374334183482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_15
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 431
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ad34385f0af1a330800000000000000
+      internalID: 3720529710996012457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_16
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 431
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1687da2a948bcf6b0800000000000000
+      internalID: -5261127638274181023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_17
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 431
+        width: 35
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05ef8e24b619da3f0800000000000000
+      internalID: -887893661652025776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_18
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 359
+        width: 80
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b99f39a069ecf910800000000000000
+      internalID: 1872628146444933561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_19
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 359
+        width: 80
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c827cf13f0d3b400800000000000000
+      internalID: 338844139611695305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CuteRPG_Dungeon_B_20
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 0
+        width: 241
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc30d8ff175000510800000000000000
+      internalID: 1513215461973361615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

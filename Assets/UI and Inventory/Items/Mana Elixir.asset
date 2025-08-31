@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Mana Elixir
   m_EditorClassIdentifier: 
   itemName: Mana Elixir
-  description: Restores 20 mana
+  description: 'Also Restores 5 HP
+
+'
   icon: {fileID: 3351649379776122592, guid: 1109ab82e13697041a46907e4f15f079, type: 3}
   itemType: 1
   equipmentType: 0

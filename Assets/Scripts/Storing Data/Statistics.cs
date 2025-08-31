@@ -1,54 +1,80 @@
 using UnityEngine;
-
-public static class Statistics 
+using System.Collections.Generic;
+using System.Linq;
+public static class StatisticsManager
 {
-    //===== All Stats =====//
-    //Death
-    //Kills
-    //Score
-    //Achievements
-    //==== You can add other Statistics Here ====//
+    private const string StatPrefix = "stat_";
+    private const string MasterListKey = "STAT_MASTER_LIST";
+    private static List<string> _statKeys;
 
-    public static int GetDeathStats()
+    private static void LoadStatKeys()
     {
-        return PlayerPrefs.GetInt("DeathStats", 0);
-    }
-    public static void IncreaseDeathStats()
-    {
-        PlayerPrefs.SetInt("DeathStats", GetDeathStats() + 1);
-    }
-
-    public static int GetKillStats()
-    {
-        return PlayerPrefs.GetInt("KillStats", 0);
-    }
-    public static void IncreaseKillStats()
-    {
-        PlayerPrefs.SetInt("KillStats", GetKillStats()+1);
+        if (_statKeys == null)
+        {
+            string rawList = PlayerPrefs.GetString(MasterListKey, "");
+            if (string.IsNullOrEmpty(rawList))
+            {
+                _statKeys = new List<string>();
+            }
+            else
+            {
+                _statKeys = rawList.Split(',').ToList();
+            }
+        }
     }
 
-    public static int GetScoreStats()
+
+    private static void RegisterStat(string statName)
     {
-        return PlayerPrefs.GetInt("ScoreStats", 0);
-    }
-    public static void IncreaseScoreStats(int amount)
-    {
-         PlayerPrefs.SetInt("ScoreStats", GetScoreStats() + amount);
+        LoadStatKeys();
+        if (!_statKeys.Contains(statName))
+        {
+            _statKeys.Add(statName);
+            string rawList = string.Join(",", _statKeys);
+            PlayerPrefs.SetString(MasterListKey, rawList);
+        }
     }
 
-    public static int GetAchievementStats()
+
+    public static int Get(string statName)
     {
-        return PlayerPrefs.GetInt("AchievementStats", 0);
+        return PlayerPrefs.GetInt(StatPrefix + statName, 0);
     }
-    public static void IncreaseAchievementStats()
+
+    public static void Set(string statName, int value)
     {
-        PlayerPrefs.GetInt("AchievementStats", GetAchievementStats() + 1);
+        RegisterStat(statName); 
+        PlayerPrefs.SetInt(StatPrefix + statName, value);
+    }
+
+
+    public static void Increase(string statName, int amount = 1)
+    {
+        RegisterStat(statName);
+        int currentValue = Get(statName);
+        PlayerPrefs.SetInt(StatPrefix + statName, currentValue + amount);
+    }
+
+    public static void Reset(string statName)
+    {
+        PlayerPrefs.SetInt(StatPrefix + statName, 0);
     }
 
     public static void ClearAllStats()
     {
-        PlayerPrefs.DeleteAll();
+        LoadStatKeys();
+        foreach (string key in _statKeys)
+        {
+            PlayerPrefs.DeleteKey(StatPrefix + key);
+        }
+
+        PlayerPrefs.DeleteKey(MasterListKey);
+        _statKeys.Clear();
+
+        Debug.Log("All game statistics have been cleared.");
     }
-
-
+    public static void Save()
+    {
+        PlayerPrefs.Save();
+    }
 }

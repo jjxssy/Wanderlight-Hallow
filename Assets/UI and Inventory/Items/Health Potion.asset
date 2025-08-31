@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Health Potion
   m_EditorClassIdentifier: 
   itemName: Health Potion
-  description: Restores 25 health
+  description: Restores 5 health
   icon: {fileID: -6773281660288717098, guid: 26f9e83ea4232724689a83de7feec6b5, type: 3}
   itemType: 1
   equipmentType: 0

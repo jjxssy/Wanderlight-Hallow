@@ -25,6 +25,7 @@ public class AchievementManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject); 
         InitializeAchievements();
+        SaveSystem.DeletePlayer(0);
     }
 
     private void InitializeAchievements()
@@ -100,7 +101,6 @@ public class AchievementManager : MonoBehaviour
             achievement.currentProgress = PlayerPrefs.GetInt(progressKey);
         }
 
-        // The 'if' block that was causing the problem has been removed from here.
         if (PlayerPrefs.HasKey(unlockedKey))
         {
             achievement.isUnlocked = PlayerPrefs.GetInt(unlockedKey) == 1;

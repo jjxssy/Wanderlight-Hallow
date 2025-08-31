@@ -7,15 +7,15 @@ public enum ItemType
     Equipment
 }
 
+// UPDATE: Add more specific types for our new slots.
 public enum EquipmentType
 {
     None,
     Helmet,
     Chestplate,
-    Leggings,
-    Boots,
+    Legs,
     Weapon,
-    Shield
+    Accessory // For rings, amulets, etc.
 }
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
@@ -30,27 +30,24 @@ public class Item : ScriptableObject
     [SerializeField] private ItemType itemType = ItemType.Default;
     [SerializeField] private EquipmentType equipmentType = EquipmentType.None;
 
+    // ... existing methods (GetItemName, GetDescription, etc.) remain the same ...
     public string GetItemName() => itemName;
     public string GetDescription() => description;
-
     public Sprite GetIcon() => icon;
     public ItemType GetItemType() => itemType;
     public EquipmentType GetEquipmentType() => equipmentType;
+
     public virtual void Use()
     {
-        switch (itemType)
+        // This is where you would call an EquipmentManager to handle equipping.
+        if (itemType == ItemType.Equipment)
         {
-            case ItemType.Consumable:
-                Debug.Log($"Used consumable: {itemName}");
-                // Add logic for health potions, mana, etc.
-                break;
-            case ItemType.Equipment:
-                Debug.Log($"Equipped: {itemName}");
-                // This would typically call an EquipmentManager to handle equipping it.
-                break;
-            default:
-                Debug.Log($"Cannot use item of type Default: {itemName}");
-                break;
+            // We can add a call here later if needed.
+            Debug.Log($"Equipping {itemName}");
+        }
+        else
+        {
+            FindFirstObjectByType<PlayerStats>().Heal(5);
         }
     }
 }

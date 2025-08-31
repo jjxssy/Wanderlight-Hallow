@@ -14,7 +14,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
     public int SlotIndex { get; private set; }
 
     private GameObject _dragIconInstance;
-    private static InventorySlot _draggedSlot; // Static reference to the slot being dragged
+    private static InventorySlot _draggedSlot; 
 
     public static InventorySlot DraggedSlot => _draggedSlot;
 
@@ -67,11 +67,9 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
 
     public void OnDrop(PointerEventData eventData)
     {
-        // Check if an item was being dragged from another valid slot.
-        if (_draggedSlot != null && _draggedSlot != this)
+        if (DraggedSlot != null)
         {
-            // Tell the manager to swap the items logically.
-            InventoryManager.instance.SwapItems(_draggedSlot.SlotIndex, this.SlotIndex);
+            InventoryManager.instance.SwapItems(DraggedSlot.SlotIndex, this.SlotIndex);
         }
     }
 
