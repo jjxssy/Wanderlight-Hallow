@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: IceWall
   m_EditorClassIdentifier: 
   skillName: IceWall
-  skillIcon: {fileID: -867568935241097962, guid: bd24f17a9d1e897479b052eb3cae72db, type: 3}
-  cooldown: 2
-  vfxPrefab: {fileID: 0}
+  skillIcon: {fileID: -4721245407534591264, guid: e666086aa5653474e9c476ad14a8f4df, type: 3}
+  cooldown: 3
+  vfxPrefab: {fileID: 6407910332024560406, guid: b8477c131178cb14eb363650d5bc5952, type: 3}
   animationTrigger: 
   description: Fires ICE towards your mouse pointer
   statIcon: {fileID: 0}

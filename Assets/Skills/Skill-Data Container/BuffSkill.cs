@@ -18,6 +18,12 @@ public class BuffSkill : Skill
             return;
         }
 
+        if (vfxPrefab != null)
+        {
+            GameObject vfxObj = Instantiate(vfxPrefab,user.transform);
+            vfxObj.transform.position = user.transform.position;
+            Destroy(vfxObj, 1);
+        }
         //If duration is 0, it's an instant effect like healing
         if (duration <= 0)
         {

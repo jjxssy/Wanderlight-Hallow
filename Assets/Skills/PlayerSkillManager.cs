@@ -110,11 +110,6 @@ public class PlayerSkillManager : MonoBehaviour
 
             skill.Activate(gameObject);
 
-            if (skill.vfxPrefab != null)
-            {
-                Instantiate(skill.vfxPrefab, transform.position, Quaternion.identity);
-            }
-
             cooldownTimers[skill] = Time.time + skill.cooldown;
 
             // Tell the UI slot to start its cooldown visual

@@ -106,21 +106,18 @@ public class BossEnemy : MonoBehaviour, IDamageable
                     case BossState.Chasing:
                         if (Time.time >= lastAttackTime + attackCooldown)
                         {
-                            rb.linearVelocity = Vector2.zero;
                             yield return StartCoroutine(RangedAttack());
                         }
-                        else
-                        {
-                            rb.linearVelocity = (playerTransform.position - transform.position).normalized * moveSpeed;
-                        }
+                        rb.linearVelocity = (playerTransform.position - transform.position).normalized * moveSpeed;
+                        break;
+
+                    case BossState.Attacking:
+                        rb.linearVelocity = (playerTransform.position - transform.position).normalized * moveSpeed;
                         break;
                 }
             }
             else
             {
-                // --- PHASE 2 MOVEMENT LOGIC ---
-                // In Phase 2, the AI is simple: always chase the player.
-                // The attack is handled by a separate, parallel coroutine.
                 rb.linearVelocity = (playerTransform.position - transform.position).normalized * moveSpeed;
             }
             yield return null;
@@ -136,11 +133,17 @@ public class BossEnemy : MonoBehaviour, IDamageable
 
         if (bossProjectileSkill != null && projectileSpawnPoint != null)
         {
-            Vector2 direction = (playerTransform.position - projectileSpawnPoint.position).normalized;
             GameObject projGO = Instantiate(bossProjectileSkill.projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+
+            if (bossProjectileSkill.vfxPrefab != null)
+            {
+                Instantiate(bossProjectileSkill.vfxPrefab, projGO.transform.position, projGO.transform.rotation, projGO.transform);
+            }
+
             Projectile projectile = projGO.GetComponent<Projectile>();
             if (projectile != null)
             {
+                Vector2 direction = (playerTransform.position - projectileSpawnPoint.position).normalized;
                 projectile.Initialize(direction, bossProjectileSkill.projectileSpeed, bossProjectileSkill.damage, 0, bossProjectileSkill.orientPerpendicular);
             }
         }
@@ -149,7 +152,6 @@ public class BossEnemy : MonoBehaviour, IDamageable
         currentState = BossState.Idle;
     }
 
-    // This new coroutine runs independently to handle the Phase 2 attack
     private IEnumerator PhaseTwoAttackRoutine()
     {
         while (currentState != BossState.Dead)
@@ -163,7 +165,8 @@ public class BossEnemy : MonoBehaviour, IDamageable
 
             for (int i = 0; i < numberOfProjectiles; i++)
             {
-                if (currentState == BossState.Dead) break; // Stop shooting if the boss dies mid-attack
+                if (currentState == BossState.Dead) break; 
+
 
                 float currentAngle = i * angleStep;
                 Vector2 direction = new Vector2(Mathf.Sin(currentAngle * Mathf.Deg2Rad), Mathf.Cos(currentAngle * Mathf.Deg2Rad));
@@ -171,6 +174,10 @@ public class BossEnemy : MonoBehaviour, IDamageable
                 if (bossProjectileSkill != null && projectileSpawnPoint != null)
                 {
                     GameObject projGO = Instantiate(bossProjectileSkill.projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+                    if (bossProjectileSkill.vfxPrefab != null)
+                    {
+                        Instantiate(bossProjectileSkill.vfxPrefab, projGO.transform.position, projGO.transform.rotation, projGO.transform);
+                    }
                     Projectile projectile = projGO.GetComponent<Projectile>();
                     if (projectile != null)
                     {
