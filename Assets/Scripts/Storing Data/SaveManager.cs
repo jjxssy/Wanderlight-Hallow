@@ -58,8 +58,8 @@ public class SaveManager : MonoBehaviour
         stats.transform.position = position;
 
         // Load inventory and world item states
-        inventoryManager.LoadInventoryData(data.inventoryItemNames);
         worldItemManager.LoadDestroyedItems(data.destroyedWorldItemIds);
+        inventoryManager.LoadInventoryData(data.inventoryItemNames);
         equipmentManager.LoadData(data.equippedItems);
 
         Debug.Log("Player data loaded successfully.");

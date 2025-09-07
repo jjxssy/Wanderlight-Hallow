@@ -30,12 +30,24 @@ public class Item : ScriptableObject
     [SerializeField] private ItemType itemType = ItemType.Default;
     [SerializeField] private EquipmentType equipmentType = EquipmentType.None;
 
+    [Header("Item Stats")]
+    [SerializeField] private int defenseModifier = 0;
+    [SerializeField] private int strengthModifier = 0;
+    [SerializeField] private int healthModifier = 0;
+    [SerializeField] private int speedModifier = 0;
+
     // ... existing methods (GetItemName, GetDescription, etc.) remain the same ...
     public string GetItemName() => itemName;
     public string GetDescription() => description;
     public Sprite GetIcon() => icon;
     public ItemType GetItemType() => itemType;
     public EquipmentType GetEquipmentType() => equipmentType;
+    public int GetDefenseModifier() => defenseModifier;
+    public int GetStrengthModifier() => strengthModifier;
+    public int GetHealthModifier() => healthModifier;
+    public int GetSpeedModifier() => speedModifier;
+
+
 
     public virtual void Use()
     {

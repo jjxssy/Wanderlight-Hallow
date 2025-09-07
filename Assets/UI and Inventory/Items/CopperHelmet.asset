@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: CopperHelmet
   m_EditorClassIdentifier: 
   itemName: CopperHelmet
-  description: +1 defense
+  description: '+1 defense
+
+    +5 MaxHP'
   icon: {fileID: 8389134475083476877, guid: 1f87c474ac308e942971d6c7eb40c68f, type: 3}
   itemType: 2
   equipmentType: 1
+  defenseModifier: 1
+  strengthModifier: 0
+  healthModifier: 5
+  speedModifier: 0
