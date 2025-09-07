@@ -32,8 +32,7 @@ public sealed class MinimapFollower : MonoBehaviour
     /// <summary>
     /// Rotation used when <see cref="lockRotation"/> is true.
     /// </summary>
-    [SerializeField] private Vector3 offset = new Vector3(0f, 0f, -10f);
-
+    [SerializeField] private Vector3 lockedEuler = new Vector3(0f, 0f, 0f);
 
     /// <summary>
     /// Called by Unity when the script instance is being loaded.
@@ -61,10 +60,11 @@ public sealed class MinimapFollower : MonoBehaviour
         if (!target) return;
 
         // Lock position to target XY + offset; keep Z from offset
-        Vector3 p = target.position + offset;
-        transform.position = p;
+        transform.position = target.position + offset;
 
         if (lockRotation)
+        {
             transform.rotation = Quaternion.Euler(lockedEuler);
+        }
     }
 }
