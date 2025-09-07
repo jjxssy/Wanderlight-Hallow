@@ -3,65 +3,88 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
+/// <summary>
+/// Manages screen resolution and display mode settings.
+/// Provides dropdowns for resolution and screen mode selection,
+/// applies and saves preferences with <see cref="PlayerPrefs"/>.
+/// </summary>
 public class GraphicsSettingsManager : MonoBehaviour
 {
-    [SerializeField] private TMP_Dropdown screenDropdown;        // Dropdown to select screen mode (Fullscreen, Windowed, Borderless)
-    [SerializeField] private TMP_Dropdown resolutionDropdown;    // Dropdown to select screen resolution
-    [SerializeField] private Button resetButton;                 // Button to reset settings to default
+    /// <summary>
+    /// Dropdown for selecting screen mode (Fullscreen, Windowed, Borderless).
+    /// </summary>
+    [SerializeField] private TMP_Dropdown screenDropdown;
 
-    private Resolution[] resolutions;                            // List of available screen resolutions
+    /// <summary>
+    /// Dropdown for selecting screen resolution.
+    /// </summary>
+    [SerializeField] private TMP_Dropdown resolutionDropdown;
 
+    /// <summary>
+    /// Button to reset graphics settings to default values.
+    /// </summary>
+    [SerializeField] private Button resetButton;
+
+    /// <summary>
+    /// List of available screen resolutions provided by Unity.
+    /// </summary>
+    private Resolution[] resolutions;
+
+    /// <summary>
+    /// Initializes dropdowns, loads saved preferences, or applies defaults on first run.
+    /// </summary>
     private void Start()
     {
-        // Hook up the reset button
         if (resetButton != null)
             resetButton.onClick.AddListener(ResetToDefaults);
 
-        // Populate screen mode dropdown options
+        // Populate screen mode dropdown
         screenDropdown.ClearOptions();
         screenDropdown.AddOptions(new System.Collections.Generic.List<string> {
             "FULLSCREEN", "WINDOWED", "BORDERLESS"
         });
 
-        // Get and populate resolution dropdown with available resolutions
+        // Populate resolution dropdown
         resolutions = Screen.resolutions.Distinct().ToArray();
         resolutionDropdown.ClearOptions();
         var options = resolutions.Select(r => r.width + " x " + r.height).ToList();
         resolutionDropdown.AddOptions(options);
 
-        // If it's the user's first time running the game, apply default settings
         if (!PlayerPrefs.HasKey("GraphicsInitialized"))
         {
-            ResetToDefaults();  // Apply default fullscreen 2560x1440
-            PlayerPrefs.SetInt("GraphicsInitialized", 1); // Mark settings as initialized
+            ResetToDefaults();  
+            PlayerPrefs.SetInt("GraphicsInitialized", 1);
         }
         else
         {
-            LoadSettings(); // Load user-saved settings from PlayerPrefs
+            LoadSettings();
         }
     }
 
-    // Apply the current dropdown selections to the game screen settings
+    /// <summary>
+    /// Applies the current dropdown selections (resolution and screen mode)
+    /// to the game screen and saves preferences to <see cref="PlayerPrefs"/>.
+    /// </summary>
     public void ApplySettings()
     {
         Resolution selectedRes = resolutions[resolutionDropdown.value];
         FullScreenMode mode = GetScreenMode(screenDropdown.value);
 
-        // Apply resolution and screen mode
         Screen.SetResolution(selectedRes.width, selectedRes.height, mode);
 
-        // Save current selections to PlayerPrefs
         PlayerPrefs.SetInt("ResolutionIndex", resolutionDropdown.value);
         PlayerPrefs.SetInt("ScreenMode", screenDropdown.value);
         PlayerPrefs.Save();
     }
 
-    // Reset screen settings to default: Fullscreen at 2560x1440
+    /// <summary>
+    /// Resets graphics settings to defaults:
+    /// Fullscreen at 2560x1440 resolution.
+    /// </summary>
     public void ResetToDefaults()
     {
-        screenDropdown.value = 0; // Set to Fullscreen (index 0)
+        screenDropdown.value = 0; // Fullscreen
 
-        // Find and select the resolution 2560x1440 from the available options
         for (int i = 0; i < resolutions.Length; i++)
         {
             if (resolutions[i].width == 2560 && resolutions[i].height == 1440)
@@ -71,31 +94,37 @@ public class GraphicsSettingsManager : MonoBehaviour
             }
         }
 
-        ApplySettings(); // Apply the changes
+        ApplySettings();
     }
 
-    // Load user preferences from PlayerPrefs and apply them
+    /// <summary>
+    /// Loads user preferences from <see cref="PlayerPrefs"/>
+    /// and applies them to screen settings.
+    /// </summary>
     private void LoadSettings()
     {
-        int screenMode = PlayerPrefs.GetInt("ScreenMode", 0); // Default to fullscreen
-        int resolutionIndex = PlayerPrefs.GetInt("ResolutionIndex", resolutions.Length - 1); // Default to highest available
+        int screenMode = PlayerPrefs.GetInt("ScreenMode", 0);
+        int resolutionIndex = PlayerPrefs.GetInt("ResolutionIndex", resolutions.Length - 1);
 
-        // Safely assign dropdown values within valid range
         screenDropdown.value = screenMode;
         resolutionDropdown.value = Mathf.Clamp(resolutionIndex, 0, resolutions.Length - 1);
 
-        ApplySettings(); // Apply loaded settings
+        ApplySettings();
     }
 
-    // Helper method to convert dropdown index into Unity's FullScreenMode enum
+    /// <summary>
+    /// Converts a dropdown index into Unity’s <see cref="FullScreenMode"/> enum.
+    /// </summary>
+    /// <param name="index">The index from the screen mode dropdown.</param>
+    /// <returns>The matching <see cref="FullScreenMode"/>.</returns>
     private FullScreenMode GetScreenMode(int index)
     {
         return index switch
         {
-            0 => FullScreenMode.ExclusiveFullScreen,  // Fullscreen
-            1 => FullScreenMode.Windowed,              // Windowed
-            2 => FullScreenMode.FullScreenWindow,      // Borderless
-            _ => FullScreenMode.ExclusiveFullScreen    // Fallback
+            0 => FullScreenMode.ExclusiveFullScreen,
+            1 => FullScreenMode.Windowed,
+            2 => FullScreenMode.FullScreenWindow,
+            _ => FullScreenMode.ExclusiveFullScreen
         };
     }
 }

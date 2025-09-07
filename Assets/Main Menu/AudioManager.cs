@@ -3,45 +3,89 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 
-// This script manages audio settings for Master, Music, and Effects separately.
-// It updates AudioMixer parameters, displays volume percentages, and plays click sounds on adjustments.
+/// <summary>
+/// Manages audio settings for Master, Music, and Effects separately.
+/// Updates AudioMixer parameters, displays volume percentages,
+/// plays UI click sounds, and saves settings via <see cref="PlayerPrefs"/>.
+/// </summary>
 public class AudioSettingsManager : MonoBehaviour
 {
     [Header("UI Sounds")]
-    public AudioSource uiAudioSource; // Audio source for UI sound effects
-    public AudioClip clickSound;      // Sound played when pressing volume buttons
+    /// <summary>
+    /// Audio source used to play UI sound effects.
+    /// </summary>
+    public AudioSource uiAudioSource;
+
+    /// <summary>
+    /// Click sound played when pressing volume buttons.
+    /// </summary>
+    public AudioClip clickSound;
 
     [Header("Audio Mixer")]
-    public AudioMixer audioMixer;     // Reference to the game's AudioMixer
+    /// <summary>
+    /// Reference to the game’s <see cref="AudioMixer"/>.
+    /// </summary>
+    public AudioMixer audioMixer;
 
     [Header("Value Texts")]
-    public TextMeshProUGUI masterValueText;  // Displays Master volume percentage
-    public TextMeshProUGUI musicValueText;   // Displays Music volume percentage
-    public TextMeshProUGUI effectsValueText; // Displays Effects volume percentage
+    /// <summary>
+    /// Displays the Master volume percentage.
+    /// </summary>
+    public TextMeshProUGUI masterValueText;
 
-    // Internal volume values (0.0 to 1.0)
+    /// <summary>
+    /// Displays the Music volume percentage.
+    /// </summary>
+    public TextMeshProUGUI musicValueText;
+
+    /// <summary>
+    /// Displays the Effects volume percentage.
+    /// </summary>
+    public TextMeshProUGUI effectsValueText;
+
+    /// <summary>
+    /// Current Master volume (0.0–1.0).
+    /// </summary>
     private float masterVolume = 0.5f;
+
+    /// <summary>
+    /// Current Music volume (0.0–1.0).
+    /// </summary>
     private float musicVolume = 0.5f;
+
+    /// <summary>
+    /// Current Effects volume (0.0–1.0).
+    /// </summary>
     private float effectsVolume = 0.5f;
 
+    /// <summary>
+    /// Loads saved volume settings or applies defaults,
+    /// then pushes values to the AudioMixer.
+    /// </summary>
     private void Start()
     {
-        // Load previously saved volume settings or use default (50%) if none exist
         masterVolume = LoadVolume("MasterVolume", 0.5f);
         musicVolume = LoadVolume("MusicVolume", 0.5f);
         effectsVolume = LoadVolume("EffectsVolume", 0.5f);
 
-        // Apply the loaded volumes to AudioMixer
         ApplyVolumes();
     }
 
-    // Loads a saved volume value from PlayerPrefs, or returns default if not found
+    /// <summary>
+    /// Loads a saved volume value from <see cref="PlayerPrefs"/>.
+    /// Returns default if no value is found.
+    /// </summary>
+    /// <param name="key">The PlayerPrefs key (e.g., "MasterVolume").</param>
+    /// <param name="defaultValue">The fallback value if none is saved.</param>
+    /// <returns>The saved or default volume (0.0–1.0).</returns>
     private float LoadVolume(string key, float defaultValue)
     {
         return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetFloat(key) : defaultValue;
     }
 
-    // Applies the internal volume variables into the AudioMixer
+    /// <summary>
+    /// Applies the current internal volume variables to the AudioMixer.
+    /// </summary>
     private void ApplyVolumes()
     {
         SetMixerVolume("MasterVolume", masterVolume);
@@ -49,7 +93,12 @@ public class AudioSettingsManager : MonoBehaviour
         SetMixerVolume("EffectsVolume", effectsVolume);
     }
 
-    // Sets a specific exposed AudioMixer parameter to a given volume
+    /// <summary>
+    /// Sets a specific exposed AudioMixer parameter to a given volume.
+    /// Also saves the value into <see cref="PlayerPrefs"/>.
+    /// </summary>
+    /// <param name="exposedParameter">The name of the exposed AudioMixer parameter.</param>
+    /// <param name="volume">The volume level (0.0–1.0).</param>
     private void SetMixerVolume(string exposedParameter, float volume)
     {
         if (audioMixer != null)
@@ -60,17 +109,19 @@ public class AudioSettingsManager : MonoBehaviour
             }
             else
             {
-                audioMixer.SetFloat(exposedParameter, Mathf.Log10(volume) * 20); // Normal volume conversion
+                audioMixer.SetFloat(exposedParameter, Mathf.Log10(volume) * 20); // Convert linear to decibels
             }
         }
 
-        // Save the new volume into PlayerPrefs
         PlayerPrefs.SetFloat(exposedParameter, volume);
     }
 
     // --- Volume Adjustment Functions for Buttons ---
 
-    // Set Master Volume to a specific value (0%, 25%, 50%, 75%, 100%)
+    /// <summary>
+    /// Sets the Master volume to a specific value.
+    /// </summary>
+    /// <param name="value">The new volume (0.0–1.0).</param>
     public void SetMasterVolume(float value)
     {
         PlayClickSound();
@@ -78,7 +129,10 @@ public class AudioSettingsManager : MonoBehaviour
         SetMixerVolume("MasterVolume", masterVolume);
     }
 
-    // Set Music Volume to a specific value
+    /// <summary>
+    /// Sets the Music volume to a specific value.
+    /// </summary>
+    /// <param name="value">The new volume (0.0–1.0).</param>
     public void SetMusicVolume(float value)
     {
         PlayClickSound();
@@ -86,7 +140,10 @@ public class AudioSettingsManager : MonoBehaviour
         SetMixerVolume("MusicVolume", musicVolume);
     }
 
-    // Set Effects Volume to a specific value
+    /// <summary>
+    /// Sets the Effects volume to a specific value.
+    /// </summary>
+    /// <param name="value">The new volume (0.0–1.0).</param>
     public void SetEffectsVolume(float value)
     {
         PlayClickSound();
@@ -94,7 +151,9 @@ public class AudioSettingsManager : MonoBehaviour
         SetMixerVolume("EffectsVolume", effectsVolume);
     }
 
-    // Plays the UI button click sound
+    /// <summary>
+    /// Plays the UI button click sound.
+    /// </summary>
     private void PlayClickSound()
     {
         if (uiAudioSource && clickSound)
@@ -103,7 +162,9 @@ public class AudioSettingsManager : MonoBehaviour
         }
     }
 
-    // Manually save current volume settings to PlayerPrefs
+    /// <summary>
+    /// Saves the current volume settings to <see cref="PlayerPrefs"/>.
+    /// </summary>
     public void SaveVolumeSettings()
     {
         PlayerPrefs.SetFloat("MasterVolume", masterVolume);
@@ -112,25 +173,25 @@ public class AudioSettingsManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    /// <summary>
+    /// Resets all volumes to defaults (50%) and saves them.
+    /// Also plays a click sound if configured.
+    /// </summary>
     public void ResetToDefaults()
-{
-    PlayClickSound(); // Optional: Play a click sound when resetting
+    {
+        PlayClickSound();
 
-    // Set volumes to default (50%)
-    masterVolume = 0.5f;
-    musicVolume = 0.5f;
-    effectsVolume = 0.5f;
+        masterVolume = 0.5f;
+        musicVolume = 0.5f;
+        effectsVolume = 0.5f;
 
-    // Apply the changes to AudioMixer
-    audioMixer.SetFloat("MasterVolume", Mathf.Log10(masterVolume) * 20);
-    audioMixer.SetFloat("MusicVolume", Mathf.Log10(musicVolume) * 20);
-    audioMixer.SetFloat("EffectsVolume", Mathf.Log10(effectsVolume) * 20);
+        audioMixer.SetFloat("MasterVolume", Mathf.Log10(masterVolume) * 20);
+        audioMixer.SetFloat("MusicVolume", Mathf.Log10(musicVolume) * 20);
+        audioMixer.SetFloat("EffectsVolume", Mathf.Log10(effectsVolume) * 20);
 
-    // Save new defaults to PlayerPrefs
-    PlayerPrefs.SetFloat("MasterVolume", masterVolume);
-    PlayerPrefs.SetFloat("MusicVolume", musicVolume);
-    PlayerPrefs.SetFloat("EffectsVolume", effectsVolume);
-    PlayerPrefs.Save();
-}
-
+        PlayerPrefs.SetFloat("MasterVolume", masterVolume);
+        PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+        PlayerPrefs.SetFloat("EffectsVolume", effectsVolume);
+        PlayerPrefs.Save();
+    }
 }

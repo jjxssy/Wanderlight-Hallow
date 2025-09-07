@@ -1,25 +1,48 @@
 using UnityEngine;
 using System.Collections.Generic; // Required for List
 
+/// <summary>
+/// Represents equipment data for saving (slot + item name).
+/// </summary>
 [System.Serializable]
 public class EquipmentSaveData
 {
-    public EquipmentType slotType;
-    public string itemName;
+    private EquipmentType slotType;
+    private string itemName;
+
+    public EquipmentType SlotType
+    {
+        get => slotType;
+        set => slotType = value;
+    }
+
+    public string ItemName
+    {
+        get => itemName;
+        set => itemName = value;
+    }
 }
+
+/// <summary>
+/// Stores all data needed to save and load a player.
+/// Includes stats, inventory, destroyed world items, and equipped items.
+/// </summary>
 [System.Serializable]
 public class PlayerData
 {
-    // Existing Data
+    // --- Core Player Data ---
     private int currentHealth;
     private int currentMana;
     private float[] position;
 
-    // --- New Data ---
-    public string[] inventoryItemNames; 
-    public List<string> destroyedWorldItemIds;
-    public List<EquipmentSaveData> equippedItems;
+    // --- Inventory and Equipment ---
+    private string[] inventoryItemNames; 
+    private List<string> destroyedWorldItemIds;
+    private List<EquipmentSaveData> equippedItems;
 
+    /// <summary>
+    /// Constructor that captures the current state of the player.
+    /// </summary>
     public PlayerData(PlayerStats stats, InventoryManager invManager, WorldItemManager itemManager, EquipmentManager equipManager)
     {
         // Save existing stats
@@ -30,17 +53,46 @@ public class PlayerData
         position[1] = stats.transform.position.y;
         position[2] = stats.transform.position.z;
 
-        // --- Save New Data ---
+        // Save additional data
         inventoryItemNames = invManager.GetInventoryDataForSave();
         destroyedWorldItemIds = itemManager.GetDestroyedItemIdsForSave();
         equippedItems = equipManager.GetDataForSave();
     }
 
-    // --- Getters and Setters (no changes needed for old ones) ---
-    public int getHealth() { return currentHealth; }
-    public int getMana() { return currentMana; }
-    public float[] getPosition() { return position; }
-    public void setHealth(int health) { currentHealth = health; }
-    public void setMana(int mana) { currentMana = mana; }
-    public void setPosition(float[] pos) { this.position = pos; }
+    // --- Simple Getters & Setters ---
+    public int Health
+    {
+        get => currentHealth;
+        set => currentHealth = value;
+    }
+
+    public int Mana
+    {
+        get => currentMana;
+        set => currentMana = value;
+    }
+
+    public float[] Position
+    {
+        get => position;
+        set => position = value;
+    }
+
+    public string[] InventoryItemNames
+    {
+        get => inventoryItemNames;
+        set => inventoryItemNames = value;
+    }
+
+    public List<string> DestroyedWorldItemIds
+    {
+        get => destroyedWorldItemIds;
+        set => destroyedWorldItemIds = value;
+    }
+
+    public List<EquipmentSaveData> EquippedItems
+    {
+        get => equippedItems;
+        set => equippedItems = value;
+    }
 }

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      summoning_spell_0: 2149219442402421076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

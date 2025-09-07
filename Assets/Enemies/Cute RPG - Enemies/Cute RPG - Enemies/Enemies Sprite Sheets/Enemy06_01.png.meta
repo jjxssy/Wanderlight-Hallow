@@ -409,7 +409,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy06_01_0: -1572536720774814706
+      Enemy06_01_1: -7847797805288782031
+      Enemy06_01_10: -5475867239212576207
+      Enemy06_01_11: -1282679949507319081
+      Enemy06_01_2: 8697758896955467166
+      Enemy06_01_3: 338557036500827939
+      Enemy06_01_4: 9104192784955118305
+      Enemy06_01_5: 4035557141177881395
+      Enemy06_01_6: -4025994113769368315
+      Enemy06_01_7: 1680945603858502352
+      Enemy06_01_8: -4681317440432098618
+      Enemy06_01_9: -3968324277806640410
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

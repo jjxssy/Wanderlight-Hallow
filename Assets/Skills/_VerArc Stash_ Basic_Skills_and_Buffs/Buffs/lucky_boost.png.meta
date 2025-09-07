@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lucky_boost_0: -2431002968429005795
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

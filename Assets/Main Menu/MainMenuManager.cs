@@ -2,70 +2,99 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// Manages the main menu functionality such as starting a new game, loading saves, and exiting the game
+/// <summary>
+/// Manages the main menu functionality such as starting a new game,
+/// loading saved games, and exiting the application.
+/// </summary>
 public class MainMenuManager : MonoBehaviour
 {
-
     [Header("Save to Load")]
+    /// <summary>
+    /// The build index of the first playable game scene to load
+    /// when starting a new game or loading a save.
+    /// </summary>
     [SerializeField] private int firstGameSceneIndex;
-    [SerializeField] private GameObject noSavesFoundDialog = null; // Dialog box to show when no saved games are found
 
-    // Called when the player chooses "New Game" - loads the new game scene
+    /// <summary>
+    /// Dialog box shown when the player attempts to load a slot
+    /// but no save is found.
+    /// </summary>
+    [SerializeField] private GameObject noSavesFoundDialog = null;
+
+    /// <summary>
+    /// Starts a new game by resetting the load index
+    /// and loading the first game scene.
+    /// </summary>
     public void NewGameDialog()
     {
         PlayerPrefs.SetInt("LoadIndex", 0);
         SceneManager.LoadScene(firstGameSceneIndex);
     }
 
-    // Called when the player selects the first save slot
+    /// <summary>
+    /// Attempts to load the first save slot (slot 1).
+    /// If no save exists, displays <see cref="noSavesFoundDialog"/>.
+    /// </summary>
     public void LoadGameDialog_Save1()
     {
-        if (PlayerPrefs.HasKey("SavedLevel1")) // Check if a save exists in slot 1
+        if (PlayerPrefs.HasKey("SavedLevel1"))
         {
             PlayerPrefs.SetInt("LoadIndex", 1);
             SceneManager.LoadScene(firstGameSceneIndex);
         }
         else
         {
-            noSavesFoundDialog.SetActive(true); // Show dialog if no save found
+            noSavesFoundDialog.SetActive(true);
         }
     }
 
-    // Called when the player selects the second save slot
+    /// <summary>
+    /// Attempts to load the second save slot (slot 2).
+    /// If no save exists, displays <see cref="noSavesFoundDialog"/>.
+    /// </summary>
     public void LoadGameDialog_Save2()
     {
-        if (PlayerPrefs.HasKey("SavedLevel2")) // Check if a save exists in slot 2
+        if (PlayerPrefs.HasKey("SavedLevel2"))
         {
             PlayerPrefs.SetInt("LoadIndex", 2);
             SceneManager.LoadScene(firstGameSceneIndex);
         }
         else
         {
-            noSavesFoundDialog.SetActive(true); // Show dialog if no save found
+            noSavesFoundDialog.SetActive(true);
         }
     }
 
-    // Called when the player selects the third save slot
+    /// <summary>
+    /// Attempts to load the third save slot (slot 3).
+    /// If no save exists, displays <see cref="noSavesFoundDialog"/>.
+    /// </summary>
     public void LoadGameDialog_Save3()
     {
-        if (PlayerPrefs.HasKey("SavedLevel3")) // Check if a save exists in slot 3
+        if (PlayerPrefs.HasKey("SavedLevel3"))
         {
             PlayerPrefs.SetInt("LoadIndex", 3);
             SceneManager.LoadScene(firstGameSceneIndex);
         }
         else
         {
-            noSavesFoundDialog.SetActive(true); // Show dialog if no save found
+            noSavesFoundDialog.SetActive(true);
         }
     }
+
+    /// <summary>
+    /// Hides the "No Save Found" dialog box if visible.
+    /// </summary>
     public void DisableNoSaveFoundDialog()
     {
         noSavesFoundDialog.SetActive(false);
     }
 
-    // Called when the player presses the "Exit" button
+    /// <summary>
+    /// Exits the application when the Exit button is pressed.
+    /// </summary>
     public void ExitsButton()
     {
-        Application.Quit(); // Closes the application
+        Application.Quit();
     }
 }

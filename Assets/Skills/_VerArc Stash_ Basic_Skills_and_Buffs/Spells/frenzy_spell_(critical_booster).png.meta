@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      frenzy_spell_(critical_booster)_0: 1055189551079568881
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

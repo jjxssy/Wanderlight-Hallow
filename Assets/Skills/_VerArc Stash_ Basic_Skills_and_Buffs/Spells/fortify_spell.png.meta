@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fortify_spell_0: -6660156536666802715
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

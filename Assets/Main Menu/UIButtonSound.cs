@@ -1,33 +1,66 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// This script plays a click sound every time a UI Button is pressed
+/// <summary>
+/// Plays a click sound whenever the attached <see cref="Button"/> is pressed.
+/// </summary>
+[RequireComponent(typeof(Button))]
 public class UIButtonSound : MonoBehaviour
 {
-    public AudioSource uiAudioSource; // The AudioSource that will play the click sound
-    public AudioClip clickSound;      // The sound clip to play when the button is clicked
+    /// <summary>
+    /// The <see cref="AudioSource"/> used to play the click sound.
+    /// </summary>
+    [SerializeField] private AudioSource uiAudioSource;
 
-    private Button button; // Reference to the Button component on this GameObject
+    /// <summary>
+    /// The audio clip to play when the button is clicked.
+    /// </summary>
+    [SerializeField] private AudioClip clickSound;
 
+    /// <summary>
+    /// Cached reference to the <see cref="Button"/> component attached to this GameObject.
+    /// </summary>
+    private Button button;
+
+    /// <summary>
+    /// Gets or sets the <see cref="AudioSource"/> for playing UI sounds.
+    /// </summary>
+    public AudioSource UiAudioSource
+    {
+        get => uiAudioSource;
+        set => uiAudioSource = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the audio clip played when the button is clicked.
+    /// </summary>
+    public AudioClip ClickSound
+    {
+        get => clickSound;
+        set => clickSound = value;
+    }
+
+    /// <summary>
+    /// Initializes the <see cref="Button"/> reference and registers
+    /// <see cref="PlayClickSound"/> as a listener to the button’s <c>onClick</c> event.
+    /// </summary>
     private void Awake()
     {
-        // Get the Button component attached to this GameObject
         button = GetComponent<Button>();
 
-        // If a Button component is found, add PlayClickSound as a listener to the onClick event
         if (button != null)
         {
             button.onClick.AddListener(PlayClickSound);
         }
     }
 
-    // This function plays the click sound when the button is pressed
+    /// <summary>
+    /// Plays the click sound when the button is pressed.
+    /// </summary>
     private void PlayClickSound()
     {
-        // Check if both AudioSource and ClickSound are assigned
         if (uiAudioSource && clickSound)
         {
-            // Play the click sound once without interrupting other sounds
             uiAudioSource.PlayOneShot(clickSound);
         }
     }

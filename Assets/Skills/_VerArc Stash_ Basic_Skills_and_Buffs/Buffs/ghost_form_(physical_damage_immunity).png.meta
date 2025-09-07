@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ghost_form_(physical_damage_immunity)_0: 3060562079637025958
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

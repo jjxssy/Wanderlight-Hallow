@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cursed_(disarmed+silenced)_0: 819318892821437907
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

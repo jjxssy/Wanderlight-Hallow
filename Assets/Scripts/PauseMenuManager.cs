@@ -96,7 +96,6 @@ public class PauseMenuManager : MonoBehaviour
     private void OnSettingsClicked()
     {
         Debug.Log("Open Settings!");
-        // TODO: Implement settings screen logic
     }
 
     /// <summary>
@@ -106,7 +105,6 @@ public class PauseMenuManager : MonoBehaviour
     private void OnAchievementsClicked()
     {
         Debug.Log("Open Achievements!");
-        // TODO: Implement achievements logic
     }
 
     /// <summary>

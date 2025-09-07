@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CuteRPG_Dungeon_C_0: 3263618187413283379
+      CuteRPG_Dungeon_C_1: -130660225571192215
+      CuteRPG_Dungeon_C_2: -4890498730193809417
+      CuteRPG_Dungeon_C_3: 7690153047573862880
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

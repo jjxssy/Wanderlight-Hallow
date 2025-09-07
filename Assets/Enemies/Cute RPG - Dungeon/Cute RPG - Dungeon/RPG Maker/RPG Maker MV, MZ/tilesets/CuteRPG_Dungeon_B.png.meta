@@ -634,7 +634,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CuteRPG_Dungeon_B_0: 3447334232940663302
+      CuteRPG_Dungeon_B_1: 1592924351014776611
+      CuteRPG_Dungeon_B_10: 8103422311331834400
+      CuteRPG_Dungeon_B_11: 5014404147211356374
+      CuteRPG_Dungeon_B_12: -6372215776027739334
+      CuteRPG_Dungeon_B_13: 9165649949471046476
+      CuteRPG_Dungeon_B_14: 2934995374334183482
+      CuteRPG_Dungeon_B_15: 3720529710996012457
+      CuteRPG_Dungeon_B_16: -5261127638274181023
+      CuteRPG_Dungeon_B_17: -887893661652025776
+      CuteRPG_Dungeon_B_18: 1872628146444933561
+      CuteRPG_Dungeon_B_19: 338844139611695305
+      CuteRPG_Dungeon_B_2: 3024138298621248072
+      CuteRPG_Dungeon_B_20: 1513215461973361615
+      CuteRPG_Dungeon_B_3: 1341180106035787681
+      CuteRPG_Dungeon_B_4: 8835050691805648297
+      CuteRPG_Dungeon_B_5: 5233061893993338645
+      CuteRPG_Dungeon_B_6: -498850430593096965
+      CuteRPG_Dungeon_B_7: 5278828375236794687
+      CuteRPG_Dungeon_B_8: 4458635970382579907
+      CuteRPG_Dungeon_B_9: 8020990749175054085
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

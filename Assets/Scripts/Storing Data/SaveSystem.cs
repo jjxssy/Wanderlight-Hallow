@@ -2,16 +2,26 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+/// <summary>
+/// Static system for saving, loading, and deleting player data
+/// across multiple save slots using binary serialization.
+/// </summary>
 public static class SaveSystem
 {
-    // A single save method that takes a slot index and all required data managers
+    /// <summary>
+    /// Saves the current player state into the given slot index.
+    /// </summary>
+    /// <param name="stats">The player's stats manager.</param>
+    /// <param name="invManager">The inventory manager.</param>
+    /// <param name="itemManager">The world item manager.</param>
+    /// <param name="equipManager">The equipment manager.</param>
+    /// <param name="slotIndex">The save slot index (1, 2, 3, etc.).</param>
     public static void SavePlayer(PlayerStats stats, InventoryManager invManager, WorldItemManager itemManager, EquipmentManager equipManager, int slotIndex)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = GetPathFromSlotIndex(slotIndex);
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        // This line now correctly passes all three required arguments
         PlayerData data = new PlayerData(stats, invManager, itemManager, equipManager);
 
         formatter.Serialize(stream, data);
@@ -20,7 +30,11 @@ public static class SaveSystem
         PlayerPrefs.SetInt("SavedLevel" + slotIndex, 1);
     }
 
-    // A single load method
+    /// <summary>
+    /// Loads a player’s saved data from the given slot index.
+    /// </summary>
+    /// <param name="slotIndex">The save slot index to load from.</param>
+    /// <returns>The deserialized <see cref="PlayerData"/>, or <c>null</c> if no save exists.</returns>
     public static PlayerData LoadPlayer(int slotIndex)
     {
         string path = GetPathFromSlotIndex(slotIndex);
@@ -40,7 +54,10 @@ public static class SaveSystem
         }
     }
 
-    // A single delete method
+    /// <summary>
+    /// Deletes the player’s saved data at the given slot index.
+    /// </summary>
+    /// <param name="slotIndex">The save slot index to delete.</param>
     public static void DeletePlayer(int slotIndex)
     {
         string path = GetPathFromSlotIndex(slotIndex);
@@ -51,7 +68,11 @@ public static class SaveSystem
         PlayerPrefs.DeleteKey("SavedLevel" + slotIndex);
     }
 
-    // Helper method to get the file path based on slot number
+    /// <summary>
+    /// Gets the file path for a given save slot index.
+    /// </summary>
+    /// <param name="slotIndex">The slot index.</param>
+    /// <returns>A string file path inside <see cref="Application.persistentDataPath"/>.</returns>
     private static string GetPathFromSlotIndex(int slotIndex)
     {
         return Application.persistentDataPath + "/player.save" + slotIndex;

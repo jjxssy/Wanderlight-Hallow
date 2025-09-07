@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      knockback_boost_0: 122209149904477430
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

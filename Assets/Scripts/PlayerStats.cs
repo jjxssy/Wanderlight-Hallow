@@ -34,14 +34,15 @@ public class PlayerStats : MonoBehaviour, IDamageable
     [SerializeField] private UnityEvent OnDied;
     [SerializeField] private UnityEvent OnDamaged;
 
-
-
     [SerializeField] private Color damageFlashColor = Color.red;
     private Color originalColor;
 
     private SpriteRenderer spriteRenderer;
     private bool isInvincible = false;
 
+    /// <summary>
+    /// Sets up the singleton instance and caches the SpriteRenderer/color.
+    /// </summary>
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -53,6 +54,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
             originalColor = spriteRenderer.color;
         }
     }
+
+    /// <summary>
+    /// Initializes health for new games and configures the health UI.
+    /// </summary>
     private void Start()
     {
         if (PlayerPrefs.GetInt("LoadIndex", 0) == 0)
@@ -65,11 +70,19 @@ public class PlayerStats : MonoBehaviour, IDamageable
             healthSlider.value = currentHealth;
         }
     }
+
+    /// <summary>
+    /// Updates UI every frame and clamps current health to max.
+    /// </summary>
     private void Update()
     {
         UpdateUI();
         if(currentHealth>maxHealth) currentHealth = maxHealth;
     }
+
+    /// <summary>
+    /// Synchronizes the on-screen stats labels and health slider.
+    /// </summary>
     private void UpdateUI()
     {
         if (healthSlider != null)
@@ -86,28 +99,45 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     // === Getters and Setters ===
 
+    /// <summary>Returns the maximum health value.</summary>
     public int GetMaxHealth() { return maxHealth; }
+    /// <summary>Sets the maximum health value.</summary>
     public void SetMaxHealth(int value) { maxHealth = value; }
 
+    /// <summary>Returns the current health value.</summary>
     public int GetCurrentHealth() { return currentHealth; }
+    /// <summary>Sets the current health value, clamped to 0..maxHealth.</summary>
     public void SetCurrentHealth(int value) { currentHealth = Mathf.Clamp(value, 0, maxHealth); }
 
+    /// <summary>Returns the current strength.</summary>
     public int GetStrength() { return strength; }
+    /// <summary>Sets the current strength.</summary>
     public void SetStrength(int value) { strength = value; }
 
+    /// <summary>Returns the current defense.</summary>
     public int GetDefense() { return defense; }
+    /// <summary>Sets the current defense.</summary>
     public void SetDefense(int value) { defense = value; }
 
+    /// <summary>Returns the maximum mana value.</summary>
     public int GetMaxMana() { return maxMana; }
+    /// <summary>Sets the maximum mana value.</summary>
     public void SetMaxMana(int value) { maxMana = value; }
 
+    /// <summary>Returns the current mana value.</summary>
     public int GetCurrentMana() { return currentMana; }
+    /// <summary>Sets the current mana value, clamped to 0..maxMana.</summary>
     public void SetCurrentMana(int value) { currentMana = Mathf.Clamp(value, 0, maxMana); }
 
+    /// <summary>Returns the movement speed.</summary>
     public float GetSpeed() { return speed; }
+    /// <summary>Sets the movement speed.</summary>
     public void SetSpeed(float value) { speed = value; }
 
-
+    /// <summary>
+    /// Applies damage with defense mitigation, triggers hit feedback and death if health reaches zero.
+    /// </summary>
+    /// <param name="damage">Raw incoming damage before mitigation.</param>
     public void TakeDamage(int damage)
     {
         if (isInvincible)
@@ -128,26 +158,41 @@ public class PlayerStats : MonoBehaviour, IDamageable
         }
     }
 
+    /// <summary>
+    /// Heals the player by a given amount (clamped to max health).
+    /// </summary>
     public void Heal(int amount)
     {
         SetCurrentHealth(currentHealth + amount);
     }
 
+    /// <summary>
+    /// Restores mana by a given amount (clamped to max mana).
+    /// </summary>
     public void RestoreMana(int amount)
     {
         SetCurrentMana(currentMana + amount);
     }
 
+    /// <summary>
+    /// Increases strength by a given value.
+    /// </summary>
     public void AddStrength(int value)
     {
         SetStrength(strength + value);
     }
 
+    /// <summary>
+    /// Increases defense by a given value.
+    /// </summary>
     public void AddDefense(int value)
     {
         SetDefense(defense + value);
     }
 
+    /// <summary>
+    /// Handles death: events, stat tracking, animation, disabling movement/collider, and showing the death UI.
+    /// </summary>
     private void PlayerDied()
     {
         OnDied?.Invoke();
@@ -175,12 +220,20 @@ public class PlayerStats : MonoBehaviour, IDamageable
             DeathManager.instance.GameOver();
         }
     }
+
+    /// <summary>
+    /// Briefly flashes the sprite to indicate damage.
+    /// </summary>
     private IEnumerator DamageFlash()
     {
         spriteRenderer.color = damageFlashColor;
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = originalColor;
     }
+
+    /// <summary>
+    /// Grants temporary invincibility after taking damage.
+    /// </summary>
     private IEnumerator InvincibilityFrames()
     {
         isInvincible = true;

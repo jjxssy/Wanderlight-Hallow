@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      thorn_vine_spell_0: 6383231959662826345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

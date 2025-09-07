@@ -1934,7 +1934,80 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CuteRPG_Dungeon_Entrance_Animations01_0: 7759764941595164411
+      CuteRPG_Dungeon_Entrance_Animations01_1: 2105601050436283080
+      CuteRPG_Dungeon_Entrance_Animations01_10: -6183083175040034892
+      CuteRPG_Dungeon_Entrance_Animations01_11: 7068509109610154802
+      CuteRPG_Dungeon_Entrance_Animations01_12: -2655825171686047431
+      CuteRPG_Dungeon_Entrance_Animations01_13: 6088884604907655366
+      CuteRPG_Dungeon_Entrance_Animations01_14: -2483311494637488664
+      CuteRPG_Dungeon_Entrance_Animations01_15: 6951614744777881483
+      CuteRPG_Dungeon_Entrance_Animations01_16: -6479937037061253209
+      CuteRPG_Dungeon_Entrance_Animations01_17: -8135379218144111401
+      CuteRPG_Dungeon_Entrance_Animations01_18: 4893355319014760116
+      CuteRPG_Dungeon_Entrance_Animations01_19: -8953240872137700327
+      CuteRPG_Dungeon_Entrance_Animations01_2: -4290367723709644620
+      CuteRPG_Dungeon_Entrance_Animations01_20: -8287813538745416163
+      CuteRPG_Dungeon_Entrance_Animations01_21: -7482986211780898020
+      CuteRPG_Dungeon_Entrance_Animations01_22: -1643845269687914955
+      CuteRPG_Dungeon_Entrance_Animations01_23: -3903388642109562870
+      CuteRPG_Dungeon_Entrance_Animations01_24: 4325886558579546939
+      CuteRPG_Dungeon_Entrance_Animations01_25: 7308927836864892912
+      CuteRPG_Dungeon_Entrance_Animations01_26: -6053200525363013732
+      CuteRPG_Dungeon_Entrance_Animations01_27: 6042137477632254523
+      CuteRPG_Dungeon_Entrance_Animations01_28: -4452088087312394590
+      CuteRPG_Dungeon_Entrance_Animations01_29: 3782974236753127509
+      CuteRPG_Dungeon_Entrance_Animations01_3: -647808192622982631
+      CuteRPG_Dungeon_Entrance_Animations01_30: 3742820297156123337
+      CuteRPG_Dungeon_Entrance_Animations01_31: -4000594911831018338
+      CuteRPG_Dungeon_Entrance_Animations01_32: 3760394910918636528
+      CuteRPG_Dungeon_Entrance_Animations01_33: -737542634127175908
+      CuteRPG_Dungeon_Entrance_Animations01_34: 7531786702214027939
+      CuteRPG_Dungeon_Entrance_Animations01_35: -6310680421346234703
+      CuteRPG_Dungeon_Entrance_Animations01_36: 4077946708159358326
+      CuteRPG_Dungeon_Entrance_Animations01_37: 6718521065228160449
+      CuteRPG_Dungeon_Entrance_Animations01_38: 796744765967091077
+      CuteRPG_Dungeon_Entrance_Animations01_39: -6753306485396675198
+      CuteRPG_Dungeon_Entrance_Animations01_4: 433034073242006085
+      CuteRPG_Dungeon_Entrance_Animations01_40: 8406387069230342433
+      CuteRPG_Dungeon_Entrance_Animations01_41: -470629860713360221
+      CuteRPG_Dungeon_Entrance_Animations01_42: 3933673190586418423
+      CuteRPG_Dungeon_Entrance_Animations01_43: 3578615865635134330
+      CuteRPG_Dungeon_Entrance_Animations01_44: 5231056739524718515
+      CuteRPG_Dungeon_Entrance_Animations01_45: -7925450707526548256
+      CuteRPG_Dungeon_Entrance_Animations01_46: 5435484386187049152
+      CuteRPG_Dungeon_Entrance_Animations01_47: 5695979229972420211
+      CuteRPG_Dungeon_Entrance_Animations01_48: 6475057042461671141
+      CuteRPG_Dungeon_Entrance_Animations01_49: 338067960131333696
+      CuteRPG_Dungeon_Entrance_Animations01_5: 8490572782576176397
+      CuteRPG_Dungeon_Entrance_Animations01_50: -3697103404609245141
+      CuteRPG_Dungeon_Entrance_Animations01_51: -827971747909266926
+      CuteRPG_Dungeon_Entrance_Animations01_52: -823505685034226060
+      CuteRPG_Dungeon_Entrance_Animations01_53: -5055648240657830762
+      CuteRPG_Dungeon_Entrance_Animations01_54: -1813574703623244017
+      CuteRPG_Dungeon_Entrance_Animations01_55: 4855293617363314883
+      CuteRPG_Dungeon_Entrance_Animations01_56: -8891015975930178615
+      CuteRPG_Dungeon_Entrance_Animations01_57: 8595503567046223819
+      CuteRPG_Dungeon_Entrance_Animations01_58: -6637247942564956507
+      CuteRPG_Dungeon_Entrance_Animations01_59: -3883888906524046961
+      CuteRPG_Dungeon_Entrance_Animations01_6: 4866081864402457240
+      CuteRPG_Dungeon_Entrance_Animations01_60: -7981132453123040562
+      CuteRPG_Dungeon_Entrance_Animations01_61: 4631700522436742804
+      CuteRPG_Dungeon_Entrance_Animations01_62: -4654784752324344063
+      CuteRPG_Dungeon_Entrance_Animations01_63: 2179188227666353606
+      CuteRPG_Dungeon_Entrance_Animations01_64: -6249499769150364038
+      CuteRPG_Dungeon_Entrance_Animations01_65: 5818983895063448188
+      CuteRPG_Dungeon_Entrance_Animations01_66: 8592487686025135374
+      CuteRPG_Dungeon_Entrance_Animations01_67: -9173250308244525012
+      CuteRPG_Dungeon_Entrance_Animations01_68: 1287471330946300211
+      CuteRPG_Dungeon_Entrance_Animations01_69: -8235283814913507362
+      CuteRPG_Dungeon_Entrance_Animations01_7: 637508875936275960
+      CuteRPG_Dungeon_Entrance_Animations01_70: -6221780630436140707
+      CuteRPG_Dungeon_Entrance_Animations01_71: 5620352384528566791
+      CuteRPG_Dungeon_Entrance_Animations01_72: 5258081210414903367
+      CuteRPG_Dungeon_Entrance_Animations01_8: -563865149374458694
+      CuteRPG_Dungeon_Entrance_Animations01_9: 1094187153638219225
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

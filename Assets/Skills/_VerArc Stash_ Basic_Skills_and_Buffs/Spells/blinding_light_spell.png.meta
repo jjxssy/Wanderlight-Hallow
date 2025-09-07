@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      blinding_light_spell_0: 612324351257454812
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
