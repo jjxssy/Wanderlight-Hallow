@@ -17,3 +17,5 @@ MonoBehaviour:
   icon: {fileID: 7028616704906629411, guid: 720a0e17749edec4f99bc0186bc18d1d, type: 3}
   itemType: 2
   equipmentType: 1
+  defenseModifier: 2
+  strengthModifier: 0

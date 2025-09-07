@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: SilverChestplate
   m_EditorClassIdentifier: 
   itemName: SilverChestplate
-  description: +5 defense
+  description: '+7 defense
+
+    -4 Speed'
   icon: {fileID: 8288426215254106694, guid: 3a5ae62751728ab4aa4f821e6f8fb79e, type: 3}
   itemType: 2
   equipmentType: 2
+  defenseModifier: 7
+  strengthModifier: 0
+  healthModifier: 0
+  speedModifier: -4

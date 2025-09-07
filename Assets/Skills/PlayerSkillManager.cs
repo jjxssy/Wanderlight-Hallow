@@ -22,13 +22,11 @@ public class PlayerSkillManager : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        // Ensure the skill menu is hidden at the start
         if (skillMenuPanel != null)
         {
             skillMenuPanel.SetActive(false);
         }
 
-        // Initialize cooldowns for any starting skills
         foreach (Skill skill in unlockedSkills)
         {
             if (!cooldownTimers.ContainsKey(skill))
@@ -141,23 +139,18 @@ public class PlayerSkillManager : MonoBehaviour
     {
         if (slotIndex < 0 || slotIndex >= equippedSkills.Length) return;
 
-        // You can only equip skills you have unlocked
         if (unlockedSkills.Contains(skillToEquip))
         {
 
-            // Check if this skill is already equipped in another slot.
             for (int i = 0; i < equippedSkills.Length; i++)
             {
                 if (equippedSkills[i] == skillToEquip)
                 {
-                    // If it is, clear the old slot.
                     equippedSkills[i] = null;
-                    break; // Exit the loop since a skill can only be in one slot
+                    break; 
                 }
             }
 
-
-            // Place the skill in the new slot.
             equippedSkills[slotIndex] = skillToEquip;
 
             UpdateSkillBarUI(); 
@@ -178,7 +171,7 @@ public class PlayerSkillManager : MonoBehaviour
             }
             else
             {
-                skillSlotsUI[i].SetSkill(null, key); // Clear the slot
+                skillSlotsUI[i].SetSkill(null, key);
             }
         }
     }
@@ -201,6 +194,24 @@ public class PlayerSkillManager : MonoBehaviour
         {
             case StatType.Strength: stats.AddStrength(-skill.buffValue); break;
             case StatType.Defense: stats.AddDefense(-skill.buffValue); break;
+        }
+    }
+    public void ActivateShield(ShieldSkill skill)
+    {
+        StartCoroutine(ShieldRoutine(skill));
+    }
+
+    private IEnumerator ShieldRoutine(ShieldSkill skill)
+    {
+        GameObject shieldInstance = Instantiate(skill.shieldPrefab, transform.position + new Vector3(0f,2.5f,0f), Quaternion.identity, transform);
+
+        Debug.Log("Shields up for " + skill.duration + " seconds!");
+        yield return new WaitForSeconds(skill.duration);
+
+        Debug.Log("Shields down!");
+        if (shieldInstance != null)
+        {
+            Destroy(shieldInstance);
         }
     }
     public List<Skill> GetUnlockedSkills()

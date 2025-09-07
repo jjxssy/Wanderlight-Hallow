@@ -2,12 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections;
+using TMPro;
 
 /// <summary>
 /// Handles player health, stats, damage, and death behavior.
 /// </summary>
 public class PlayerStats : MonoBehaviour, IDamageable
 {
+    public static PlayerStats instance;
+
     [Header("Health")]
     [SerializeField] private int maxHealth = 10;
     [SerializeField] private int currentHealth;
@@ -16,14 +19,22 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     [Header("Core Stats")]
     [SerializeField] private int strength = 5;
-    [SerializeField] private int defense = 2;
+    [SerializeField] private int defense = 0;
     [SerializeField] private int maxMana = 10;
     [SerializeField] private int currentMana = 10;
     [SerializeField] private float speed = 3f;
 
+    [Header("StatsUI")]
+    [SerializeField] private TextMeshProUGUI maxHealthText;
+    [SerializeField] private TextMeshProUGUI defenseText;
+    [SerializeField] private TextMeshProUGUI strengthText;
+    [SerializeField] private TextMeshProUGUI speedText;
+
     [Header("Events")]
     [SerializeField] private UnityEvent OnDied;
     [SerializeField] private UnityEvent OnDamaged;
+
+
 
     [SerializeField] private Color damageFlashColor = Color.red;
     private Color originalColor;
@@ -33,6 +44,9 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     private void Awake()
     {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
@@ -53,11 +67,23 @@ public class PlayerStats : MonoBehaviour, IDamageable
     }
     private void Update()
     {
+        UpdateUI();
+        if(currentHealth>maxHealth) currentHealth = maxHealth;
+    }
+    private void UpdateUI()
+    {
         if (healthSlider != null)
         {
+            healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
         }
+        if(maxHealthText != null) maxHealthText.text = "MaxHP : " + maxHealth;
+        if(defenseText != null) defenseText.text = "Defense : " + defense;
+        if(strengthText != null) strengthText.text = "Strength : " + strength;
+        if(speedText != null) speedText.text = "Speed : " + speed;
+        
     }
+
     // === Getters and Setters ===
 
     public int GetMaxHealth() { return maxHealth; }
@@ -88,7 +114,9 @@ public class PlayerStats : MonoBehaviour, IDamageable
         {
             return;
         }
-        int finalDamage = Mathf.Max(damage - defense, 1);
+
+        float damageMultiplier = 6f / (6f + defense);
+        int finalDamage = Mathf.Max(1, Mathf.RoundToInt(damage * damageMultiplier));
         SetCurrentHealth(currentHealth - finalDamage);
 
         OnDamaged?.Invoke();

@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: CoppeChestplate
   m_EditorClassIdentifier: 
   itemName: CopperChestplate
-  description: +3 defense
+  description: '+3 defense
+
+    +6 MaxHp'
   icon: {fileID: -6270953770400647376, guid: 6422dd5803c3683479d1f1363cd7b0d1, type: 3}
   itemType: 2
   equipmentType: 2
+  defenseModifier: 3
+  strengthModifier: 0
+  healthModifier: 6
+  speedModifier: 0

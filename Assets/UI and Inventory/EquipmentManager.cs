@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class EquipmentManager : MonoBehaviour
 {
@@ -37,23 +39,35 @@ public class EquipmentManager : MonoBehaviour
     public void EquipItem(Item newItem, int fromInventorySlotIndex)
     {
         EquipmentSlot targetSlot = GetSlotForType(newItem.GetEquipmentType());
-        if (targetSlot == null) return; // No suitable slot found.
+        if (targetSlot == null) return; 
 
-        Item oldItem = targetSlot.HeldItem; // Get the item currently in the slot (could be null).
-        targetSlot.SetItem(newItem); // Place the new item in the equipment slot.
-        InventoryManager.instance.SwapItemWithSlot(fromInventorySlotIndex, oldItem); // Place the old item back in the inventory.
+        Item oldItem = targetSlot.HeldItem;
+        if (oldItem != null)
+        {
+            PlayerStats.instance.SetDefense(PlayerStats.instance.GetDefense()-oldItem.GetDefenseModifier());
+            PlayerStats.instance.SetStrength(PlayerStats.instance.GetStrength()-oldItem.GetStrengthModifier());
+            PlayerStats.instance.SetMaxHealth(PlayerStats.instance.GetMaxHealth()-oldItem.GetHealthModifier());
+            PlayerStats.instance.SetSpeed(PlayerStats.instance.GetSpeed()-oldItem.GetSpeedModifier());
+        }
+        PlayerStats.instance.SetDefense(PlayerStats.instance.GetDefense() + newItem.GetDefenseModifier());
+        PlayerStats.instance.SetStrength(PlayerStats.instance.GetStrength() + newItem.GetStrengthModifier());
+        PlayerStats.instance.SetMaxHealth(PlayerStats.instance.GetMaxHealth() + newItem.GetHealthModifier());
+        PlayerStats.instance.SetSpeed(PlayerStats.instance.GetSpeed() + newItem.GetSpeedModifier());
+        targetSlot.SetItem(newItem);
+        InventoryManager.instance.SwapItemWithSlot(fromInventorySlotIndex, oldItem);
     }
 
 
     public void UnequipItem(Item itemToUnequip)
     {
-        // Try to add the item to the main inventory. This will find the first empty slot.
         bool successfullyAdded = InventoryManager.instance.AddItem(itemToUnequip);
-
-        // If it was added successfully (i.e., the inventory wasn't full)...
         if (successfullyAdded)
         {
-            // ...find which equipment slot was holding the item and clear it.
+            PlayerStats.instance.SetDefense(PlayerStats.instance.GetDefense() - itemToUnequip.GetDefenseModifier());
+            PlayerStats.instance.SetStrength(PlayerStats.instance.GetStrength() - itemToUnequip.GetStrengthModifier());
+            PlayerStats.instance.SetMaxHealth(PlayerStats.instance.GetMaxHealth() - itemToUnequip.GetHealthModifier());
+            PlayerStats.instance.SetSpeed(PlayerStats.instance.GetSpeed() - itemToUnequip.GetSpeedModifier());
+
             EquipmentSlot sourceSlot = GetSlotHoldingItem(itemToUnequip);
             if (sourceSlot != null)
             {
@@ -63,7 +77,6 @@ public class EquipmentManager : MonoBehaviour
         else
         {
             Debug.Log("Inventory is full! Cannot unequip item.");
-            // Here you could add feedback to the player, like a sound or a UI message.
         }
     }
 
@@ -137,19 +150,28 @@ public class EquipmentManager : MonoBehaviour
 
         Debug.Log($"[Load] Save file contains {equippedItems.Count} equipped item(s). Starting load process.");
 
+        int totalDefenseFromLoad = 0;
+        int totalStrengthFromLoad = 0;
+        int totalMaxHealthFromLoad = 0;
+        int totalSpeedFromLoad = 0;
+
         foreach (var itemData in equippedItems)
         {
             if (itemData == null || string.IsNullOrEmpty(itemData.itemName)) continue;
 
-            // --- THIS IS THE KEY LOGGING ---
             Debug.Log($"[Load] Searching database for item with name: '{itemData.itemName}'");
-            Item item = itemDatabase.GetItemByName(itemData.itemName);
 
+            Item item = itemDatabase.GetItemByName(itemData.itemName);
             if (item == null)
             {
                 Debug.LogWarning($"[Load] FAILED to find '{itemData.itemName}' in the ItemDatabase. Skipping this item. Please check for spelling mistakes or ensure the item is in the database asset.");
                 continue;
             }
+
+            totalDefenseFromLoad += item.GetDefenseModifier();
+            totalStrengthFromLoad += item.GetStrengthModifier();
+            totalMaxHealthFromLoad += item.GetHealthModifier();
+            totalSpeedFromLoad += item.GetSpeedModifier();
 
             Debug.Log($"[Load] SUCCESS! Found '{item.GetItemName()}'. Attempting to place in slot for type '{itemData.slotType}'.");
             switch (itemData.slotType)
@@ -161,6 +183,14 @@ public class EquipmentManager : MonoBehaviour
                 case EquipmentType.Accessory: accessorySlot1.SetItem(item); break;
                 case (EquipmentType)99: accessorySlot2.SetItem(item); break; // Second accessory
             }
+            
+        }
+        if (PlayerStats.instance != null)
+        {
+            PlayerStats.instance.SetDefense(PlayerStats.instance.GetDefense() + totalDefenseFromLoad);
+            PlayerStats.instance.SetStrength(PlayerStats.instance.GetStrength() + totalStrengthFromLoad);
+            PlayerStats.instance.SetMaxHealth(PlayerStats.instance.GetMaxHealth() + totalMaxHealthFromLoad);
+            PlayerStats.instance.SetSpeed(PlayerStats.instance.GetSpeed() + totalSpeedFromLoad);
         }
     }
 }

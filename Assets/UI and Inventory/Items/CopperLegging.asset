@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: CopperLegging
   m_EditorClassIdentifier: 
   itemName: CopperLegging
-  description: +2 defense
+  description: '+2 defense
+
+    +5 Speed'
   icon: {fileID: 4349915267927364619, guid: 8d5478e5bb4ff3a4a9b892fb014c3ad0, type: 3}
   itemType: 2
   equipmentType: 3
+  defenseModifier: 2
+  strengthModifier: 0
+  healthModifier: 0
+  speedModifier: 5
