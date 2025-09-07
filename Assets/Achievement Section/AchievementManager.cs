@@ -8,7 +8,6 @@ using System;
 /// - Tracks progress and unlock state
 /// - Persists state via PlayerPrefs
 /// - Raises events when progress changes or an achievement is unlocked
-///
 /// Attach once (e.g., in a bootstrap scene) and it will persist across scenes.
 /// </summary>
 public class AchievementManager : MonoBehaviour
