@@ -1,28 +1,37 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Defines a single achievement, including its ID, visuals, goal, and progress state.
+/// Instances are created as ScriptableObjects and can be edited in the Unity Inspector.
+/// </summary>
 [CreateAssetMenu(fileName = "New Achievement", menuName = "Achievements/Achievement")]
 public class Achievement : ScriptableObject
 {
-    [Tooltip("A unique ID for this achievement. E.g., 'kill_10_goblins'")]
-    public string id;
+    [Header("Identity")]
+    [Tooltip("A unique ID for this achievement. E.g., 'kill_10_goblins'.")]
+    [SerializeField] private string id;
 
-    [Tooltip("The title that will be displayed to the player.")]
-    public string title;
+    [Tooltip("The title displayed to the player.")]
+    [SerializeField] private string title;
 
     [Tooltip("The description of what the player needs to do.")]
     [TextArea]
-    public string description;
+    [SerializeField] private string description;
 
-    [Tooltip("The icon to show when the achievement is locked.")]
-    public Sprite lockedIcon;
+    [Header("Visuals")]
+    [Tooltip("The icon shown when the achievement is locked.")]
+    [SerializeField] private Sprite lockedIcon;
 
-    [Tooltip("The icon to show when the achievement is unlocked.")]
-    public Sprite unlockedIcon;
+    [Tooltip("The icon shown when the achievement is unlocked.")]
+    [SerializeField] private Sprite unlockedIcon;
 
+    [Header("Progress")]
     [Tooltip("How many points/kills/etc. are needed to unlock it.")]
-    public int goal;
+    [SerializeField] private int goal;
 
-    [HideInInspector] public bool isUnlocked;
-    [HideInInspector] public int currentProgress;
+    [HideInInspector] [SerializeField] private bool isUnlocked;
+    [HideInInspector] [SerializeField] private int currentProgress;
+
+
 }

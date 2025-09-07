@@ -18,19 +18,18 @@ public class CameraFollow2D_AutoBoundsV2 : MonoBehaviour
     /// The Transform to follow (typically the player).
     /// </summary>
     [Header("Target")]
-    public Transform target;
+    [SerializeField] private Transform target;
 
     /// <summary>
     /// If true and <see cref="target"/> is null, automatically finds the first object with <see cref="targetTag"/>.
     /// </summary>
     [Tooltip("If target is null, try to FindWithTag on Awake.")]
-    public bool autoFindTargetByTag = true;
-
+    [SerializeField] private bool autoFindTargetByTag = true;
     /// <summary>
     /// Tag used to auto-find the target if <see cref="autoFindTargetByTag"/> is enabled.
     /// </summary>
     [Tooltip("Only used when autoFindTargetByTag is enabled.")]
-    public string targetTag = "Player";
+    [SerializeField] private string targetTag = "Player";
     #endregion
 
     #region Follow
@@ -38,25 +37,23 @@ public class CameraFollow2D_AutoBoundsV2 : MonoBehaviour
     /// World-space offset added to the target position. Keep Z at -10 for 2D cameras.
     /// </summary>
     [Header("Follow")]
-    public Vector3 offset = new Vector3(0, 0, -10);
+    [SerializeField] private Vector3 offset = new Vector3(0, 0, -10);
 
     /// <summary>
     /// Smooth time (seconds) used when the camera is near the target.
     /// </summary>
     [Tooltip("Smooth time when close to the target.")]
-    [Range(0.01f, 0.5f)] public float smoothTime = 0.12f;
-
+    [Range(0.01f, 0.5f)] [SerializeField] private float smoothTime = 0.12f;
     /// <summary>
     /// If planar distance to desired is greater than this, use fast catch-up.
     /// </summary>
     [Tooltip("If we're farther than this, use fast catch-up.")]
-    public float fastDistance = 5f;
-
+    [SerializeField] private float fastDistance = 5f;
     /// <summary>
     /// Maximum speed (units/second) used during fast catch-up.
     /// </summary>
     [Tooltip("Max speed used during catch-up (units/second).")]
-    public float maxSpeed = 40f;
+    [SerializeField] private float maxSpeed = 40f;
     #endregion
 
     #region Bounds / Clamp
@@ -64,25 +61,25 @@ public class CameraFollow2D_AutoBoundsV2 : MonoBehaviour
     /// If true, clamp the camera inside <see cref="worldBounds"/> (after padding).
     /// </summary>
     [Header("Bounds / Clamp")]
-    public bool clampToBounds = true;
+    [SerializeField] private bool clampToBounds = true;
 
     /// <summary>
     /// If true, attempt to auto-detect world bounds from Tilemaps/Renderers/Colliders.
     /// </summary>
-    public bool autoDetectBounds = true;
+    [SerializeField] private bool autoDetectBounds = true;
 
     /// <summary>
     /// Extra padding applied inside the computed bounds (world units).
     /// </summary>
     [Tooltip("Extra padding inside bounds (world units).")]
-    public float boundsPadding = 0.5f;
+    [SerializeField] private float boundsPadding = 0.5f;
 
     /// <summary>
     /// Optional root under which to search for Tilemaps/Renderers/Colliders (e.g. Grid).
     /// If null, the whole scene is searched.
     /// </summary>
     [Tooltip("Optional parent to search under (e.g., Grid). If null, searches whole scene.")]
-    public Transform searchRoot;
+    [SerializeField] private Transform searchRoot;
     #endregion
 
     #region Manual Extras
@@ -90,17 +87,15 @@ public class CameraFollow2D_AutoBoundsV2 : MonoBehaviour
     /// Optional extra Tilemaps to include in bounds.
     /// </summary>
     [Header("Manual Extras (optional)")]
-    public List<Tilemap> extraTilemaps = new();
-
+    [SerializeField] private List<Tilemap> extraTilemaps = new();
     /// <summary>
     /// Optional extra Renderers to include in bounds.
     /// </summary>
-    public List<Renderer> extraRenderers = new();
-
+    [SerializeField] private List<Renderer> extraRenderers = new();
     /// <summary>
     /// Optional extra 2D Colliders to include in bounds.
     /// </summary>
-    public List<Collider2D> extraColliders = new();
+    [SerializeField] private List<Collider2D> extraColliders = new();
     #endregion
 
     #region Debug
@@ -108,12 +103,12 @@ public class CameraFollow2D_AutoBoundsV2 : MonoBehaviour
     /// The final world-space rectangle the camera is clamped within (computed if auto).
     /// </summary>
     [Header("Debug")]
-    public Rect worldBounds;
+    [SerializeField] private Rect worldBounds;
 
     /// <summary>
     /// Gizmo color for drawing the bounds in the editor.
     /// </summary>
-    public Color gizmoColor = new Color(0, 1, 0, 0.25f);
+    [SerializeField] private Color gizmoColor = new Color(0, 1, 0, 0.25f);
     #endregion
 
     private Camera cam;

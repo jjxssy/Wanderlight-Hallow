@@ -12,27 +12,27 @@ public sealed class MinimapFollower : MonoBehaviour
     /// <summary>
     /// The Transform to follow (usually the Player).
     /// </summary>
-    public Transform target;
+    [SerializeField] private Transform target;
 
     /// <summary>
     /// World-space offset (keep Z at -10 for 2D).
     /// </summary>
-    public Vector3 offset = new Vector3(0f, 0f, -10f);
+    [SerializeField] private Vector3 offset = new Vector3(0f, 0f, -10f);
 
     /// <summary>
     /// If true and <see cref="target"/> is null, find first object tagged "Player".
     /// </summary>
-    public bool autoFindTargetByTag = true;
+    [SerializeField] private bool autoFindTargetByTag = true;
 
     /// <summary>
     /// Keep a fixed rotation for the minimap camera regardless of target rotation.
     /// </summary>
-    public bool lockRotation = true;
+    [SerializeField] private bool lockRotation = true;
 
     /// <summary>
     /// Rotation used when <see cref="lockRotation"/> is true.
     /// </summary>
-    public Vector3 lockedEuler = new Vector3(0f, 0f, 0f);
+    [SerializeField] private Vector3 lockedEuler = new Vector3(0f, 0f, 0f);
 
     private void Awake()
     {

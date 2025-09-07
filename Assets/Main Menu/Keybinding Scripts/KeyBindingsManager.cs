@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// <summary>
+/// Central manager for configurable key bindings.
+/// - Loads/saves bindings via <see cref="PlayerPrefs"/>
+/// - Drives the rebind UI (via <see cref="KeyBindingRow"/>)
+/// - Exposes helpers to query keys and build a movement vector
+/// - Raises <see cref="OnKeyBindingsChanged"/> whenever a binding changes
+/// </summary>
 public class KeyBindingsManager : MonoBehaviour
 {
     [SerializeField] private List<KeyBindingRow> keyBindingRows = new List<KeyBindingRow>();
@@ -9,6 +16,9 @@ public class KeyBindingsManager : MonoBehaviour
 
     public static event System.Action OnKeyBindingsChanged;
 
+    /// <summary>
+    /// Default keys per action name. Action names must match your Row GameObject names.
+    /// </summary>
     private Dictionary<string, KeyCode> defaultKeyMap = new Dictionary<string, KeyCode>()
     {
         { "WALK FORWARD", KeyCode.W },
@@ -38,6 +48,9 @@ public class KeyBindingsManager : MonoBehaviour
     private KeyBindingRow waitingForRow;
     private string waitingForAction;
 
+    /// <summary>
+    /// Bind UI rows and hide duplicate popup.
+    /// </summary>
     private void Start()
     {
         LoadBindings();
@@ -49,6 +62,9 @@ public class KeyBindingsManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Loads saved bindings (or defaults) into memory.
+    /// </summary>
     private void LoadBindings()
     {
         currentBindings.Clear();
@@ -66,6 +82,9 @@ public class KeyBindingsManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Populates the UI rows with current bindings.
+    /// </summary>
     private void SetupRows()
     {
         foreach (KeyBindingRow row in keyBindingRows)
@@ -78,12 +97,18 @@ public class KeyBindingsManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Called by a row when the user wants to rebind an action.
+    /// </summary>
     public void RequestKeyChange(KeyBindingRow row, string actionName)
     {
         waitingForRow = row;
         waitingForAction = actionName.ToUpper();
     }
 
+    /// <summary>
+    /// Captures a key for the pending action; saves and updates UI.
+    /// </summary>
     private void Update()
     {
         if (waitingForRow != null)
@@ -120,6 +145,9 @@ public class KeyBindingsManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Returns true if the given key is already bound to some action.
+    /// </summary>
     private bool IsKeyAlreadyUsed(KeyCode key)
     {
         foreach (var binding in currentBindings.Values)
@@ -130,6 +158,9 @@ public class KeyBindingsManager : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Resets all actions to their default keys and updates the UI.
+    /// </summary>
     public void ResetBindings()
     {
         foreach (KeyBindingRow row in keyBindingRows)
@@ -148,7 +179,9 @@ public class KeyBindingsManager : MonoBehaviour
         OnKeyBindingsChanged?.Invoke();
     }
 
-
+    /// <summary>
+    /// Looks up the default key for an action; returns <see cref="KeyCode.None"/> if not found.
+    /// </summary>
     private KeyCode GetDefaultKey(string actionName)
     {
         if (defaultKeyMap.TryGetValue(actionName, out KeyCode key))
@@ -158,6 +191,9 @@ public class KeyBindingsManager : MonoBehaviour
         return KeyCode.None;
     }
 
+    /// <summary>
+    /// Hides the duplicate-key warning popup (called by its Close button).
+    /// </summary>
     public void ClosePopup()
     {
         if (duplicateKeyPopup != null)
@@ -166,6 +202,9 @@ public class KeyBindingsManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets the current bound key for an action (or <see cref="KeyCode.None"/>).
+    /// </summary>
     public KeyCode GetKey(string actionName)
     {
         actionName = actionName.ToUpper();

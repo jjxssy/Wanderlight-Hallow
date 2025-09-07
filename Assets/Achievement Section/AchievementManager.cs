@@ -2,8 +2,20 @@ using UnityEngine;
 using System.Collections.Generic;
 using System; 
 
+/// <summary>
+/// Central runtime manager for achievements.
+/// - Holds a catalog of Achievement assets
+/// - Tracks progress and unlock state
+/// - Persists state via PlayerPrefs
+/// - Raises events when progress changes or an achievement is unlocked
+///
+/// Attach once (e.g., in a bootstrap scene) and it will persist across scenes.
+/// </summary>
 public class AchievementManager : MonoBehaviour
 {
+    /// <summary>
+    /// Singleton instance of the manager.
+    /// </summary>
     public static AchievementManager Instance { get; private set; }
 
     [Tooltip("A list of all achievements in the game.")]
@@ -14,6 +26,7 @@ public class AchievementManager : MonoBehaviour
 
     public static event Action<Achievement> OnAchievementUnlocked;
     public static event Action<Achievement> OnProgressUpdated;
+
 
     private void Awake()
     {
@@ -27,6 +40,9 @@ public class AchievementManager : MonoBehaviour
         InitializeAchievements();
     }
 
+    /// <summary>
+    /// Build lookup dictionary, clear in-memory state, and load persisted progress.
+    /// </summary>
     private void InitializeAchievements()
     {
         foreach (Achievement achievement in achievements)
@@ -44,6 +60,12 @@ public class AchievementManager : MonoBehaviour
         Debug.Log("Achievement Manager Initialized.");
     }
 
+    /// <summary>
+    /// Adds progress to the achievement with the given ID.
+    /// Persists the change and fires progress/unlock events.
+    /// </summary>
+    /// <param name="achievementId">Unique achievement ID.</param>
+    /// <param name="amount">Amount to add (can be negative, but usually positive).</param>
     public void AddProgress(string achievementId, int amount)
     {
         if (achievementDictionary.TryGetValue(achievementId, out Achievement achievement))
@@ -66,6 +88,9 @@ public class AchievementManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Unlocks the provided achievement, fires events, and persists state.
+    /// </summary>
     private void UnlockAchievement(Achievement achievement)
     {
         if (achievement.isUnlocked) return;
@@ -80,6 +105,9 @@ public class AchievementManager : MonoBehaviour
 
     #region Saving and Loading
 
+    /// <summary>
+    /// Persists a single achievement's progress and unlock state to PlayerPrefs.
+    /// </summary>
     private void SaveAchievementProgress(Achievement achievement)
     {
         string progressKey = $"Achievement_{achievement.id}_Progress";
@@ -106,6 +134,11 @@ public class AchievementManager : MonoBehaviour
             achievement.isUnlocked = PlayerPrefs.GetInt(unlockedKey) == 1;
         }
     }
+
+    /// <summary>
+    /// Resets a single achievement's progress/unlock state and persists.
+    /// </summary>
+    /// <param name="achievementId">Unique achievement ID.</param>
     public void ResetAchievement(string achievementId)
     {
         if (achievementDictionary.TryGetValue(achievementId, out Achievement achievement))
@@ -124,6 +157,10 @@ public class AchievementManager : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Resets all achievements and persists.
+    /// </summary>
     public void ResetAllAchievements()
     {
         foreach (Achievement achievement in achievements)
@@ -136,6 +173,9 @@ public class AchievementManager : MonoBehaviour
 
         Debug.Log("All achievements have been reset.");
     }
+    /// <summary>
+    /// Returns a specific achievement by ID, or null if not found.
+    /// </summary>
     public List<Achievement> GetAchievements()
     {
         return achievements;

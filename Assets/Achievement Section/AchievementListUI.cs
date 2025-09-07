@@ -1,6 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+/// <summary>
+/// Populates a UI list (usually a ScrollView content area) with achievement items.
+/// Each item is created from a prefab and bound to an <see cref="Achievement"/>.
+/// </summary>
 public class AchievementListUI : MonoBehaviour
 {
     [Tooltip("The prefab for a single achievement UI item.")]
