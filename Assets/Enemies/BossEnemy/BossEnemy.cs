@@ -2,8 +2,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controls a boss enemy with multiple states (Idle, Chasing, Attacking, Dead).
+/// Includes AI logic for two phases:
+/// - Phase 1: Patrols, chases the player, and performs ranged attacks
+/// - Phase 2: Unlocks a spinning radial projectile attack
+/// Handles health, damage, death, and a boss health bar UI.
+/// </summary>
+
 public class BossEnemy : MonoBehaviour, IDamageable
 {
+    /// <summary>
+    /// Internal state machine for the boss.
+    /// </summary>
     private enum BossState { Idle, Chasing, Attacking, Dead }
     private BossState currentState;
 
@@ -35,6 +46,9 @@ public class BossEnemy : MonoBehaviour, IDamageable
     private float lastAttackTime = -Mathf.Infinity;
     private bool isInPhaseTwo = false;
 
+    /// <summary>
+    /// Unity Awake: caches components and setup.
+    /// </summary>
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,6 +57,9 @@ public class BossEnemy : MonoBehaviour, IDamageable
         originalColor = spriteRenderer.color;
     }
 
+    /// <summary>
+    /// Unity Start: initializes stats, finds player, sets Idle state, starts AI coroutine.
+    /// </summary>
     void Start()
     {
         currentHealth = maxHealth;
@@ -56,12 +73,18 @@ public class BossEnemy : MonoBehaviour, IDamageable
         StartCoroutine(BossAI());
     }
 
+    /// <summary>
+    /// Unity Update: handles animations and health bar updates.
+    /// </summary>
     void Update()
     {
         HandleMovementAnimation();
         UpdateHealthBar();
     }
 
+    /// <summary>
+    /// Sets animation parameters based on movement velocity.
+    /// </summary>
     private void HandleMovementAnimation()
     {
         if (currentState == BossState.Dead) return;
@@ -78,6 +101,10 @@ public class BossEnemy : MonoBehaviour, IDamageable
         }
     }
 
+    /// <summary>
+    /// Main AI coroutine handling patrol, chase, and attacks.
+    /// Switches to phase 2 if health drops below 50%.
+    /// </summary>
     private IEnumerator BossAI()
     {
         yield return new WaitUntil(() => playerTransform != null);
@@ -124,6 +151,10 @@ public class BossEnemy : MonoBehaviour, IDamageable
         }
     }
 
+
+    /// <summary>
+    /// Performs a single ranged attack using the boss's projectile skill.
+    /// </summary>
     private IEnumerator RangedAttack()
     {
         currentState = BossState.Attacking;
@@ -151,6 +182,10 @@ public class BossEnemy : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(0.5f);
         currentState = BossState.Idle;
     }
+    /// <summary>
+    /// Coroutine for phase 2 spinning radial attack.
+    /// Fires a circle of projectiles around the boss every cooldown cycle.
+    /// </summary>
 
     private IEnumerator PhaseTwoAttackRoutine()
     {
@@ -189,6 +224,9 @@ public class BossEnemy : MonoBehaviour, IDamageable
         }
     }
 
+    /// <summary>
+    /// Applies damage to the boss and handles phase transition and death.
+    /// </summary>
     public void TakeDamage(int damage)
     {
         if (currentState == BossState.Dead) return;
@@ -211,6 +249,9 @@ public class BossEnemy : MonoBehaviour, IDamageable
         if (currentHealth <= 0) Die();
     }
 
+    /// <summary>
+    /// Handles boss death: stop AI, disable collider, and destroy object.
+    /// </summary>
     private void Die()
     {
         currentState = BossState.Dead;
@@ -220,6 +261,9 @@ public class BossEnemy : MonoBehaviour, IDamageable
         Destroy(gameObject, 2f);
     }
 
+    /// <summary>
+    /// Updates the UI health bar to reflect current health.
+    /// </summary>
     private void UpdateHealthBar()
     {
         if (bossHealthBar != null)
@@ -229,6 +273,9 @@ public class BossEnemy : MonoBehaviour, IDamageable
         }
     }
 
+    /// <summary>
+    /// Coroutine that briefly flashes the boss red when taking damage.
+    /// </summary>
     private IEnumerator DamageFlash()
     {
         spriteRenderer.color = Color.red;
@@ -236,6 +283,9 @@ public class BossEnemy : MonoBehaviour, IDamageable
         spriteRenderer.color = originalColor;
     }
 
+    /// <summary>
+    /// Draws debug gizmos for detection and patrol ranges in the editor.
+    /// </summary>
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
