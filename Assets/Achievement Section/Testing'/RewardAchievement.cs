@@ -1,13 +1,26 @@
-using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Listens for achievement unlock events, grants rewards, and shows a popup.
+/// Popups are queued so multiple unlocks don't interrupt each other.
+/// </summary>
 public class RewardAchievement : MonoBehaviour
 {
-    [SerializeField] GameObject popUpImage;
-    [SerializeField] TextMeshProUGUI popUpText;
+    [Header("Popup UI")]
+    [SerializeField] private GameObject popUpImage;
+    [SerializeField] private TextMeshProUGUI popUpText;
+    [SerializeField, Min(0.1f)] private float popupDuration = 1.5f;
 
-    [SerializeField] Item healthPotion;
+    [Header("Rewards")]
+    [SerializeField] private Item healthPotion;
+
+    // simple queue so multiple achievements display sequentially
+    private readonly Queue<string> _popupQueue = new Queue<string>();
+    private float _popupTimer;
+    private bool _isShowing;
+
     private void OnEnable()
     {
         AchievementManager.OnAchievementUnlocked += HandleAchievementCompleted;
@@ -17,34 +30,85 @@ public class RewardAchievement : MonoBehaviour
     {
         AchievementManager.OnAchievementUnlocked -= HandleAchievementCompleted;
     }
+
+    /// <summary>
+    /// Handles rewards and enqueues a popup message when an achievement is completed.
+    /// </summary>
     private void HandleAchievementCompleted(Achievement completedAchievement)
     {
-        Debug.Log("Broadcast Received! An achievement was completed: " + completedAchievement.title);
+        if (completedAchievement == null) return;
 
-        if (completedAchievement.id == "001")
+        Debug.Log("Broadcast Received! Achievement completed: " + completedAchievement.GetTitle());
+
+        // Example rewards by ID
+        switch (completedAchievement.GetId())
         {
-            StartCoroutine(AchievementPopUp("Pressed X 5 times"));
-            InventoryManager.Instance.AddItem(healthPotion);
+            case "001":
+                EnqueuePopup("Pressed X 5 times");
+                if (healthPotion != null)
+                {
+                    InventoryManager.Instance.AddItem(healthPotion);
+                }
+                break;
+
+            case "002":
+                EnqueuePopup("Pressed Y 10 times");
+                break;
+
+            default:
+                // Generic fallback if you want to auto-message on any unlock:
+                EnqueuePopup($"Unlocked: {completedAchievement.GetTitle()}");
+                break;
         }
-        else if (completedAchievement.id == "002")
-        {
-            StartCoroutine(AchievementPopUp("Pressed Y 10 times"));
-        }
-        //add switch or just a generic function...
     }
-    private IEnumerator AchievementPopUp(string text)
+
+    /// <summary>
+    /// Adds a message to the popup queue.
+    /// </summary>
+    private void EnqueuePopup(string message)
     {
-        if (popUpImage != null && popUpText != null)
+        if (string.IsNullOrWhiteSpace(message)) return;
+        _popupQueue.Enqueue(message);
+    }
+
+    private void Update()
+    {
+        // If nothing showing and we have items queued, start the next popup
+        if (!_isShowing && _popupQueue.Count > 0)
         {
-            popUpImage.SetActive(true);
-            popUpText.text = text;
-            yield return new WaitForSeconds(1.5f);
-            popUpImage.SetActive(false);
-
-            // just use a float timer in Update instead of coroutine, cause when one achievement is popped and you complete another achievement, the second achievement popup doesnt last full time, when the first achievement time ends
-            //the second achievement pop is disabled too, but adding a timer will reset the timer to full when a 2nd achievement is obtained during the popup of 1st achievement.
-
-            //this script is just for testing
+            string next = _popupQueue.Dequeue();
+            ShowPopup(next);
         }
+
+        // Countdown the current popup
+        if (_isShowing)
+        {
+            _popupTimer -= Time.deltaTime;
+            if (_popupTimer <= 0f)
+            {
+                HidePopup();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Shows the popup with the given text and resets the timer.
+    /// </summary>
+    private void ShowPopup(string text)
+    {
+        if (popUpImage != null) popUpImage.SetActive(true);
+        if (popUpText != null) popUpText.text = text;
+
+        _popupTimer = popupDuration;
+        _isShowing  = true;
+    }
+
+    /// <summary>
+    /// Hides the popup and allows the next one (if any) to start.
+    /// </summary>
+    private void HidePopup()
+    {
+        if (popUpImage != null) popUpImage.SetActive(false);
+        _isShowing = false;
     }
 }

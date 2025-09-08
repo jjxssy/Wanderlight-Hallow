@@ -12,7 +12,7 @@ public class EquipmentManager : MonoBehaviour
     /// <summary>
     /// Singleton instance of the <see cref="EquipmentManager"/>.
     /// </summary>
-    public static EquipmentManager instance;
+    public static EquipmentManager instance; // field not property
 
     [Header("Equipment Slots")]
     /// <summary>Primary weapon slot reference.</summary>

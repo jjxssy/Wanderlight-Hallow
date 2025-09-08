@@ -89,8 +89,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
         }
     }
 
-    #region Event Handlers
-
     /// <summary>
     /// Handles right-click to use the held item.
     /// </summary>
@@ -171,9 +169,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
         // Always show the icon again, whether the swap was successful or not.
         UpdateSlotUI();
     }
-
-    #endregion
-    #region Tooltip Handlers
     
     /// <summary>
     /// Shows the item tooltip when hovering over the slot.
@@ -195,6 +190,4 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
     {
         TooltipManager.instance.HideTooltip();
     }
-
-    #endregion
 }
