@@ -17,7 +17,7 @@ public sealed class PlayerItemPickup : MonoBehaviour
         if (itemWorld != null)
         {
             // Try to add the item to the inventory.
-            if (InventoryManager.instance.AddItem(itemWorld.GetItemData()))
+            if (InventoryManager.Instance.AddItem(itemWorld.GetItemData()))
             {
                 // Register this pickup with the WorldItemManager so it won't respawn after saving/loading.
                 WorldItemManager.Instance.MarkAsDestroyed(itemWorld.GetSaveID());

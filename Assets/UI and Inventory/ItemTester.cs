@@ -1,13 +1,25 @@
 using UnityEngine;
 
+/// <summary>
+/// Simple test script to automatically add items to the player's inventory
+/// at the start of the scene. Used for debugging.
+/// </summary>
 public class ItemTester : MonoBehaviour
 {
-    public Item testItem;
-    public Item testItem2;
+    [Header("Test Items")]
+    [Tooltip("First item to add to the inventory at Start.")]
+    [SerializeField] private Item testItem;
 
+    [Tooltip("Second item to add to the inventory at Start.")]
+    [SerializeField] private Item testItem2;
+
+    /// <summary>
+    /// Unity lifecycle method.
+    /// Adds test items to the inventory on scene start.
+    /// </summary>
     void Start()
     {
-        InventoryManager.instance.AddItem(testItem);
-        InventoryManager.instance.AddItem(testItem2);
+        InventoryManager.Instance.AddItem(testItem);
+        InventoryManager.Instance.AddItem(testItem2);
     }
 }

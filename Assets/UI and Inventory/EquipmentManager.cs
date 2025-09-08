@@ -81,7 +81,7 @@ public class EquipmentManager : MonoBehaviour
         PlayerStats.instance.SetMaxHealth(PlayerStats.instance.GetMaxHealth() + newItem.GetHealthModifier());
         PlayerStats.instance.SetSpeed(PlayerStats.instance.GetSpeed() + newItem.GetSpeedModifier());
         targetSlot.SetItem(newItem);
-        InventoryManager.instance.SwapItemWithSlot(fromInventorySlotIndex, oldItem);
+        InventoryManager.Instance.SwapItemWithSlot(fromInventorySlotIndex, oldItem);
     }
 
     /// <summary>
@@ -91,7 +91,7 @@ public class EquipmentManager : MonoBehaviour
     /// <param name="itemToUnequip">Item to remove from its current equipment slot.</param>
     public void UnequipItem(Item itemToUnequip)
     {
-        bool successfullyAdded = InventoryManager.instance.AddItem(itemToUnequip);
+        bool successfullyAdded = InventoryManager.Instance.AddItem(itemToUnequip);
         if (successfullyAdded)
         {
             PlayerStats.instance.SetDefense(PlayerStats.instance.GetDefense() - itemToUnequip.GetDefenseModifier());
