@@ -88,7 +88,6 @@ public class BossEnemy : MonoBehaviour, IDamageable
     private void HandleMovementAnimation()
     {
         if (currentState == BossState.Dead) return;
-
         if (rb.linearVelocity.sqrMagnitude > 0.1f)
         {
             anim.speed = 1;
@@ -108,7 +107,6 @@ public class BossEnemy : MonoBehaviour, IDamageable
     private IEnumerator BossAI()
     {
         yield return new WaitUntil(() => playerTransform != null);
-
         while (currentState != BossState.Dead)
         {
             if (!isInPhaseTwo)
@@ -159,9 +157,7 @@ public class BossEnemy : MonoBehaviour, IDamageable
     {
         currentState = BossState.Attacking;
         lastAttackTime = Time.time;
-
         yield return new WaitForSeconds(0.5f);
-
         if (bossProjectileSkill != null && projectileSpawnPoint != null)
         {
             GameObject projGO = Instantiate(bossProjectileSkill.projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
