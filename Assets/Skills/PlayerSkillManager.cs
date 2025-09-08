@@ -2,71 +2,84 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages the player's learned skills, the 6-slot skill bar, input-driven activation
+/// (with cooldowns and animation triggers), the skills menu toggle, and notifies
+/// listeners whenever the equipped skills layout changes.
+/// </summary>
 public class PlayerSkillManager : MonoBehaviour
 {
-    public event System.Action OnEquippedSkillsChanged;
+    /// <summary>
+    /// Event invoked whenever the equipped skills array changes.
+    /// Subscribe via <see cref="AddOnEquippedSkillsChangedListener"/> and
+    /// unsubscribe via <see cref="RemoveOnEquippedSkillsChangedListener"/>.
+    /// </summary>
+    private event System.Action OnEquippedSkillsChanged;
 
     [Header("Skill Data")]
-    [SerializeField] private List<Skill> unlockedSkills = new List<Skill>(); // All skills the player has learned
-    [SerializeField] private Skill[] equippedSkills = new Skill[6];          // The 6 skills in the skill bar
+    /// <summary>All skills the player has learned/unlocked.</summary>
+    [SerializeField] private List<Skill> unlockedSkills = new List<Skill>();
+
+    /// <summary>The 6 skills currently placed on the player's skill bar.</summary>
+    [SerializeField] private Skill[] equippedSkills = new Skill[6];
 
     [Header("Dependencies")]
+    /// <summary>Provides key lookups for skill activation (e.g., "SKILL 1").</summary>
     [SerializeField] private KeyBindingsManager keyBindingsManager;
-    [SerializeField] private GameObject skillMenuPanel; // The UI panel for assigning skills
-    [SerializeField] private SkillSlotUI[] skillSlotsUI; // The 6 UI slots from the skill bar
 
+    /// <summary>Root GameObject for the assign/arrange skills menu.</summary>
+    [SerializeField] private GameObject skillMenuPanel;
+
+    /// <summary>References to the UI widgets representing each skill bar slot.</summary>
+    [SerializeField] private SkillSlotUI[] skillSlotsUI;
+
+    /// <summary>Tracks next usable time for each skill (world time seconds).</summary>
     private Dictionary<Skill, float> cooldownTimers = new Dictionary<Skill, float>();
+
+    /// <summary>Cached Animator for optional skill animation triggers.</summary>
     private Animator animator;
 
+    // --- Simple getters (kept your names/signatures) ---
+    public List<Skill> GetUnlockedSkills() { return unlockedSkills; }
+    public Skill[] GetEquipedSkills() { return equippedSkills; }
 
-    void Start()
+    // --- Subscribe/unsubscribe for the private event ---
+    public void AddOnEquippedSkillsChangedListener(System.Action listener) { OnEquippedSkillsChanged += listener; }
+    public void RemoveOnEquippedSkillsChangedListener(System.Action listener) { OnEquippedSkillsChanged -= listener; }
+
+    private void Start()
     {
         animator = GetComponent<Animator>();
-        if (skillMenuPanel != null)
-        {
-            skillMenuPanel.SetActive(false);
-        }
+        if (skillMenuPanel != null) skillMenuPanel.SetActive(false);
 
         foreach (Skill skill in unlockedSkills)
-        {
-            if (!cooldownTimers.ContainsKey(skill))
-            {
-                cooldownTimers.Add(skill, 0f);
-            }
-        }
+            if (!cooldownTimers.ContainsKey(skill)) cooldownTimers.Add(skill, 0f);
 
         UpdateSkillBarUI();
     }
-    
 
-
-    void Update()
+    private void Update()
     {
         HandleSkillActivation();
         HandleSkillMenuToggle();
-
     }
+
     private void OnEnable()
     {
-        // Subscribe to the event when this object becomes active
         KeyBindingsManager.OnKeyBindingsChanged += UpdateSkillBarUI;
     }
 
     private void OnDisable()
     {
-        // Unsubscribe when this object is disabled to prevent errors
         KeyBindingsManager.OnKeyBindingsChanged -= UpdateSkillBarUI;
     }
 
-
     private void HandleSkillActivation()
     {
-        // Loop through the 6 skill slots
         for (int i = 0; i < equippedSkills.Length; i++)
         {
             if (equippedSkills[i] == null) continue;
 
-            // Get the key for the current slot from the KeyBindingsManager
             string actionName = "SKILL " + (i + 1);
             KeyCode skillKey = keyBindingsManager.GetKey(actionName);
 
@@ -81,17 +94,16 @@ public class PlayerSkillManager : MonoBehaviour
     {
         if (skillMenuPanel == null) return;
 
-        // Open/close the skill menu
         if (Input.GetKeyDown(keyBindingsManager.GetKey("SKILLS")))
         {
             if (skillMenuPanel.activeSelf)
             {
-                skillMenuPanel.SetActive(!skillMenuPanel.activeSelf);
+                skillMenuPanel.SetActive(false);
                 PlayerPrefs.SetInt("MenusOpen", 0);
             }
             else if (PlayerPrefs.GetInt("MenusOpen", 0) == 0)
             {
-                skillMenuPanel.SetActive(!skillMenuPanel.activeSelf);
+                skillMenuPanel.SetActive(true);
                 PlayerPrefs.SetInt("MenusOpen", 1);
             }
         }
@@ -101,16 +113,16 @@ public class PlayerSkillManager : MonoBehaviour
     {
         if (!cooldownTimers.ContainsKey(skill) || cooldownTimers[skill] <= Time.time)
         {
-            if (animator != null && !string.IsNullOrEmpty(skill.animationTrigger))
+            string trigger = skill.GetAnimationTrigger();
+            if (animator != null && !string.IsNullOrEmpty(trigger))
             {
-                animator.SetTrigger(skill.animationTrigger);
+                animator.SetTrigger(trigger);
             }
 
             skill.Activate(gameObject);
 
-            cooldownTimers[skill] = Time.time + skill.cooldown;
+            cooldownTimers[skill] = Time.time + skill.GetCooldown();
 
-            // Tell the UI slot to start its cooldown visual
             if (slotIndex < skillSlotsUI.Length)
             {
                 skillSlotsUI[slotIndex].StartCooldown();
@@ -118,7 +130,7 @@ public class PlayerSkillManager : MonoBehaviour
         }
         else
         {
-            Debug.Log(skill.skillName + " is on cooldown!");
+            Debug.Log(skill.GetSkillName() + " is on cooldown!");
         }
     }
 
@@ -131,31 +143,29 @@ public class PlayerSkillManager : MonoBehaviour
             {
                 cooldownTimers.Add(newSkill, 0f);
             }
-            Debug.Log("Learned new skill: " + newSkill.skillName);
+            Debug.Log("Learned new skill: " + newSkill.GetSkillName());
         }
     }
 
     public void EquipSkill(int slotIndex, Skill skillToEquip)
     {
         if (slotIndex < 0 || slotIndex >= equippedSkills.Length) return;
+        if (!unlockedSkills.Contains(skillToEquip)) return;
 
-        if (unlockedSkills.Contains(skillToEquip))
+        // ensure no duplicates
+        for (int i = 0; i < equippedSkills.Length; i++)
         {
-
-            for (int i = 0; i < equippedSkills.Length; i++)
+            if (equippedSkills[i] == skillToEquip)
             {
-                if (equippedSkills[i] == skillToEquip)
-                {
-                    equippedSkills[i] = null;
-                    break; 
-                }
+                equippedSkills[i] = null;
+                break;
             }
-
-            equippedSkills[slotIndex] = skillToEquip;
-
-            UpdateSkillBarUI(); 
-            OnEquippedSkillsChanged?.Invoke();
         }
+
+        equippedSkills[slotIndex] = skillToEquip;
+
+        UpdateSkillBarUI();
+        OnEquippedSkillsChanged?.Invoke();
     }
 
     private void UpdateSkillBarUI()
@@ -166,17 +176,15 @@ public class PlayerSkillManager : MonoBehaviour
             KeyCode key = keyBindingsManager.GetKey(actionName);
 
             if (i < equippedSkills.Length && equippedSkills[i] != null)
-            {
                 skillSlotsUI[i].SetSkill(equippedSkills[i], key);
-            }
             else
-            {
                 skillSlotsUI[i].SetSkill(null, key);
-            }
         }
     }
 
-
+    /// <summary>
+    /// Starts a timed buff coroutine that applies a temporary Strength/Defense bonus.
+    /// </summary>
     public void ApplyTimedBuff(BuffSkill skill, PlayerStats stats)
     {
         StartCoroutine(TimedBuffCoroutine(skill, stats));
@@ -184,18 +192,24 @@ public class PlayerSkillManager : MonoBehaviour
 
     private IEnumerator TimedBuffCoroutine(BuffSkill skill, PlayerStats stats)
     {
-        switch (skill.statToBuff)
+        switch (skill.GetStatToBuff())
         {
-            case StatType.Strength: stats.AddStrength(skill.buffValue); break;
-            case StatType.Defense: stats.AddDefense(skill.buffValue); break;
+            case StatType.Strength: stats.AddStrength(skill.GetBuffValue()); break;
+            case StatType.Defense:  stats.AddDefense (skill.GetBuffValue()); break;
         }
-        yield return new WaitForSeconds(skill.duration);
-        switch (skill.statToBuff)
+
+        yield return new WaitForSeconds(skill.GetDuration());
+
+        switch (skill.GetStatToBuff())
         {
-            case StatType.Strength: stats.AddStrength(-skill.buffValue); break;
-            case StatType.Defense: stats.AddDefense(-skill.buffValue); break;
+            case StatType.Strength: stats.AddStrength(-skill.GetBuffValue()); break;
+            case StatType.Defense:  stats.AddDefense (-skill.GetBuffValue()); break;
         }
     }
+
+    /// <summary>
+    /// Requests a temporary shield activation around the player.
+    /// </summary>
     public void ActivateShield(ShieldSkill skill)
     {
         StartCoroutine(ShieldRoutine(skill));
@@ -203,23 +217,23 @@ public class PlayerSkillManager : MonoBehaviour
 
     private IEnumerator ShieldRoutine(ShieldSkill skill)
     {
-        GameObject shieldInstance = Instantiate(skill.shieldPrefab, transform.position + new Vector3(0f,2.5f,0f), Quaternion.identity, transform);
-
-        Debug.Log("Shields up for " + skill.duration + " seconds!");
-        yield return new WaitForSeconds(skill.duration);
-
-        Debug.Log("Shields down!");
-        if (shieldInstance != null)
+        GameObject prefab = skill.GetShieldPrefab();
+        if (prefab != null)
         {
-            Destroy(shieldInstance);
+            GameObject shieldInstance = Instantiate(prefab, transform.position + new Vector3(0f, 2.5f, 0f), Quaternion.identity, transform);
+
+            Debug.Log("Shields up for " + skill.GetDuration() + " seconds!");
+            yield return new WaitForSeconds(skill.GetDuration());
+
+            Debug.Log("Shields down!");
+            if (shieldInstance != null)
+            {
+                Destroy(shieldInstance);
+            }
         }
-    }
-    public List<Skill> GetUnlockedSkills()
-    {
-        return unlockedSkills;
-    }
-    public Skill[] GetEquipedSkills()
-    {
-        return equippedSkills;
+        else
+        {
+            Debug.LogWarning("ShieldSkill has no shield prefab assigned.");
+        }
     }
 }

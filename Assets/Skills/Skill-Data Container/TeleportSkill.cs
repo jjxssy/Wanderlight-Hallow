@@ -1,16 +1,32 @@
 using UnityEngine;
-using UnityEngine.Tilemaps; // <-- NEW: Add this line to work with Tilemaps
+using UnityEngine.Tilemaps;
 
+/// <summary>
+/// Teleports the user to the mouse position if the target cell/point is not blocked
+/// by a solid collider or a solid tile. Spawns optional VFX before/after teleport.
+/// Uses private serialized fields with Java-style getters/setters.
+/// </summary>
 [CreateAssetMenu(fileName = "New Teleport Skill", menuName = "Skills/Teleport Skill")]
 public class TeleportSkill : Skill
 {
     [Header("Teleport Effects")]
-    public GameObject teleportOutVFX;
-    public GameObject teleportInVFX;
+    [SerializeField] private GameObject teleportOutVFX;
+    [SerializeField] private GameObject teleportInVFX;
 
-    // This will hold a reference to our solid tilemap
+    // Cached reference to a solid/collision tilemap (tag your Tilemap as "CollisionTilemap")
     private static Tilemap collisionTilemap;
 
+    // --- Java-style getters/setters (no public properties) ---
+    public GameObject GetTeleportOutVFX() { return teleportOutVFX; }
+    public void SetTeleportOutVFX(GameObject value) { teleportOutVFX = value; }
+
+    public GameObject GetTeleportInVFX() { return teleportInVFX; }
+    public void SetTeleportInVFX(GameObject value) { teleportInVFX = value; }
+
+    /// <summary>
+    /// Teleport to mouse world position if not overlapping a solid collider or solid tile.
+    /// Spawns out/in VFX if assigned.
+    /// </summary>
     public override void Activate(GameObject user)
     {
         if (collisionTilemap == null)
@@ -25,6 +41,7 @@ public class TeleportSkill : Skill
         Vector3 destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         destination.z = user.transform.position.z;
 
+        // Block teleport if landing on any non-trigger collider
         Collider2D hitCollider = Physics2D.OverlapPoint(destination);
         if (hitCollider != null && !hitCollider.isTrigger)
         {
@@ -32,30 +49,28 @@ public class TeleportSkill : Skill
             return;
         }
 
-        // --- CHECK 2: Tilemap Collider ---
+        // Block teleport if landing on a solid tile in the collision tilemap
         if (collisionTilemap != null)
         {
-            // Convert the world position to a grid cell position
-            Vector3Int cellPosition = collisionTilemap.WorldToCell(destination);
-            // Check if there is a tile at that cell AND if that tile has a collider
-            if (collisionTilemap.HasTile(cellPosition))
+            Vector3Int cell = collisionTilemap.WorldToCell(destination);
+            if (collisionTilemap.HasTile(cell))
             {
                 Debug.Log("Cannot teleport onto a solid tile!");
                 return;
             }
         }
 
-        // If all checks pass, proceed with the teleport
+        // VFX out -> teleport -> VFX in
         if (teleportOutVFX != null)
         {
-            Instantiate(teleportOutVFX, user.transform.position, Quaternion.identity);
+            Object.Instantiate(teleportOutVFX, user.transform.position, Quaternion.identity);
         }
 
         user.transform.position = destination;
 
         if (teleportInVFX != null)
         {
-            Instantiate(teleportInVFX, user.transform.position, Quaternion.identity);
+            Object.Instantiate(teleportInVFX, user.transform.position, Quaternion.identity);
         }
     }
 }

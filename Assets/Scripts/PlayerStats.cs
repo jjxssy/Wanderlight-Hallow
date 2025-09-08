@@ -77,7 +77,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     private void Update()
     {
         UpdateUI();
-        if(currentHealth>maxHealth) currentHealth = maxHealth;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
     /// <summary>
@@ -90,60 +90,41 @@ public class PlayerStats : MonoBehaviour, IDamageable
             healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
         }
-        if(maxHealthText != null) maxHealthText.text = "MaxHP : " + maxHealth;
-        if(defenseText != null) defenseText.text = "Defense : " + defense;
-        if(strengthText != null) strengthText.text = "Strength : " + strength;
-        if(speedText != null) speedText.text = "Speed : " + speed;
-        
+        if (maxHealthText != null) maxHealthText.text = "MaxHP : " + maxHealth;
+        if (defenseText != null) defenseText.text = "Defense : " + defense;
+        if (strengthText != null) strengthText.text = "Strength : " + strength;
+        if (speedText != null) speedText.text = "Speed : " + speed;
     }
 
     // === Getters and Setters ===
 
-    /// <summary>Returns the maximum health value.</summary>
     public int GetMaxHealth() { return maxHealth; }
-    /// <summary>Sets the maximum health value.</summary>
     public void SetMaxHealth(int value) { maxHealth = value; }
 
-    /// <summary>Returns the current health value.</summary>
     public int GetCurrentHealth() { return currentHealth; }
-    /// <summary>Sets the current health value, clamped to 0..maxHealth.</summary>
     public void SetCurrentHealth(int value) { currentHealth = Mathf.Clamp(value, 0, maxHealth); }
 
-    /// <summary>Returns the current strength.</summary>
     public int GetStrength() { return strength; }
-    /// <summary>Sets the current strength.</summary>
     public void SetStrength(int value) { strength = value; }
 
-    /// <summary>Returns the current defense.</summary>
     public int GetDefense() { return defense; }
-    /// <summary>Sets the current defense.</summary>
     public void SetDefense(int value) { defense = value; }
 
-    /// <summary>Returns the maximum mana value.</summary>
     public int GetMaxMana() { return maxMana; }
-    /// <summary>Sets the maximum mana value.</summary>
     public void SetMaxMana(int value) { maxMana = value; }
 
-    /// <summary>Returns the current mana value.</summary>
     public int GetCurrentMana() { return currentMana; }
-    /// <summary>Sets the current mana value, clamped to 0..maxMana.</summary>
     public void SetCurrentMana(int value) { currentMana = Mathf.Clamp(value, 0, maxMana); }
 
-    /// <summary>Returns the movement speed.</summary>
     public float GetSpeed() { return speed; }
-    /// <summary>Sets the movement speed.</summary>
     public void SetSpeed(float value) { speed = value; }
 
     /// <summary>
     /// Applies damage with defense mitigation, triggers hit feedback and death if health reaches zero.
     /// </summary>
-    /// <param name="damage">Raw incoming damage before mitigation.</param>
     public void TakeDamage(int damage)
     {
-        if (isInvincible)
-        {
-            return;
-        }
+        if (isInvincible) return;
 
         float damageMultiplier = 6f / (6f + defense);
         int finalDamage = Mathf.Max(1, Mathf.RoundToInt(damage * damageMultiplier));
@@ -158,33 +139,25 @@ public class PlayerStats : MonoBehaviour, IDamageable
         }
     }
 
-    /// <summary>
-    /// Heals the player by a given amount (clamped to max health).
-    /// </summary>
+    /// <summary>Heals the player by a given amount (clamped to max health).</summary>
     public void Heal(int amount)
     {
         SetCurrentHealth(currentHealth + amount);
     }
 
-    /// <summary>
-    /// Restores mana by a given amount (clamped to max mana).
-    /// </summary>
+    /// <summary>Restores mana by a given amount (clamped to max mana).</summary>
     public void RestoreMana(int amount)
     {
         SetCurrentMana(currentMana + amount);
     }
 
-    /// <summary>
-    /// Increases strength by a given value.
-    /// </summary>
+    /// <summary>Increases strength by a given value.</summary>
     public void AddStrength(int value)
     {
         SetStrength(strength + value);
     }
 
-    /// <summary>
-    /// Increases defense by a given value.
-    /// </summary>
+    /// <summary>Increases defense by a given value.</summary>
     public void AddDefense(int value)
     {
         SetDefense(defense + value);
@@ -197,33 +170,25 @@ public class PlayerStats : MonoBehaviour, IDamageable
     {
         OnDied?.Invoke();
         StatisticsManager.Increase("deathCount");
+
         Animator anim = GetComponent<Animator>();
-        if (anim != null)
-        {
-            anim.SetTrigger("Die");
-        }
+        if (anim != null) { anim.SetTrigger("Die"); }
 
         PlayerMovement movement = GetComponent<PlayerMovement>();
-        if (movement != null)
-        {
-            movement.enabled = false;
-        }
+        if (movement != null) { movement.enabled = false; }
 
         Collider2D col = GetComponent<Collider2D>();
-        if (col != null)
-        {
-            col.enabled = false;
-        }
+        if (col != null) { col.enabled = false; }
 
-        if (DeathManager.instance != null)
+        // Updated to use the accessor instead of a public instance field.
+        var dm = DeathManager.GetInstance();
+        if (dm != null)
         {
-            DeathManager.instance.GameOver();
+            dm.GameOver();
         }
     }
 
-    /// <summary>
-    /// Briefly flashes the sprite to indicate damage.
-    /// </summary>
+    /// <summary>Briefly flashes the sprite to indicate damage.</summary>
     private IEnumerator DamageFlash()
     {
         spriteRenderer.color = damageFlashColor;
@@ -231,9 +196,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         spriteRenderer.color = originalColor;
     }
 
-    /// <summary>
-    /// Grants temporary invincibility after taking damage.
-    /// </summary>
+    /// <summary>Grants temporary invincibility after taking damage.</summary>
     private IEnumerator InvincibilityFrames()
     {
         isInvincible = true;

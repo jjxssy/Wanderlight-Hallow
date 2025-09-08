@@ -1,28 +1,32 @@
 using UnityEngine;
 
 /// <summary>
-/// Manages the game-over flow, toggling the death UI when needed.
+/// Manages the game-over flow by toggling the death UI when the player dies.
+/// Keep this on the same GameObject as a <see cref="UIManager"/>.
 /// </summary>
 public class DeathManager : MonoBehaviour
 {
-    public static DeathManager instance;
+    // Private singleton field
+    private static DeathManager instance;
 
-    /// <summary>
-    /// Ensures a single instance of DeathManager exists.
-    /// </summary>
-    private void Awake(){
-        if(DeathManager.instance==null)
-            instance=this;
-            else 
-                Destroy(gameObject);
+    // Public Java-style getter for the singleton
+    public static DeathManager GetInstance() { return instance; }
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
     }
 
     /// <summary>
-    /// Triggers the game-over UI by toggling the death panel on the attached UIManager.
+    /// Triggers the game-over UI by toggling the death panel on the attached <see cref="UIManager"/>.
     /// </summary>
-    public void GameOver(){
-        UIManager _ui= GetComponent<UIManager>();
-        if(_ui!=null)
-            _ui.ToggleDeathPanel();
+    public void GameOver()
+    {
+        UIManager ui = GetComponent<UIManager>();
+        if (ui != null)
+            ui.ToggleDeathPanel();
     }
 }
