@@ -1,9 +1,10 @@
 using UnityEngine;
+
 /// <summary>
 /// Handles picking up items from the world and adding them to the player’s inventory.
 /// Attach this script to your player character (must have a 2D trigger collider).
 /// </summary>
-public class PlayerItemPickup : MonoBehaviour
+public sealed class PlayerItemPickup : MonoBehaviour
 {
     /// <summary>
     /// Triggered when the player enters a trigger collider.
@@ -18,9 +19,10 @@ public class PlayerItemPickup : MonoBehaviour
             // Try to add the item to the inventory.
             if (InventoryManager.instance.AddItem(itemWorld.GetItemData()))
             {
-                // ADD THIS LINE:
-                WorldItemManager.instance.MarkAsDestroyed(itemWorld.GetSaveID());
+                // Register this pickup with the WorldItemManager so it won't respawn after saving/loading.
+                WorldItemManager.Instance.MarkAsDestroyed(itemWorld.GetSaveID());
 
+                // Remove the item from the world.
                 Destroy(other.gameObject);
             }
         }
