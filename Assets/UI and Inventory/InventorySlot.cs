@@ -174,7 +174,10 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
 
     #endregion
     #region Tooltip Handlers
-
+    
+    /// <summary>
+    /// Shows the item tooltip when hovering over the slot.
+    /// </summary>
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (HeldItem != null)
@@ -184,7 +187,10 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
             TooltipManager.instance.ShowTooltip(tooltipContent);
         }
     }
-
+    
+    /// <summary>
+    /// Hides the tooltip when the cursor exits the slot.
+    /// </summary>
     public void OnPointerExit(PointerEventData eventData)
     {
         TooltipManager.instance.HideTooltip();

@@ -7,7 +7,7 @@ using UnityEngine;
 /// - Adds/uses/swaps/destroys items
 /// - Saves/loads item names to/from an array
 /// </summary>
-public sealed class InventoryManager : MonoBehaviour
+public  class InventoryManager : MonoBehaviour
 {
     /// <summary>
     /// Singleton accessor (read-only).
@@ -93,7 +93,11 @@ public sealed class InventoryManager : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Attempts to add an item to the first available empty slot.
+    /// </summary>
+    /// <param name="itemToAdd">The item to add.</param>
+    /// <returns>True if successfully added; false if inventory was full.</returns>
     public bool AddItem(Item itemToAdd)
     {
         foreach (InventorySlot slot in Slots)
@@ -108,7 +112,11 @@ public sealed class InventoryManager : MonoBehaviour
         Debug.LogWarning($"Inventory is full! Could not add {(itemToAdd != null ? itemToAdd.GetItemName() : "NULL")}.");
         return false;
     }
-
+    /// <summary>
+    /// Uses the item in the given slot (if any).
+    /// Consumables are automatically removed after use.
+    /// </summary>
+    /// <param name="slotIndex">Index of the slot to use.</param>
     public void UseItem(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= Slots.Count) return;
@@ -125,6 +133,11 @@ public sealed class InventoryManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Swaps items between two slots.
+    /// </summary>
+    /// <param name="indexA">Index of the first slot.</param>
+    /// <param name="indexB">Index of the second slot.</param>
     public void SwapItems(int indexA, int indexB)
     {
         if (indexA < 0 || indexA >= Slots.Count || indexB < 0 || indexB >= Slots.Count) return;
@@ -136,12 +149,22 @@ public sealed class InventoryManager : MonoBehaviour
         Slots[indexB].SetItem(itemA);
     }
 
+    /// <summary>
+    /// Places an item directly into a specific slot, overwriting its contents.
+    /// </summary>
+    /// <param name="slotIndex">Index of the target slot.</param>
+    /// <param name="itemToPlace">Item to place into the slot.</param>
+
     public void SwapItemWithSlot(int slotIndex, Item itemToPlace)
     {
         if (slotIndex < 0 || slotIndex >= Slots.Count) return;
         Slots[slotIndex].SetItem(itemToPlace);
     }
 
+    /// <summary>
+    /// Clears (destroys) the item in the given slot.
+    /// </summary>
+    /// <param name="slotIndex">Index of the slot to clear.</param>
     public void DestroyItem(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= Slots.Count) return;
@@ -149,6 +172,11 @@ public sealed class InventoryManager : MonoBehaviour
         Slots[slotIndex].ClearSlot();
     }
 
+    /// <summary>
+    /// Serializes the current inventory into an array of item names for saving.
+    /// Null is stored for empty slots.
+    /// </summary>
+    /// <returns>Array of item names matching slot order.</returns>
     public string[] GetInventoryDataForSave()
     {
         string[] itemNames = new string[Slots.Count];
@@ -159,6 +187,10 @@ public sealed class InventoryManager : MonoBehaviour
         return itemNames;
     }
 
+    /// <summary>
+    /// Restores inventory state from a saved array of item names.
+    /// </summary>
+    /// <param name="itemNames">Array of saved item names (must match slot count).</param>
     public void LoadInventoryData(string[] itemNames)
     {
         if (itemNames == null || itemNames.Length != Slots.Count)
