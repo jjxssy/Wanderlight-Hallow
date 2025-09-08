@@ -34,7 +34,8 @@ public class ItemWorld : MonoBehaviour
             spriteRenderer.sprite = itemData.GetIcon();
         }
         // Register this item with the manager when it's created
-        WorldItemManager.instance?.RegisterItem(this);
+        WorldItemManager.Instance?.RegisterItem(this);
+
     }
     /// <summary>
     /// Gets the ScriptableObject data for this item.
