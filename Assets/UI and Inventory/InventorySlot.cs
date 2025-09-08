@@ -184,7 +184,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
         {
             // Build a formatted string for the tooltip using the item's data
             string tooltipContent = $"<b>{HeldItem.GetItemName()}</b>\n<size=18>{HeldItem.GetDescription()}</size>";
-            TooltipManager.instance.ShowTooltip(tooltipContent);
+            TooltipManager.GetInstance().ShowTooltip(tooltipContent);
         }
     }
     
@@ -193,7 +193,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
     /// </summary>
     public void OnPointerExit(PointerEventData eventData)
     {
-        TooltipManager.instance.HideTooltip();
+        TooltipManager.GetInstance().HideTooltip();
     }
 
     #endregion

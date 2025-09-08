@@ -6,11 +6,19 @@ using TMPro; // Make sure to import TextMeshPro
 /// </summary>
 public class TooltipManager : MonoBehaviour
 {
-    /// <summary>
-    /// Global singleton instance for accessing the tooltip system.
-    /// </summary>
-    public static TooltipManager instance;
 
+    /// <summary>
+    /// Backing field for the singleton instance (private).
+    /// </summary>
+    private static TooltipManager _instance;
+
+    /// <summary>
+    /// Public read-only accessor for the singleton instance.
+    /// </summary>
+    public static TooltipManager GetInstance()
+    {
+        return _instance;
+    }
     [SerializeField] private GameObject tooltipPanel;
     [SerializeField] private TextMeshProUGUI tooltipText;
     [SerializeField] private RectTransform tooltipRect; // The RectTransform of the panel
@@ -18,22 +26,12 @@ public class TooltipManager : MonoBehaviour
     /// <summary>
     /// Ensures singleton instance and hides tooltip on startup.
     /// </summary>
-    private void Awake()
+        private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (_instance == null) _instance = this;
+        else { Destroy(gameObject); return; }
 
-        // Start with the tooltip hidden
-        if (tooltipPanel != null)
-        {
-            tooltipPanel.SetActive(false);
-        }
+        if (tooltipPanel != null) tooltipPanel.SetActive(false);
     }
 
     /// <summary>

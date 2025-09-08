@@ -107,13 +107,13 @@ public class EquipmentSlot : MonoBehaviour, IDropHandler, IPointerClickHandler, 
         if (HeldItem != null)
         {
             string tooltipContent = $"<b>{HeldItem.GetItemName()}</b>\n<size=18>{HeldItem.GetDescription()}</size>";
-            TooltipManager.instance.ShowTooltip(tooltipContent);
+            TooltipManager.GetInstance().ShowTooltip(tooltipContent);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        TooltipManager.instance.HideTooltip();
+        TooltipManager.GetInstance().HideTooltip();
     }
 }
 
