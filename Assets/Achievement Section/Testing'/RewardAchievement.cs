@@ -24,7 +24,7 @@ public class RewardAchievement : MonoBehaviour
         if (completedAchievement.id == "001")
         {
             StartCoroutine(AchievementPopUp("Pressed X 5 times"));
-            InventoryManager.instance.AddItem(healthPotion);
+            InventoryManager.Instance.AddItem(healthPotion);
         }
         else if (completedAchievement.id == "002")
         {

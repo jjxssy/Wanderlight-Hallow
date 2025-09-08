@@ -7,7 +7,7 @@ public class ItemTester : MonoBehaviour
 
     void Start()
     {
-        InventoryManager.instance.AddItem(testItem);
-        InventoryManager.instance.AddItem(testItem2);
+        InventoryManager.Instance.AddItem(testItem);
+        InventoryManager.Instance.AddItem(testItem2);
     }
 }

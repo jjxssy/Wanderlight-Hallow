@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Broad categories an item can belong to.
+/// </summary>
 public enum ItemType
 {
     Default,
@@ -7,7 +10,9 @@ public enum ItemType
     Equipment
 }
 
-// UPDATE: Add more specific types for our new slots.
+/// <summary>
+/// Specific equipment slots supported by the game.
+/// </summary>
 public enum EquipmentType
 {
     None,
@@ -18,6 +23,13 @@ public enum EquipmentType
     Accessory // For rings, amulets, etc.
 }
 
+/// <summary>
+/// ScriptableObject representing a single item definition:
+/// - Display info (name, description, icon)
+/// - Classification (item/equipment type)
+/// - Stat modifiers
+/// - Basic <see cref="Use"/> behavior
+/// </summary>
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class Item : ScriptableObject
 {
@@ -36,19 +48,41 @@ public class Item : ScriptableObject
     [SerializeField] private int healthModifier = 0;
     [SerializeField] private int speedModifier = 0;
 
-    // ... existing methods (GetItemName, GetDescription, etc.) remain the same ...
+  // === Accessors ===
+
+    /// <summary>Gets the display name.</summary>
     public string GetItemName() => itemName;
+
+    /// <summary>Gets the description text.</summary>
     public string GetDescription() => description;
+
+    /// <summary>Gets the icon sprite.</summary>
     public Sprite GetIcon() => icon;
+
+    /// <summary>Gets the broad item category.</summary>
     public ItemType GetItemType() => itemType;
+
+     /// <summary>Gets the specific equipment slot (if applicable).</summary>
     public EquipmentType GetEquipmentType() => equipmentType;
+
+     /// <summary>Gets the defense bonus.</summary>
     public int GetDefenseModifier() => defenseModifier;
+        
+    /// <summary>Gets the strength bonus.</summary>
     public int GetStrengthModifier() => strengthModifier;
+    
+    /// <summary>Gets the health bonus.</summary>
     public int GetHealthModifier() => healthModifier;
+
+     /// <summary>Gets the speed bonus.</summary>
     public int GetSpeedModifier() => speedModifier;
 
 
-
+    /// <summary>
+    /// Performs the item's default use behavior.
+    /// For equipment, this is where an equipment manager could be invoked.
+    /// For non-equipment (e.g., consumables), a simple example heal is applied.
+    /// </summary>
     public virtual void Use()
     {
         // This is where you would call an EquipmentManager to handle equipping.

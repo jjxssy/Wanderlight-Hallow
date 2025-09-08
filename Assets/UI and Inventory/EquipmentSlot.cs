@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
+/// <summary>
+/// Represents a UI slot for equipping gear. 
+/// Handles drops, clicks, and tooltip display for equipment items.
+/// </summary>
 public class EquipmentSlot : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Slot Configuration")]
@@ -11,7 +14,10 @@ public class EquipmentSlot : MonoBehaviour, IDropHandler, IPointerClickHandler, 
     [Header("UI References")]
     [Tooltip("The child Image component that displays the item's icon.")]
     [SerializeField] private Image iconImage;
-
+    
+    /// <summary>
+    /// The item currently held in this slot.
+    /// </summary>
     public Item HeldItem { get; private set; }
 
     private Image backgroundImage;
@@ -29,7 +35,10 @@ public class EquipmentSlot : MonoBehaviour, IDropHandler, IPointerClickHandler, 
         // ClearSlot();
     }
 
-
+    /// <summary>
+    /// Handles click events on the slot.
+    /// Clicking an equipped item attempts to unequip it.
+    /// </summary>
     public void OnPointerClick(PointerEventData eventData)
     {
         if (HeldItem == null) return;
@@ -39,6 +48,10 @@ public class EquipmentSlot : MonoBehaviour, IDropHandler, IPointerClickHandler, 
     }
 
 
+    /// <summary>
+    /// Handles when an item is dropped onto this slot.
+    /// Validates type before equipping.
+    /// </summary>
     public void OnDrop(PointerEventData eventData)
     {
         if (InventorySlot.DraggedSlot == null) return;
@@ -50,18 +63,27 @@ public class EquipmentSlot : MonoBehaviour, IDropHandler, IPointerClickHandler, 
         }
     }
 
+     /// <summary>
+    /// Sets the item in this equipment slot and updates UI.
+    /// </summary>
     public void SetItem(Item item)
     {
         HeldItem = item;
         UpdateSlotUI();
     }
 
+    /// <summary>
+    /// Clears this equipment slot.
+    /// </summary>
     public void ClearSlot()
     {
         HeldItem = null;
         UpdateSlotUI();
     }
-
+    
+    /// <summary>
+    /// Updates the UI to reflect current held item state.
+    /// </summary>
     private void UpdateSlotUI()
     {
         if (iconImage == null) return;

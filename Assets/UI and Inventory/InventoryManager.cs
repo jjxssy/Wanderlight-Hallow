@@ -1,10 +1,18 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+/// <summary>
+/// Central inventory controller:
+/// - Initializes quickslots + main inventory slots
+/// - Adds/uses/swaps/destroys items
+/// - Saves/loads item names to/from an array
+/// </summary>
+public sealed class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager instance;
+    /// <summary>
+    /// Singleton accessor (read-only).
+    /// </summary>
+    public static InventoryManager Instance { get; private set; }
 
     [Header("UI Panels")]
     [Tooltip("The parent object containing the 5 quickslot UI elements.")]
@@ -16,20 +24,27 @@ public class InventoryManager : MonoBehaviour
     [Header("Keybinds (Optional)")]
     [SerializeField] private KeyBindingsManager keyBindingsManager;
 
-    // The single, unified list of all inventory slots.
-    private List<InventorySlot> slots = new List<InventorySlot>();
-    private const int QuickslotSize = 5;
-
+    [Header("Database")]
     [SerializeField] private ItemDatabase itemDatabase;
+
+    /// <summary>
+    /// Unified list of all inventory slots (quickslots first).
+    /// </summary>
+    private List<InventorySlot> Slots { get; } = new();
+
+    /// <summary>
+    /// Number of quickslots at the start of the slots list.
+    /// </summary>
+    private const int QuickslotSize = 5;
 
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
-        instance = this;
+        Instance = this;
 
         InitializeSlots();
     }
@@ -39,34 +54,40 @@ public class InventoryManager : MonoBehaviour
         HandleQuickslotInput();
     }
 
+    /// <summary>
+    /// Finds all slot components under the configured panels and assigns indices.
+    /// Quickslots are indexed 0..QuickslotSize-1.
+    /// </summary>
     private void InitializeSlots()
     {
-        slots.Clear();
+        Slots.Clear();
 
-        // Important: Get quickslots first so they have indices 0-4
         if (quickslotPanel != null)
         {
-            slots.AddRange(quickslotPanel.GetComponentsInChildren<InventorySlot>());
+            Slots.AddRange(quickslotPanel.GetComponentsInChildren<InventorySlot>());
         }
 
         if (mainInventoryPanel != null)
         {
-            slots.AddRange(mainInventoryPanel.GetComponentsInChildren<InventorySlot>());
+            Slots.AddRange(mainInventoryPanel.GetComponentsInChildren<InventorySlot>());
         }
 
-        for (int i = 0; i < slots.Count; i++)
+        for (int i = 0; i < Slots.Count; i++)
         {
-            slots[i].Initialize(i);
+            Slots[i].Initialize(i);
         }
 
-        Debug.Log($"Inventory initialized with {slots.Count} total slots.");
+        Debug.Log($"Inventory initialized with {Slots.Count} total slots.");
     }
 
+    /// <summary>
+    /// Checks number keys (Alpha1..Alpha5 by default) to use quickslot items.
+    /// </summary>
     private void HandleQuickslotInput()
     {
         for (int i = 0; i < QuickslotSize; i++)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i)) // Alpha1, Alpha2, etc.
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
                 UseItem(i);
             }
@@ -75,7 +96,7 @@ public class InventoryManager : MonoBehaviour
 
     public bool AddItem(Item itemToAdd)
     {
-        foreach (InventorySlot slot in slots)
+        foreach (InventorySlot slot in Slots)
         {
             if (slot.HeldItem == null)
             {
@@ -84,78 +105,72 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        Debug.LogWarning($"Inventory is full! Could not add {itemToAdd.GetItemName()}.");
+        Debug.LogWarning($"Inventory is full! Could not add {(itemToAdd != null ? itemToAdd.GetItemName() : "NULL")}.");
         return false;
     }
 
     public void UseItem(int slotIndex)
     {
-        if (slotIndex < 0 || slotIndex >= slots.Count) return;
+        if (slotIndex < 0 || slotIndex >= Slots.Count) return;
 
-        Item itemInSlot = slots[slotIndex].HeldItem;
+        Item itemInSlot = Slots[slotIndex].HeldItem;
         if (itemInSlot != null)
         {
             itemInSlot.Use();
 
             if (itemInSlot.GetItemType() == ItemType.Consumable)
             {
-                slots[slotIndex].ClearSlot();
+                Slots[slotIndex].ClearSlot();
             }
         }
     }
 
     public void SwapItems(int indexA, int indexB)
     {
-        if (indexA < 0 || indexA >= slots.Count || indexB < 0 || indexB >= slots.Count) return;
+        if (indexA < 0 || indexA >= Slots.Count || indexB < 0 || indexB >= Slots.Count) return;
 
-        Item itemA = slots[indexA].HeldItem;
-        Item itemB = slots[indexB].HeldItem;
+        Item itemA = Slots[indexA].HeldItem;
+        Item itemB = Slots[indexB].HeldItem;
 
-        slots[indexA].SetItem(itemB);
-        slots[indexB].SetItem(itemA);
+        Slots[indexA].SetItem(itemB);
+        Slots[indexB].SetItem(itemA);
     }
 
     public void SwapItemWithSlot(int slotIndex, Item itemToPlace)
     {
-        if (slotIndex < 0 || slotIndex >= slots.Count) return;
-        slots[slotIndex].SetItem(itemToPlace);
+        if (slotIndex < 0 || slotIndex >= Slots.Count) return;
+        Slots[slotIndex].SetItem(itemToPlace);
     }
+
     public void DestroyItem(int slotIndex)
     {
-        if (slotIndex < 0 || slotIndex >= slots.Count) return;
+        if (slotIndex < 0 || slotIndex >= Slots.Count) return;
 
-        slots[slotIndex].ClearSlot();
+        Slots[slotIndex].ClearSlot();
     }
 
     public string[] GetInventoryDataForSave()
     {
-        string[] itemNames = new string[slots.Count];
-        for (int i = 0; i < slots.Count; i++)
+        string[] itemNames = new string[Slots.Count];
+        for (int i = 0; i < Slots.Count; i++)
         {
-            if (slots[i].HeldItem != null)
-            {
-                itemNames[i] = slots[i].HeldItem.GetItemName();
-            }
-            else
-            {
-                itemNames[i] = null;
-            }
+            itemNames[i] = Slots[i].HeldItem != null ? Slots[i].HeldItem.GetItemName() : null;
         }
         return itemNames;
     }
 
     public void LoadInventoryData(string[] itemNames)
     {
-        if (itemNames == null || itemNames.Length != slots.Count)
+        if (itemNames == null || itemNames.Length != Slots.Count)
         {
             Debug.LogError("Failed to load inventory: Mismatched data size.");
             return;
         }
 
-        for (int i = 0; i < slots.Count; i++)
+        for (int i = 0; i < Slots.Count; i++)
         {
-            Item item = itemDatabase.GetItemByName(itemNames[i]);
-            slots[i].SetItem(item);
+            Item item = itemNames[i] != null ? itemDatabase.GetItemByName(itemNames[i]) : null;
+            Slots[i].SetItem(item);
         }
     }
 }

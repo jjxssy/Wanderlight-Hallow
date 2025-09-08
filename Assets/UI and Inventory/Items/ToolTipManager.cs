@@ -1,14 +1,23 @@
 using UnityEngine;
 using TMPro; // Make sure to import TextMeshPro
-
+/// <summary>
+/// Manages showing and hiding tooltips in the UI.
+/// Ensures only one instance exists (singleton).
+/// </summary>
 public class TooltipManager : MonoBehaviour
 {
+    /// <summary>
+    /// Global singleton instance for accessing the tooltip system.
+    /// </summary>
     public static TooltipManager instance;
 
     [SerializeField] private GameObject tooltipPanel;
     [SerializeField] private TextMeshProUGUI tooltipText;
     [SerializeField] private RectTransform tooltipRect; // The RectTransform of the panel
 
+    /// <summary>
+    /// Ensures singleton instance and hides tooltip on startup.
+    /// </summary>
     private void Awake()
     {
         if (instance == null)
@@ -27,6 +36,9 @@ public class TooltipManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates tooltip position to follow the mouse cursor.
+    /// </summary>
     private void Update()
     {
         // Make the tooltip follow the mouse cursor
@@ -37,6 +49,9 @@ public class TooltipManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates tooltip position to follow the mouse cursor.
+    /// </summary>
     public void ShowTooltip(string content)
     {
         if (tooltipPanel == null || tooltipText == null) return;
@@ -44,6 +59,10 @@ public class TooltipManager : MonoBehaviour
         tooltipText.text = content;
         tooltipPanel.SetActive(true);
     }
+
+    /// <summary>
+    /// Hides the tooltip and clears its text.
+    /// </summary>
     public void HideTooltip()
     {
         if (tooltipPanel == null) return;
