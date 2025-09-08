@@ -1,17 +1,23 @@
 using UnityEngine;
-using System.Collections; 
+using System.Collections;
 using System.Collections.Generic;
 
-public class WorldItemManager : MonoBehaviour
+/// <summary>
+/// Tracks world item instances, remembers which were picked up,
+/// and re-hides them after loads so they don’t respawn.
+/// </summary>
+public sealed class WorldItemManager : MonoBehaviour
 {
-    public static WorldItemManager instance;
+    /// <summary>Singleton (read-only).</summary>
+    public static WorldItemManager Instance { get; private set; }
 
-    private List<ItemWorld> _registeredItems = new List<ItemWorld>();
-    private List<string> _destroyedItemIds = new List<string>();
+    private readonly List<ItemWorld> _registeredItems = new();
+    private List<string> _destroyedItemIds = new();
     private bool _hasLoaded = false;
-    void Awake()
+
+    private void Awake()
     {
-        if (instance == null) instance = this;
+        if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
@@ -20,19 +26,16 @@ public class WorldItemManager : MonoBehaviour
         if (!_registeredItems.Contains(item))
         {
             _registeredItems.Add(item);
+
             if (_hasLoaded && _destroyedItemIds.Contains(item.GetSaveID()))
-            {
                 item.gameObject.SetActive(false);
-            }
         }
     }
 
     public void MarkAsDestroyed(string id)
     {
         if (!_destroyedItemIds.Contains(id))
-        {
             _destroyedItemIds.Add(id);
-        }
     }
 
     public List<string> GetDestroyedItemIdsForSave()
@@ -43,24 +46,18 @@ public class WorldItemManager : MonoBehaviour
     public void LoadDestroyedItems(List<string> ids)
     {
         _destroyedItemIds = ids ?? new List<string>();
-        _hasLoaded = true; 
-
+        _hasLoaded = true;
         StartCoroutine(ProcessLoadedItems());
     }
 
-    // This coroutine runs one frame after the data is loaded
     private IEnumerator ProcessLoadedItems()
     {
-        // Wait for the end of the current frame. By the next frame, all Awake calls are guaranteed to be finished.
         yield return new WaitForEndOfFrame();
 
-        // Now it's safe to loop through all registered items
         foreach (var item in _registeredItems)
         {
             if (item != null && _destroyedItemIds.Contains(item.GetSaveID()))
-            {
                 item.gameObject.SetActive(false);
-            }
         }
     }
 }

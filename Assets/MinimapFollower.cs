@@ -12,28 +12,32 @@ public sealed class MinimapFollower : MonoBehaviour
     /// <summary>
     /// The Transform to follow (usually the Player).
     /// </summary>
-    public Transform target;
+    [SerializeField] private Transform target;
 
     /// <summary>
     /// World-space offset (keep Z at -10 for 2D).
     /// </summary>
-    public Vector3 offset = new Vector3(0f, 0f, -10f);
+    [SerializeField] private Vector3 offset = new Vector3(0f, 0f, -10f);
 
     /// <summary>
     /// If true and <see cref="target"/> is null, find first object tagged "Player".
     /// </summary>
-    public bool autoFindTargetByTag = true;
+    [SerializeField] private bool autoFindTargetByTag = true;
 
     /// <summary>
     /// Keep a fixed rotation for the minimap camera regardless of target rotation.
     /// </summary>
-    public bool lockRotation = true;
+    [SerializeField] private bool lockRotation = true;
 
     /// <summary>
     /// Rotation used when <see cref="lockRotation"/> is true.
     /// </summary>
-    public Vector3 lockedEuler = new Vector3(0f, 0f, 0f);
+    [SerializeField] private Vector3 lockedEuler = new Vector3(0f, 0f, 0f);
 
+    /// <summary>
+    /// Called by Unity when the script instance is being loaded.
+    /// Ensures the camera is orthographic and optionally finds the target.
+    /// </summary>
     private void Awake()
     {
         if (!target && autoFindTargetByTag)
@@ -46,15 +50,21 @@ public sealed class MinimapFollower : MonoBehaviour
         cam.orthographic = true;
     }
 
+    /// <summary>
+    /// Called every frame after Update.
+    /// Moves the camera to follow the target’s XY position with offset,
+    /// and optionally locks the rotation.
+    /// </summary>
     private void LateUpdate()
     {
         if (!target) return;
 
         // Lock position to target XY + offset; keep Z from offset
-        Vector3 p = target.position + offset;
-        transform.position = p;
+        transform.position = target.position + offset;
 
         if (lockRotation)
+        {
             transform.rotation = Quaternion.Euler(lockedEuler);
+        }
     }
 }
