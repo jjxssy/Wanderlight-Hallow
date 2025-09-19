@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
         }
         Instance = this;
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         audioSource = GetComponent<AudioSource>();
         audioSource.loop = true;
