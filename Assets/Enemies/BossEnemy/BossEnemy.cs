@@ -70,6 +70,8 @@ public class BossEnemy : MonoBehaviour, IDamageable
     private float lastAttackTime = -Mathf.Infinity;
     /// <summary>Flag indicating phase 2 has begun (≤ 50% HP).</summary>
     private bool isInPhaseTwo = false;
+    //For questing
+    [SerializeField] QuestNPC relatedNPC;
 
     /// <summary>Cache components and baseline visuals.</summary>
     private void Awake()
@@ -268,6 +270,10 @@ public class BossEnemy : MonoBehaviour, IDamageable
     /// <summary>Stops AI/movement, disables collisions, and destroys the boss after a short delay.</summary>
     private void Die()
     {
+        if (relatedNPC != null)
+        {
+            relatedNPC.OnBossDefeated();
+        }
         currentState = BossState.Dead;
         rb.linearVelocity = Vector2.zero;
         GetComponent<Collider2D>().enabled = false;
