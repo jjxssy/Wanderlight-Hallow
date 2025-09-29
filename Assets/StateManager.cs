@@ -11,6 +11,8 @@ public class StateManager : MonoBehaviour
     /// Reloads the currently active scene by build index.
     /// </summary>
     public void ReloadCurrentScene(){
+        int respawnCount = PlayerPrefs.GetInt("Respawn_Count", 0);
+        PlayerPrefs.SetInt("Respawn_Count", respawnCount + 1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
@@ -22,5 +24,8 @@ public class StateManager : MonoBehaviour
         if(name!=null)
             SceneManager.LoadScene(name);
     }
-
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("Respawn_Count",0);
+    }
 }
