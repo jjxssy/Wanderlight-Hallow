@@ -3048,6 +3048,52 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.1621761, y: 0.2744336}
   m_EdgeRadius: 0
+--- !u!1 &339122865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 339122867}
+  - component: {fileID: 339122866}
+  m_Layer: 0
+  m_Name: RobotSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &339122866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339122865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8b093b54d5f2e44a6caf9bfb57291b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helperRobotPrefab: {fileID: 8552506603023139558, guid: 312d3289658c8354b8da5353e50e2e70, type: 3}
+  deathThreshold: 1
+--- !u!4 &339122867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339122865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.8, y: -16.7, z: 10.759163}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &363365122
 GameObject:
   m_ObjectHideFlags: 0
@@ -78056,7 +78102,7 @@ GameObject:
   - component: {fileID: 1651645977}
   m_Layer: 11
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129779,3 +129825,4 @@ SceneRoots:
   - {fileID: 1179656332}
   - {fileID: 1156868878}
   - {fileID: 1778401863}
+  - {fileID: 339122867}
