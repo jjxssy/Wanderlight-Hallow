@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 1186bf9aa1454ac4e91133eb5937dbcb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8981824500277113336
+    second: WanderingHallow_Asset1_0
+  - first:
+      213: -3786887097273827456
+    second: WanderingHallow_Asset1_1
+  - first:
+      213: 4997349915441127562
+    second: WanderingHallow_Asset1_2
+  - first:
+      213: 2535345080753482913
+    second: WanderingHallow_Asset1_3
+  - first:
+      213: -2279554100773389836
+    second: WanderingHallow_Asset1_4
+  - first:
+      213: -5242733989988705534
+    second: WanderingHallow_Asset1_5
+  - first:
+      213: 864168406273712637
+    second: WanderingHallow_Asset1_6
+  - first:
+      213: -4183824665124770735
+    second: WanderingHallow_Asset1_7
+  - first:
+      213: 5248650847508529154
+    second: WanderingHallow_Asset1_8
+  - first:
+      213: -1659923109287640932
+    second: WanderingHallow_Asset1_9
+  - first:
+      213: 1012745467929309614
+    second: WanderingHallow_Asset1_10
+  - first:
+      213: 1465461593672437922
+    second: WanderingHallow_Asset1_11
+  - first:
+      213: -3472538354437859843
+    second: WanderingHallow_Asset1_12
+  - first:
+      213: 1625306564440090748
+    second: WanderingHallow_Asset1_13
+  - first:
+      213: 3776152135369387899
+    second: WanderingHallow_Asset1_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e051a64362a5380800000000000000
+      internalID: -8981824500277113336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08fbb72bf36427bc0800000000000000
+      internalID: -3786887097273827456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80623065472a5540800000000000000
+      internalID: 4997349915441127562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac68590bea5f2320800000000000000
+      internalID: 2535345080753482913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f9fd197f956d50e0800000000000000
+      internalID: -2279554100773389836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20b5bda96311e37b0800000000000000
+      internalID: -5242733989988705534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df16f0246942efb00800000000000000
+      internalID: 864168406273712637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15c68b842a110f5c0800000000000000
+      internalID: -4183824665124770735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2008cc32324f6d840800000000000000
+      internalID: 5248650847508529154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_9
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 99
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c90c27c0ab4c6f8e0800000000000000
+      internalID: -1659923109287640932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 97
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea130d723aefd0e00800000000000000
+      internalID: 1012745467929309614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_11
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 97
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a0d2da1e8d565410800000000000000
+      internalID: 1465461593672437922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 50
+        width: 124
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5dfc2d3c01fcfc0800000000000000
+      internalID: -3472538354437859843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 15
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c78ef8885bf3e8610800000000000000
+      internalID: 1625306564440090748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WanderingHallow_Asset1_14
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 15
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7f66863c56976430800000000000000
+      internalID: 3776152135369387899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: af1853c52a6aaa049ad166ea494bd6eb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      WanderingHallow_Asset1_0: -8981824500277113336
+      WanderingHallow_Asset1_1: -3786887097273827456
+      WanderingHallow_Asset1_10: 1012745467929309614
+      WanderingHallow_Asset1_11: 1465461593672437922
+      WanderingHallow_Asset1_12: -3472538354437859843
+      WanderingHallow_Asset1_13: 1625306564440090748
+      WanderingHallow_Asset1_14: 3776152135369387899
+      WanderingHallow_Asset1_2: 4997349915441127562
+      WanderingHallow_Asset1_3: 2535345080753482913
+      WanderingHallow_Asset1_4: -2279554100773389836
+      WanderingHallow_Asset1_5: -5242733989988705534
+      WanderingHallow_Asset1_6: 864168406273712637
+      WanderingHallow_Asset1_7: -4183824665124770735
+      WanderingHallow_Asset1_8: 5248650847508529154
+      WanderingHallow_Asset1_9: -1659923109287640932
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
