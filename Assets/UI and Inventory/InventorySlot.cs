@@ -16,6 +16,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
     [SerializeField] private Image iconImage;
     [Tooltip("A simple prefab with just an Image component to be used as a drag visual.")]
     [SerializeField] private GameObject dragIconPrefab;
+    [SerializeField] private Transform rootCanvas;
 
     /// <summary>
     /// The item currently held in this slot (null if empty).
@@ -124,7 +125,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IDropHandler, 
         _draggedSlot = this;
 
         // Create a visual representation of the item to drag.
-        _dragIconInstance = Instantiate(dragIconPrefab, transform.root); // Instantiate on the Canvas
+        _dragIconInstance = Instantiate(dragIconPrefab, rootCanvas); // Instantiate on the Canvas
         _dragIconInstance.GetComponent<Image>().sprite = HeldItem.GetIcon();
         _dragIconInstance.transform.position = eventData.position;
 
