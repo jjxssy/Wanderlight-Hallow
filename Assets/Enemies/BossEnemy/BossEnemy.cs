@@ -16,6 +16,9 @@ public class BossEnemy : MonoBehaviour, IDamageable
     /// <summary>Current state of the boss AI.</summary>
     private BossState currentState;
 
+    [SerializeField] private GameObject[] bossDrops;
+    [SerializeField] private float dropRadius = 2f;
+
     #region Core Stats
     [Header("Core Stats")]
     /// <summary>Maximum health of the boss.</summary>
@@ -273,6 +276,13 @@ public class BossEnemy : MonoBehaviour, IDamageable
         if (relatedNPC != null)
         {
             relatedNPC.OnBossDefeated();
+        }
+        for (int i = 0; i < bossDrops.Length; i++)
+        {
+            Vector2 offset = Random.insideUnitCircle * dropRadius;
+            Vector2 pos = (Vector2)transform.position + offset;
+
+            Instantiate(bossDrops[i], pos, Quaternion.identity);
         }
         currentState = BossState.Dead;
         rb.linearVelocity = Vector2.zero;

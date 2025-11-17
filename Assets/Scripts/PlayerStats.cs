@@ -90,10 +90,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
             healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
         }
-        if (maxHealthText != null) maxHealthText.text = "MaxHP : " + maxHealth;
-        if (defenseText != null) defenseText.text = "Defense : " + defense;
-        if (strengthText != null) strengthText.text = "Strength : " + strength;
-        if (speedText != null) speedText.text = "Speed : " + speed;
+        if (maxHealthText != null) maxHealthText.text = "" + maxHealth;
+        if (defenseText != null) defenseText.text = "" + defense;
+        if (strengthText != null) strengthText.text = "" + strength;
+        if (speedText != null) speedText.text = "" + speed;
     }
 
     // === Getters and Setters ===
