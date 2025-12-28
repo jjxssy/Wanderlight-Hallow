@@ -203,4 +203,16 @@ public class PlayerStats : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(invincibilityFrameDuration);
         isInvincible = false;
     }
+    /// <summary>
+    /// Changes max health by delta while preserving the current health percentage.
+    /// </summary>
+    public void ChangeMaxHealthPreservePercent(int delta)
+    {
+        int oldMax = Mathf.Max(1, maxHealth);
+        float percent = (float)currentHealth / oldMax;
+        maxHealth = Mathf.Max(1, maxHealth + delta);
+        currentHealth = Mathf.Clamp(Mathf.RoundToInt(percent * maxHealth), 0, maxHealth);
+        UpdateUI();
+    }
+
 }

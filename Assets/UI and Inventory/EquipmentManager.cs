@@ -73,12 +73,12 @@ public class EquipmentManager : MonoBehaviour
         {
             PlayerStats.instance.SetDefense(PlayerStats.instance.GetDefense()-oldItem.GetDefenseModifier());
             PlayerStats.instance.SetStrength(PlayerStats.instance.GetStrength()-oldItem.GetStrengthModifier());
-            PlayerStats.instance.SetMaxHealth(PlayerStats.instance.GetMaxHealth()-oldItem.GetHealthModifier());
+            PlayerStats.instance.ChangeMaxHealthPreservePercent(-oldItem.GetHealthModifier());
             PlayerStats.instance.SetSpeed(PlayerStats.instance.GetSpeed()-oldItem.GetSpeedModifier());
         }
         PlayerStats.instance.SetDefense(PlayerStats.instance.GetDefense() + newItem.GetDefenseModifier());
         PlayerStats.instance.SetStrength(PlayerStats.instance.GetStrength() + newItem.GetStrengthModifier());
-        PlayerStats.instance.SetMaxHealth(PlayerStats.instance.GetMaxHealth() + newItem.GetHealthModifier());
+        PlayerStats.instance.ChangeMaxHealthPreservePercent(newItem.GetHealthModifier());
         PlayerStats.instance.SetSpeed(PlayerStats.instance.GetSpeed() + newItem.GetSpeedModifier());
         targetSlot.SetItem(newItem);
         InventoryManager.Instance.SwapItemWithSlot(fromInventorySlotIndex, oldItem);
@@ -96,7 +96,7 @@ public class EquipmentManager : MonoBehaviour
         {
             PlayerStats.instance.SetDefense(PlayerStats.instance.GetDefense() - itemToUnequip.GetDefenseModifier());
             PlayerStats.instance.SetStrength(PlayerStats.instance.GetStrength() - itemToUnequip.GetStrengthModifier());
-            PlayerStats.instance.SetMaxHealth(PlayerStats.instance.GetMaxHealth() - itemToUnequip.GetHealthModifier());
+            PlayerStats.instance.ChangeMaxHealthPreservePercent(-itemToUnequip.GetHealthModifier());
             PlayerStats.instance.SetSpeed(PlayerStats.instance.GetSpeed() - itemToUnequip.GetSpeedModifier());
 
             EquipmentSlot sourceSlot = GetSlotHoldingItem(itemToUnequip);
@@ -237,7 +237,7 @@ public class EquipmentManager : MonoBehaviour
         {
             PlayerStats.instance.SetDefense(PlayerStats.instance.GetDefense() + totalDefenseFromLoad);
             PlayerStats.instance.SetStrength(PlayerStats.instance.GetStrength() + totalStrengthFromLoad);
-            PlayerStats.instance.SetMaxHealth(PlayerStats.instance.GetMaxHealth() + totalMaxHealthFromLoad);
+            PlayerStats.instance.ChangeMaxHealthPreservePercent(totalMaxHealthFromLoad);
             PlayerStats.instance.SetSpeed(PlayerStats.instance.GetSpeed() + totalSpeedFromLoad);
         }
     }
