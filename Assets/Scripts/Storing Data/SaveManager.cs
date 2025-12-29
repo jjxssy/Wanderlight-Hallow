@@ -19,6 +19,9 @@ public class SaveManager : MonoBehaviour
     [Tooltip("Reference to the equipment manager.")]
     [SerializeField] private EquipmentManager equipmentManager;
 
+    [Tooltip("Reference to the tutorial")]
+    [SerializeField] private Tutorial tutorial;
+
     /// <summary>
     /// In-memory copy of the currently loaded player data.
     /// </summary>
@@ -52,6 +55,7 @@ public class SaveManager : MonoBehaviour
         }
 
         SaveSystem.SavePlayer(stats, inventoryManager, worldItemManager, equipmentManager, slotIndex);
+        PlayerPrefs.SetInt("Tutorial" + slotIndex, 1);
         Debug.Log($"Game saved to slot {slotIndex}.");
     }
 
@@ -62,6 +66,7 @@ public class SaveManager : MonoBehaviour
     public void DeleteSave(int slotIndex)
     {
         SaveSystem.DeletePlayer(slotIndex);
+        PlayerPrefs.SetInt("Tutorial" + slotIndex, 0);
         Debug.Log($"Save file for slot {slotIndex} deleted.");
     }
 
@@ -86,6 +91,10 @@ public class SaveManager : MonoBehaviour
         inventoryManager.LoadInventoryData(data.InventoryItemNames);
         equipmentManager.LoadData(data.EquippedItems);
 
+
         Debug.Log("Player data loaded successfully.");
+        int temp = PlayerPrefs.GetInt("LoadedTutorial", 0);
+        if (temp == 1) tutorial.SetTutorialStatus(true);
+        PlayerPrefs.SetInt("LoadedTutorial", 0);
     }
 }

@@ -162,7 +162,7 @@ public class CameraFollow2D_AutoBoundsV2 : MonoBehaviour
         if (searchRoot) roots.Add(searchRoot);
         else
         {
-            foreach (var go in FindObjectsOfType<GameObject>())
+            foreach (var go in FindObjectsByType<GameObject>(FindObjectsSortMode.None))
                 if (go.scene.IsValid() && go.activeInHierarchy) roots.Add(go.transform);
         }
 

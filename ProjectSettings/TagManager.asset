@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - CollisionTilemap
   - Boss
+  - LevelBounds
   layers:
   - Default
   - TransparentFX

@@ -23,6 +23,9 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData data = new PlayerData(stats, invManager, itemManager, equipManager);
+        int temp = PlayerPrefs.GetInt("Tutorial" + slotIndex, 0);
+        if (temp == 1) data.SetStatus(true);
+        else data.SetStatus(false);
 
         formatter.Serialize(stream, data);
         stream.Close();
@@ -44,6 +47,8 @@ public static class SaveSystem
             FileStream stream = new FileStream(path, FileMode.Open);
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
+            int temp = PlayerPrefs.GetInt("Tutorial" + slotIndex, 0);
+            if (temp == 1) PlayerPrefs.SetInt("LoadedTutorial", 1);
             stream.Close();
             return data;
         }
