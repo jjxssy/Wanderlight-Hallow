@@ -40,6 +40,8 @@ public class Tutorial : MonoBehaviour
     /// <summary>Keys considered valid movement input for the first milestone.</summary>
     private KeyCode[] movementKeys = { KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D };
 
+    private bool isDialogComplete = false;
+
     /// <summary>
     /// Tutorial progression state:
     /// 0 = pre-start, 1 = waiting for movement, 2 = waiting for item pickup,
@@ -56,6 +58,7 @@ public class Tutorial : MonoBehaviour
     /// </summary>
     void Start()
     {
+        if(!isDialogComplete)
         StartCoroutine(StartDialogue());
         // PlayerPrefs.GetInt("DialogueState", 0);
     }
@@ -86,8 +89,10 @@ public class Tutorial : MonoBehaviour
         {
             dialogManager.ShowDialog(skillDialogues);
             dialogState = 4;
+            isDialogComplete = true;
             // PlayerPrefs.SetInt("DialogueState", 4);
         }
+
     }
 
     /// <summary>
@@ -97,10 +102,13 @@ public class Tutorial : MonoBehaviour
     private IEnumerator StartDialogue()
     {
         yield return new WaitForSeconds(0.5f);
+        if(isDialogComplete) StopAllCoroutines();
         dialogManager.ShowDialog(MovenentDialogues);
         yield return new WaitForSeconds(1f);
         firstTextShown = true;
         dialogState = 1;
         // PlayerPrefs.SetInt("DialogueState", 1);
     }
+    public bool GetTutorialStatus() {  return isDialogComplete; }
+    public void SetTutorialStatus(bool status) { isDialogComplete = status; }
 }

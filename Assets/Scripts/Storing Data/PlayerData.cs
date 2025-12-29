@@ -34,6 +34,7 @@ public class PlayerData
     private int currentHealth;
     private int currentMana;
     private float[] position;
+    private bool isTutorialComplete = false;
 
     // --- Inventory and Equipment ---
     private string[] inventoryItemNames; 
@@ -60,6 +61,9 @@ public class PlayerData
     }
 
     // --- Simple Getters & Setters ---
+
+    public bool GetStatus() { return isTutorialComplete;}
+    public void SetStatus(bool status) { isTutorialComplete = status; }
     public int Health
     {
         get => currentHealth;
