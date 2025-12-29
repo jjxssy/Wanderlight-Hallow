@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 /// <summary>
-/// Teleports the user to the mouse position if the target cell/point is not blocked
-/// by a solid collider or a solid tile. Spawns optional VFX before/after teleport.
-/// Uses private serialized fields with Java-style getters/setters.
+/// Teleports the user to the mouse position.
+/// 1. Prevents teleporting INTO solid objects (Walls, Obstacles).
+/// 2. Prevents teleporting OUTSIDE the "LevelBounds" PolygonCollider.
 /// </summary>
 [CreateAssetMenu(fileName = "New Teleport Skill", menuName = "Skills/Teleport Skill")]
 public class TeleportSkill : Skill
@@ -13,54 +12,64 @@ public class TeleportSkill : Skill
     [SerializeField] private GameObject teleportOutVFX;
     [SerializeField] private GameObject teleportInVFX;
 
-    // Cached reference to a solid/collision tilemap (tag your Tilemap as "CollisionTilemap")
-    private static Tilemap collisionTilemap;
+    // Cached reference to the Play Area boundaries
+    // Make sure your boundary object has a PolygonCollider2D and is tagged "LevelBounds"
+    private static PolygonCollider2D levelBounds;
 
-    // --- Java-style getters/setters (no public properties) ---
+    // --- Java-style getters/setters ---
     public GameObject GetTeleportOutVFX() { return teleportOutVFX; }
     public void SetTeleportOutVFX(GameObject value) { teleportOutVFX = value; }
 
     public GameObject GetTeleportInVFX() { return teleportInVFX; }
     public void SetTeleportInVFX(GameObject value) { teleportInVFX = value; }
 
-    /// <summary>
-    /// Teleport to mouse world position if not overlapping a solid collider or solid tile.
-    /// Spawns out/in VFX if assigned.
-    /// </summary>
     public override void Activate(GameObject user)
     {
-        if (collisionTilemap == null)
+        // 1. Find and Cache the Level Bounds if missing
+        if (levelBounds == null)
         {
-            GameObject tilemapObject = GameObject.FindGameObjectWithTag("CollisionTilemap");
-            if (tilemapObject != null)
+            GameObject boundsObj = GameObject.FindGameObjectWithTag("LevelBounds");
+            if (boundsObj != null)
             {
-                collisionTilemap = tilemapObject.GetComponent<Tilemap>();
+                levelBounds = boundsObj.GetComponent<PolygonCollider2D>();
+            }
+            else
+            {
+                Debug.LogWarning("No object tagged 'LevelBounds' found. 'Outside' check will be skipped.");
             }
         }
 
         Vector3 destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         destination.z = user.transform.position.z;
 
-        // Block teleport if landing on any non-trigger collider
+        // 2. CHECK OBSTACLES: Block teleport if landing ON a solid object
+        // We look for any collider at the point.
         Collider2D hitCollider = Physics2D.OverlapPoint(destination);
-        if (hitCollider != null && !hitCollider.isTrigger)
-        {
-            Debug.Log("Cannot teleport into a solid object: " + hitCollider.name);
-            return;
-        }
 
-        // Block teleport if landing on a solid tile in the collision tilemap
-        if (collisionTilemap != null)
+        if (hitCollider != null)
         {
-            Vector3Int cell = collisionTilemap.WorldToCell(destination);
-            if (collisionTilemap.HasTile(cell))
+            // We ignore Triggers and we ignore the LevelBounds itself (because we are supposed to be inside it)
+            bool isLevelBounds = (levelBounds != null && hitCollider == levelBounds);
+
+            if (!hitCollider.isTrigger && !isLevelBounds)
             {
-                Debug.Log("Cannot teleport onto a solid tile!");
+                Debug.Log("Cannot teleport into a solid object: " + hitCollider.name);
                 return;
             }
         }
 
-        // VFX out -> teleport -> VFX in
+        // 3. CHECK BOUNDS: Block teleport if landing OUTSIDE the polygon
+        if (levelBounds != null)
+        {
+            // OverlapPoint returns true if the point is INSIDE the polygon
+            if (levelBounds.OverlapPoint(destination))
+            {
+                Debug.Log("Cannot teleport outside the Level Bounds!");
+                return;
+            }
+        }
+
+        // 4. EXECUTE TELEPORT
         if (teleportOutVFX != null)
         {
             Object.Instantiate(teleportOutVFX, user.transform.position, Quaternion.identity);
